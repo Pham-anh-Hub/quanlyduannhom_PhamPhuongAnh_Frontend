@@ -6,6 +6,7 @@
     <title>Quản lý dự án</title>
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/projectManager.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
   </head>
   <body>
     <div id="container">
@@ -62,12 +63,14 @@
               <option value="Hạn chót">Hạn chót</option>
               <option value="Độ ưu tiên">Độ ưu tiên</option>
             </select>
-            <input
-              type="text"
-              name=""
-              id="inputToSearch"
-              placeholder="Tìm kiếm nhiệm vụ"
-            />
+            <form id="searchPrjBox">
+              <input
+                type="text"
+                name=""
+                id="inputToSearch"
+                placeholder="Tìm kiếm nhiệm vụ"
+              />
+            </form>
           </div>
         </div>
         <!-- Phần bảng danh sách task -->
@@ -169,7 +172,7 @@
           
           <label for="assignDate">Ngày bắt đầu</label>
           <input type="date" id="assignDate" class="assignDate">
-          <span id="assignDateError"></span> <!-- báo lỗi của assignDate -->
+          <div id="assignDateError"></div> <!-- báo lỗi của assignDate -->
           
           <label for="deadline">Hạn cuối</label>
           <input type="date" id="deadline" class="deadline">
@@ -194,7 +197,7 @@
         </div>
         <div id="footerFormAddEdit">
           <button id="cancelAddEdit">Hủy</button>
-          <button id="saveAddEditBtn">Lưu</button>
+          <button id="saveAddEditBtn" class="saveAddEditBtn">Lưu</button>
         </div>
       </div>
     </div>
@@ -243,42 +246,6 @@
             <span id="listRole">Vai trò</span>
           </div>
           <div id="listMember">
-            <!-- <span id="inforMember">
-              <div id="inforCol">
-                <div id="NameAndEmail">
-                  <span id="NameMember">An Nguyễn</span>
-                  <span id="EmailMember">nguyenquangan@gmail.com</span>
-                </div>
-              </div>
-              <div id="roleCol">
-                <div id="roleOfMember">Project Owner</div>
-                <div><img src="../icons/garbageBin.png"></div>
-              </div>
-            </span>
-            <span id="inforMember">
-              <div id="inforCol">
-                <div id="NameAndEmail">
-                  <span id="NameMember">Bách Nguyễn</span>
-                  <span id="EmailMember">bachnx@gmail.com</span>
-                </div>
-              </div>
-              <div id="roleCol">
-                <div id="roleOfMember">Frontend developer</div>
-                <div><img src="../icons/garbageBin.png"></div>
-              </div>
-            </span>
-            <span id="inforMember">
-              <div id="inforCol">
-                <div id="NameAndEmail">
-                  <span id="NameMember">Dương Nguyễn</span>
-                  <span id="EmailMember">duongnhm@gmail.com</span>
-                </div>
-              </div>
-              <div id="roleCol">
-                <div id="roleOfMember">Backend developer</div>
-                <div><img src="../icons/garbageBin.png"></div>
-              </div>
-            </span> -->
             
           </div>
         </div>
@@ -309,5 +276,7 @@
 
 
     <script src="../javascript/project-manager.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.17.2/dist/sweetalert2.all.min.js"></script>
+    
   </body>
 </html>

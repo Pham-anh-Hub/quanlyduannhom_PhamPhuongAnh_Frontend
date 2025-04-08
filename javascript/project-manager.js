@@ -16,11 +16,9 @@ console.log("TaskList: ", taskList);
 const memberList = listProject[taskIndex].member;
 console.log("memberList: ", memberList);
 
-// Kiểm tra xem đã có tài khoản nào được đăng kí chưa
-// if (userAccounts.length === 0) {
-//   // Chưa có --> đăng kí
-//   window.location.href = "register.html";
-// } else {
+// tạo biến check trạng thái edit hay add
+let addEditStatus = "add";
+
 if (alreadyLogIn) {
   if (taskIndex !== undefined) {
     // Tạo Accordition cho mỗi list task
@@ -153,15 +151,23 @@ function renderTaskList() {
                                                                 : todoTaskList[
                                                                     i
                                                                   ].progress ===
-                                                                  "Có Rủi Ro"
+                                                                  "Có rủi ro"
                                                                 ? "risk-schedule"
                                                                 : "off-schedule"
                                                             }>${
       todoTaskList[i].progress
     }</span></div>
                                                             <div id="actionToTask">
-                                                                <span><button id="editBtn" onclick="editTask(${i})">Sửa</button></span>
-                                                                    <span><button id="deleteBtn" onclick="deleteTask(${i})">Xóa</button></span>
+                                                                <span><button id="editBtn" onclick="editTask(${
+                                                                  todoTaskList[
+                                                                    i
+                                                                  ].taskId
+                                                                })">Sửa</button></span>
+                                                                    <span><button id="deleteBtn" onclick="deleteTask(${
+                                                                      todoTaskList[
+                                                                        i
+                                                                      ].taskId
+                                                                    })">Xóa</button></span>
                                                             </div>
                                                         </div>`;
   }
@@ -221,15 +227,24 @@ function renderTaskList() {
                                                                         i
                                                                       ]
                                                                         .progress ===
-                                                                      "Có Rủi Ro"
+                                                                      "Có rủi ro"
                                                                     ? "risk-schedule"
                                                                     : "off-schedule"
                                                                 }>${
       inprogressTaskList[i].progress
     }</span></div>
                                                                 <div id="actionToTask">
-                                                                    <span><button id="editBtn" onclick="editTask(${i})">Sửa</button></span>
-                                                                        <span><button id="deleteBtn" onclick="deleteTask(${i})">Xóa</button></span>
+                                                                    <span><button id="editBtn" onclick="editTask(${
+                                                                      inprogressTaskList[
+                                                                        i
+                                                                      ].taskId
+                                                                    })">Sửa</button></span>
+                                                                        <span><button id="deleteBtn" onclick="deleteTask(${
+                                                                          inprogressTaskList[
+                                                                            i
+                                                                          ]
+                                                                            .taskId
+                                                                        })">Xóa</button></span>
                                                                 </div>
                                                             </div>`;
   }
@@ -289,15 +304,24 @@ function renderTaskList() {
                                                                         i
                                                                       ]
                                                                         .progress ===
-                                                                      "Có Rủi Ro"
+                                                                      "Có rủi ro"
                                                                     ? "risk-schedule"
                                                                     : "off-schedule"
                                                                 }>${
       pendingTaskList[i].progress
     }</span></div>
                                                                 <div id="actionToTask">
-                                                                    <span><button id="editBtn" onclick="editTask(${i})">Sửa</button></span>
-                                                                        <span><button id="deleteBtn" onclick="deleteTask(${i})">Xóa</button></span>
+                                                                    <span><button id="editBtn" onclick="editTask(${
+                                                                      pendingTaskList[
+                                                                        i
+                                                                      ].taskId
+                                                                    })">Sửa</button></span>
+                                                                        <span><button id="deleteBtn" onclick="deleteTask(${
+                                                                          pendingTaskList[
+                                                                            i
+                                                                          ]
+                                                                            .taskId
+                                                                        })">Xóa</button></span>
                                                                 </div>
                                                             </div>`;
   }
@@ -357,15 +381,24 @@ function renderTaskList() {
                                                                         i
                                                                       ]
                                                                         .progress ===
-                                                                      "Có Rủi Ro"
+                                                                      "Có rủi ro"
                                                                     ? "risk-schedule"
                                                                     : "off-schedule"
                                                                 }>${
       doneTaskList[i].progress
     }</span></div>
                                                                 <div id="actionToTask">
-                                                                    <span><button id="editBtn" onclick="editTask(${i})">Sửa</button></span>
-                                                                        <span><button id="deleteBtn" onclick="deleteTask(${i})">Xóa</button></span>
+                                                                    <span><button id="editBtn" onclick="editTask(${
+                                                                      doneTaskList[
+                                                                        i
+                                                                      ].taskId
+                                                                    })">Sửa</button></span>
+                                                                        <span><button id="deleteBtn" onclick="deleteTask(${
+                                                                          doneTaskList[
+                                                                            i
+                                                                          ]
+                                                                            .taskId
+                                                                        })">Xóa</button></span>
                                                                 </div>
                                                             </div>`;
   }
@@ -435,9 +468,16 @@ function getAndValidateFormAddInput() {
             "tên nhiệm vụ đã tồn tại ";
           document.querySelector("#taskNameInput").style.borderColor = "red";
           countError++;
+        } else if (taskNameInput.length > 35) {
+          document.querySelector("#taskNameError").textContent =
+            "Độ dài tên nhiệm vụ không hợp lệ";
+          document.querySelector("#taskNameInput").style.borderColor = "red";
+          countError++;
         } else {
           // reset
-          resetFormAdd();
+          document.querySelector("#taskNameError").textContent = "";
+          document.querySelector("#taskNameInput").style.borderColor =
+            "#D0D5DD";
         }
       }
       // 2. người phụ trách
@@ -450,7 +490,8 @@ function getAndValidateFormAddInput() {
         countError++;
       } else {
         // reset
-        resetFormAdd();
+        document.querySelector("#assigneeError").textContent = "";
+        document.querySelector("#assigneeInput").style.borderColor = "#D0D5DD";
       }
       // 3. Trạng thái task
       if (!taskStatusInput) {
@@ -462,25 +503,29 @@ function getAndValidateFormAddInput() {
         countError++;
       } else {
         // reset
-        resetFormAdd();
+        document.querySelector("#taskStatusError").textContent = "";
+        document.querySelector("#taskStatus").style.borderColor = "#D0D5DD";
       }
       // 4. Ngày bắt đầu
 
       const isAssignDateValid = !isNaN(assignDate.getTime());
       const isTaskDeadlineValid = !isNaN(taskDeadline.getTime());
       // Kiểm tra xem time nhận vào có inValid không
-      if (assignDate.getTime() < currentDay || !isAssignDateValid) {
+      if (assignDate.getTime() <= currentDay || !isAssignDateValid) {
         // nếu ngày bắt đầu lớn hơn ngày hiện tại --> Thông báo không hợp lệ
-        console.log(assignDate.getTime() < currentDay);
+        console.log(assignDate.getTime() <= currentDay);
         console.log(assignDate.getTime());
 
+        console.log(document.querySelector("#assignDateError"));
+
         document.querySelector("#assignDateError").textContent =
-          "ngày bắt đầu không hợp lệ";
+          "Ngày bắt đầu không hợp lệ";
         document.querySelector(".assignDate").style.borderColor = "red";
         countError++;
       } else {
         // reset
-        resetFormAdd();
+        document.querySelector("#assignDateError").textContent = "";
+        document.querySelector(".assignDate").style.borderColor = "#D0D5DD";
       }
       // 5. Hạn chót
       if (
@@ -497,7 +542,8 @@ function getAndValidateFormAddInput() {
         countError++;
       } else {
         // reset
-        resetFormAdd();
+        document.querySelector("#deadlineError").textContent = "";
+        document.querySelector(".deadline").style.borderColor = "#D0D5DD";
       }
       // 6. Độ ưu tiên
       if (!taskPriority) {
@@ -509,7 +555,8 @@ function getAndValidateFormAddInput() {
         countError++;
       } else {
         // reset
-        resetFormAdd();
+        document.querySelector("#priorityError").textContent = "";
+        document.querySelector(".priority").style.borderColor = "#D0D5DD";
       }
       // 7. Tiến độ
       if (!taskProgress) {
@@ -521,10 +568,12 @@ function getAndValidateFormAddInput() {
         countError++;
       } else {
         // reset
-        resetFormAdd();
+        document.querySelector("#progressError").textContent = "";
+        document.querySelector(".progress").style.borderColor = "#D0D5DD";
       }
 
       //   Đếm số lỗi - số lỗi === 0 --> thêm mới task
+
       if (countError === 0) {
         let newTask = {
           taskId: Math.round(Math.random() * 1000),
@@ -536,19 +585,22 @@ function getAndValidateFormAddInput() {
           dueDate: document.querySelector(".deadline").value,
           progress: taskProgress,
         };
-        console.log("newTask: ", newTask);
-        taskList.push(newTask);
-        console.log(taskList);
-        localStorage.setItem("listProject", JSON.stringify(listProject));
-        renderTaskList();
-        document.querySelector("#formAddEdit").style.display = "none";
-        resetFormAddValue();
+        if (addEditStatus === "add") {
+          console.log("newTask: ", newTask);
+          taskList.push(newTask);
+          console.log(taskList);
+          localStorage.setItem("listProject", JSON.stringify(listProject));
+          renderTaskList();
+          document.querySelector("#formAddEdit").style.display = "none";
+          resetFormAddValue();
+        }
       }
     });
 }
 
 // Hàm thêm nhiệm vụ
 function addTaskToProject() {
+  resetFormAdd();
   document.querySelector("#formAddEdit").style.display = "block";
   renderMemberListForm(); // render ô chọn người phụ trách
   getAndValidateFormAddInput();
@@ -570,22 +622,38 @@ function renderMemberListForm() {
   }
 }
 
-// Hàm xóa nhiệm vụ
-function deleteTask(index) {
-  console.log("task cần xóa: ", taskList[index]);
+let taskIdToDelete = null;
+
+function deleteTask(id) {
+  console.log("id cần xóa:", id);
+  const task = taskList.find((item) => item.taskId === id);
+  const taskIndexToDel = taskList.findIndex((item) => item.taskId === id);
+  console.log("Task cần xóa:", task);
+  console.log("Vị trí cần xóa:", taskIndexToDel);
+
+  // Lưu id tạm thời
+  taskIdToDelete = id;
+
+  // Mở modal xác nhận
   document.querySelector("#modelDeleteTask").style.display = "block";
-  // Xác nhận xóaxóa
-  document
-    .querySelector("#confirmModelDelete")
-    .addEventListener("click", function () {
-      taskList.splice(index, 1);
-      console.log("taskList sau khi xóa: ", taskList);
-      renderTaskList();
+  // Gán sự kiện 1 lần khi load trang
+  document.querySelector("#confirmModelDelete").onclick = function () {
+    if (taskIdToDelete !== null) {
+      const taskIndexToDel = taskList.findIndex(
+        (item) => item.taskId === taskIdToDelete
+      );
+      if (taskIndexToDel !== -1) {
+        taskList.splice(taskIndexToDel, 1);
+        renderTaskList();
+      }
       localStorage.setItem("listProject", JSON.stringify(listProject));
+      // Ẩn modal và reset biến
       document.querySelector("#modelDeleteTask").style.display = "none";
-    });
-  // Hủy bỏ xóa
-  exits();
+      taskIdToDelete = null;
+    }
+    // Hủy bỏ xóa
+    exits();
+  };
 }
 
 // validate các Input của newMember
@@ -715,13 +783,17 @@ function addMember() {
 //
 function exits() {
   // exits form AddEdit
-  document
-    .querySelector("#exitModelForm")
-    .addEventListener("click", function () {
-      document.querySelector("#formAddEdit").style.display = "none";
-      resetFormAddValue();
-      resetFormAdd();
-    });
+  document.querySelector("#exitModelForm").onclick = function () {
+    document.querySelector("#formAddEdit").style.display = "none";
+    resetFormAddValue();
+    resetFormAdd();
+  };
+  // Hủy thêm prj
+  document.querySelector("#cancelAddEdit").onclick = function () {
+    document.querySelector("#formAddEdit").style.display = "none";
+    resetFormAddValue();
+    resetFormAdd();
+  };
 
   // khu vực của model thêm thành viên
   document
@@ -772,6 +844,7 @@ function resetFormAddValue() {
   document.querySelector(".progress").value = 0;
 }
 function resetFormAdd() {
+  console.log("reset");
   document.querySelector("#taskNameError").textContent = "";
   document.querySelector("#assigneeError").textContent = "";
   document.querySelector("#taskStatusError").textContent = "";
@@ -819,3 +892,50 @@ function showMember() {
       document.querySelector("#modelListMember").style.display = "none";
     });
 }
+// Hàm edit task
+let taskIndexToEdit = null;
+function editTask(id) {
+  addEditStatus = "edit";
+  resetFormAdd();
+  console.log("Vị trí Task: ", id);
+
+  taskIndexToEdit = taskList.findIndex((item) => item.taskId === id);
+  console.log("Vị trí task cần sửa: ", taskIndexToEdit);
+  console.log("task cần edit", taskList[taskIndexToEdit]);
+
+  document.querySelector("#formAddEdit").style.display = "block";
+  renderMemberListForm();
+
+  const task = taskList[taskIndexToEdit];
+  document.querySelector("#taskNameInput").value = task.taskName;
+  document.querySelector("#assigneeInput").value = task.assignee;
+  document.querySelector("#taskStatus").value = task.taskStatus;
+  document.querySelector(".assignDate").value = task.assignDate;
+  document.querySelector(".deadline").value = task.dueDate;
+  document.querySelector(".priority").value = task.priority;
+  document.querySelector(".progress").value = task.progress;
+
+  // Chỉ gọi sự kiện click nút save một lần duy nhất khi trang load
+  document.querySelector(".saveAddEditBtn").onclick = function () {
+    if (addEditStatus === "edit" && taskIndexToEdit !== null) {
+      const task = taskList[taskIndexToEdit];
+      task.taskName = document.querySelector("#taskNameInput").value;
+      task.assignee = document.querySelector("#assigneeInput").value;
+      task.taskStatus = document.querySelector("#taskStatus").value;
+      task.assignDate = document.querySelector("#assignDate").value;
+      task.dueDate = document.querySelector(".deadline").value;
+      task.priority = document.querySelector(".priority").value;
+      task.progress = document.querySelector(".progress").value;
+
+      renderTaskList();
+      localStorage.setItem("listProject", JSON.stringify(listProject));
+      document.querySelector("#formAddEdit").style.display = "none";
+      addEditStatus = "add";
+      taskIndexToEdit = null;
+    }
+  };
+  exits();
+}
+
+// search Task
+// Lấy thông tin từ input tìm

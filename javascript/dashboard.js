@@ -18,6 +18,7 @@ const BtnPageElement = document.querySelector("#numberPageElement");
 const btnPrevPage = document.querySelector("#PrevBtnBox");
 const btnNextPage = document.querySelector("#NextBtnBox");
 const addProjectBtn = document.querySelector("#addProjectBtn");
+let addEditStatus = "add"; // Biến kiểm tra trạng thái thêm hay sửa dự án
 
 // Hàm renderPage
 let currentPage = 1; // Mặc định trang đầu tiên là 1
@@ -151,6 +152,9 @@ if (!userAccounts || alreadyLogIn === null) {
 
     // Tạo hàm Edit dự án
     function editPrjInfor(index) {
+      // đưa trạng thái về edit
+      addEditStatus = "edit";
+
       // Lọc ra các dự án mà người đang đăng nhập tạo ra
       const filterProject = listProject.filter(
         (item) =>
@@ -180,10 +184,11 @@ if (!userAccounts || alreadyLogIn === null) {
           document.querySelector("#errorInform").textContent = "";
           document.querySelector("#prjName").style.borderColor = "#DEE2E6";
           document.querySelector("#prjDiscript").style.borderColor = "#DEE2E6";
-          const checkExitedProject = listProject.filter(
-            (item) => item.projectName === getNewProjectName
-          );
-          if (checkExitedProject.length === 0) {
+          if (addEditStatus === "edit") {
+            // const checkExitedProject = listProject.filter(
+            //   (item) => item.projectName === getNewProjectName
+            // );
+            // if (checkExitedProject.length === 0) {
             document.querySelector("#prjName").classList.remove("prjNameError");
             document.querySelector("#existErrorInform").textContent = "";
             document.querySelector("#prjName").style.borderColor = "#DEE2E6";
@@ -194,11 +199,7 @@ if (!userAccounts || alreadyLogIn === null) {
             renderProjectList(filterProject);
             // Đóng form
             document.querySelector("#formAdd").style.display = "none";
-          } else {
-            // Nếu tên dự án đã trùng thông báo
-            document.querySelector("#existErrorInform").textContent =
-              "Tên dự án không được trùng nhau";
-            document.querySelector("#prjName").style.borderColor = "red";
+            addEditStatus = "add"; // Đặt lại trạng thái về add
           }
         }
       });
@@ -272,48 +273,54 @@ if (!userAccounts || alreadyLogIn === null) {
 
           if (checkExitedProject.length === 0) {
             // Chưa tồn tại
-            document.querySelector("#existErrorInform").textContent = "";
-            document.querySelector("#prjName").style.borderColor = "#DEE2E6";
-            // Lọc ra các dự án mà người đang đăng nhập tạo ra
+            // Kiểm tra nếu trạng thái là add thì --> thêm mới
+            if (addEditStatus === "add") {
+              document.querySelector("#existErrorInform").textContent = "";
+              document.querySelector("#prjName").style.borderColor = "#DEE2E6";
+              // Lọc ra các dự án mà người đang đăng nhập tạo ra
 
-            console.log("filterProject: ", filterProject);
-            // Lọc ra các dự án mà người đang đăng nhập là thành viên
+              console.log("filterProject: ", filterProject);
+              // Lọc ra các dự án mà người đang đăng nhập là thành viên
 
-            // Tạo thành viên mặc định ban đầu --> và gán cho nó là người phụ trách dự án luôn
-            userLoging.role = "projectOwner";
-            const memberNum1 = {
-              id: userLoging.id,
-              fullName: userLoging.fullName,
-              email: userLoging.email,
-              role: userLoging.role,
-            };
-            // set lại cả role cho người dùng đang đăng nhập vai trò
-            // tìm ra
-            userAccounts.find((user) => user.id === userLoging.id).role =
-              "projectOwner";
+              // Tạo thành viên mặc định ban đầu --> và gán cho nó là người phụ trách dự án luôn
+              userLoging.role = "projectOwner";
+              const memberNum1 = {
+                id: userLoging.id,
+                fullName: userLoging.fullName,
+                email: userLoging.email,
+                role: userLoging.role,
+              };
+              // set lại cả role cho người dùng đang đăng nhập vai trò
+              // tìm ra
+              userAccounts.find((user) => user.id === userLoging.id).role =
+                "projectOwner";
 
-            let newProject = {
-              id: +filterProject.length++,
-              projectName: addProjectNameValue,
-              discription: addProjectDiscriptValue,
-              member: [memberNum1],
-              owerId: userLoging.id,
-              tasks: [],
-            };
-            console.log("newProject: ", newProject);
-            listProject.push(newProject);
-            console.log(listProject);
-            renderProjectList(filterProject);
-            renderPage();
-            localStorage.setItem("listProject", JSON.stringify(listProject));
-            localStorage.setItem("userLoging", JSON.stringify(userLoging));
-            localStorage.setItem("userAccounts", JSON.stringify(userAccounts));
-            document.querySelector("#formAdd").style.display = "none";
-          } else {
-            // Tên dự án đã tồn tại
-            document.querySelector("#existErrorInform").textContent =
-              "Tên dự án không được trùng nhau";
-            document.querySelector("#prjName").style.borderColor = "red";
+              let newProject = {
+                id: +filterProject.length++,
+                projectName: addProjectNameValue,
+                discription: addProjectDiscriptValue,
+                member: [memberNum1],
+                owerId: userLoging.id,
+                tasks: [],
+              };
+              console.log("newProject: ", newProject);
+              listProject.push(newProject);
+              console.log(listProject);
+              renderProjectList(filterProject);
+              renderPage();
+              localStorage.setItem("listProject", JSON.stringify(listProject));
+              localStorage.setItem("userLoging", JSON.stringify(userLoging));
+              localStorage.setItem(
+                "userAccounts",
+                JSON.stringify(userAccounts)
+              );
+              document.querySelector("#formAdd").style.display = "none";
+            } else {
+              // Tên dự án đã tồn tại
+              document.querySelector("#existErrorInform").textContent =
+                "Tên dự án không được trùng nhau";
+              document.querySelector("#prjName").style.borderColor = "red";
+            }
           }
         }
       });
@@ -324,19 +331,45 @@ if (!userAccounts || alreadyLogIn === null) {
     document.querySelector("#inputSearch").value = "";
     formSearchElement.addEventListener("submit", function (event) {
       event.preventDefault();
+      const filterProject = listProject.filter(
+        (item) =>
+          item.owerId === userLoging.id && userLoging.role === "projectOwner"
+      );
       const searchBoxValue = document
         .querySelector("#inputSearch")
         .value.trim();
       console.log(searchBoxValue);
 
       if (searchBoxValue === "") {
-        renderProjectList(listProject);
+        renderProjectList();
       } else {
-        const projectSearch = listProject.filter((project) =>
+        tableManagePrj.innerHTML = "";
+        const projectSearch = filterProject.filter((project) =>
           project.projectName.includes(searchBoxValue)
         );
-        console.log("Dự án cần tìm: ", projectSearch);
-        renderProjectList(projectSearch);
+        console.log("dự án cần tìm", projectSearch);
+
+        start = 0;
+        end = projectSearch.length;
+
+        if (end >= projectSearch.length) {
+          end = projectSearch.length; // Nếu vị trí kết thúc theo công thức lớn hơn tổng số dự án trong mảng thì gán lại cho end bằng listProject.length luôn
+        }
+        for (let i = start; i < end; i++) {
+          tableManagePrj.innerHTML += `<tr>
+                                                    <td id="idPrj">${i + 1}</td>
+                                                    <td id="namePrj">${
+                                                      projectSearch[i]
+                                                        .projectName
+                                                    }</td>
+                                                    <td id="actionToPrj">
+                                                        <button id="editBtn" onclick ="editPrjInfor(${i})">Sửa</button
+                                                        ><button id="deleteBtn" onclick="deleteProject(${i})">Xóa</button
+                                                        ><button id="showMoreBtn" onclick="showProject(${i})">Chi tiết</button>
+                                                    </td>
+                                                </tr>`;
+        }
+        console.log("tableProjectList: ", tableManagePrj);
       }
     });
 
@@ -347,9 +380,11 @@ if (!userAccounts || alreadyLogIn === null) {
           item.owerId === userLoging.id && userLoging.role === "projectOwner"
       );
       console.log("dự án cần xem: ", filterProject[index]);
-      const projectOpenIndex = listProject.findIndex((item) => item === filterProject[index]);
+      const projectOpenIndex = listProject.findIndex(
+        (item) => item === filterProject[index]
+      );
       console.log("vị trí projectOpen trong list lớn: ", projectOpenIndex);
-      
+
       window.location.href = `project-manager.html?task=${projectOpenIndex}`;
     }
 
