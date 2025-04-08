@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang chủ quản lý dự án</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body>
+    <!-- Thành phần giao diện trang chính -->
+    <div id="container">
+      <div id="headerPage">
+        <div id="headerItem">
+          <span id="titlePage">Quản lý dự án</span>
+          <span id="navigation">
+            <a href="../pages/dashboard.html">Dự án</a>
+            <a id="myTaskText" href="">Nhiệm vụ của tôi</a>
+            <a id="logOutNav" href="../pages/logIn.html">Đăng xuất</a>
+          </span>
+        </div>
+      </div>
+      <div id="bodyPage">
+        <div id="boxContain">
+          <span id="titleBoxManage">Quản lý dự án nhóm</span>
+          <div id="manageAction">
+            <button id="addProjectBtn">+ Thêm dự án</button>
+            <form id="searchBox">
+              <input
+              type="text"
+              name="searchPrj"
+              id="inputSearch"
+              placeholder="Tìm kiếm dự án"
+            />
+            </form>
+            
+          </div>
+          <div id="manageProject">
+            <span id="titleListPrj">Danh sách dự án</span>
+            <table id="tableManage">
+              <thead>
+                <th id="idProject">ID</th>
+                <th id="nameProject">Tên dự án</th>
+                <th id="actionToProject">Hành động</th>
+              </thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div id="pagination">
+          <button id="PrevBtnBox">
+            <img id="PrevBtn" src="../icons/VectorToLeft.png" alt="" />
+          </button>
+          <div id="numberPageElement"></div>
+
+          <button id="NextBtnBox">
+            <img id="NextBtn" src="../icons/VectorToRight.png" alt="" />
+          </button>
+        </div>
+      </div>
+      <div id="footerPage">
+        <div id="footerContent">
+          <span>&#169; 2025 Team management. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+    <!-- Overlay form Thêm mới dự án -->
+    <div id="formAdd">
+      <span id="formAddOverlay"></span>
+      <span id="mainForm">
+        <div id="headerForm">
+          <span id="titleFormAdd">Thêm/sửa dự án</span>
+          <span><img id="iconExit" src="../icons/exitIcon.png" alt="" /></span>
+        </div>
+        <div id="bodyForm">
+          <label for="Name">Tên dự án</label>
+          <input type="text" name="Name" id="prjName" />
+          <span id="existErrorInform"></span>
+          <label for="discription">Mô tả dự án</label>
+          <textarea name="discription" id="prjDiscript"></textarea>
+          <span id="errorInform"></span>
+        </div>
+        <div id="footerForm">
+          <button id="cancelAdd">Hủy</button>
+          <button id="saveBtn">Lưu</button>
+        </div>
+      </span>
+    </div>
+
+    <!-- Overlay model xác nhận xóa dự án -->
+    <div id="confirmDeleteModel">
+      <div id="modelDeleteOverlay"></div>
+      <div id="mainDelModel">
+        <div id="headerDeleteModel">
+          <span id="titleConfirm">Xác nhận xóa</span>
+          <span><img id="iconExitDel" src="../icons/exitIcon.png" /></span>
+        </div>
+        <div id="bodyDelModel">
+          <span>Bạn chắc chắn muốn xóa dự án này</span>
+        </div>
+        <div id="footerDelModel">
+          <button id="cancelDelBtn">Hủy</button>
+          <button id="confirmDelBtn">Xóa</button>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/dashboard.js"></script>
+  </body>
+</html>

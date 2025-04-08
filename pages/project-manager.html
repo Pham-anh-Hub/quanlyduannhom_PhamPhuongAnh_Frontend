@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý dự án</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/projectManager.css" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="headerPage">
+        <div id="headerItem">
+          <span id="titlePage">Quản lý dự án</span>
+          <span id="navigation">
+            <a href="../pages/dashboard.html">Dự án</a>
+            <a id="myTaskText" href="">Nhiệm vụ của tôi</a>
+            <a id="logOut" href="../pages/logIn.html">Đăng xuất</a>
+          </span>
+        </div>
+      </div>
+      <div id="bodyPage">
+        <div id="underHeaderContainer">
+          <div id="leftManageBlock">
+            <!-- titleLeftBlock -  Có thể tùy chỉnh theo tên dự án cần xem chi tiết-->
+            <span id="titleLeftBlock"></span>
+            <p id="discriptProject">
+            </p>
+          </div>
+          <div id="rightManageBlock">
+            <!-- titleLeftBlock -  Có thể tùy chỉnh theo tên dự án cần xem chi tiết-->
+            <span id="buttonsRightBlock">
+              <span>Thành viên</span>
+              <button onclick="addMember()">+ Thêm thành viên</button>
+            </span>
+            <div id="inforMemberBlock">
+              <!-- <span id="membersList">
+                <div id="memberInfor">
+                  <div id="memberAvt">AN</div>
+                  <span id="inforAndName">
+                    <span id="memberName">An Nguyen</span>
+                    <span id="memberRole">ProjectOwner</span>
+                  </span>
+                </div>
+                <div id="memberInfor">
+                  <div id="memberAvt">BN</div>
+                  <span id="inforAndName">
+                    <span id="memberName">Bach Nguyen</span>
+                    <span id="memberRole">FrontEnd Developer</span>
+                  </span>
+                </div>
+              </span> -->
+              <button id="showMoreBlock" onclick="showMember()">&#8226;&#8226;&#8226;</button>
+            </div>
+          </div>
+        </div>
+        <!-- Khối action với dự án: thêm sắp xếp, tìm kiếm -->
+        <div id="actionWthProject">
+          <button onclick="addTaskToProject()">+ Thêm nhiệm vụ</button>
+          <div id="arrangeSearchTask">
+            <select name="arrange" id="arrangeTasks">
+              <option value="Hạn chót">Hạn chót</option>
+              <option value="Độ ưu tiên">Độ ưu tiên</option>
+            </select>
+            <input
+              type="text"
+              name=""
+              id="inputToSearch"
+              placeholder="Tìm kiếm nhiệm vụ"
+            />
+          </div>
+        </div>
+        <!-- Phần bảng danh sách task -->
+        <div id="taskList">
+          <span id="titleList">Danh Sách Nhiệm Vụ</span>
+          <div id="taskListTable">
+            
+              <div id="thead">
+                <div id="task-name">Tên Nhiệm Vụ</div>
+                <div id="person">Người Phụ Trách</div>
+                <div id="priority">Ưu Tiên</div>
+                <div id="start-date">Ngày Bắt Đầu</div>
+                <div id="deadline">Hạn Chót</div>
+                <div id="progress">Tiến Độ</div>
+                <div id="actions">Hành Động</div>
+              </div>
+              <div id="tbody">
+                <!-- Phần todoList -->
+                <div id="todoListPart">
+                  <div id="TodoListTitle">
+                    <div>
+                      <div id="accorditionBar"><img id="accorditionIcon1" src="../icons/accorditionVecto.png" />  To do</div>
+                    </div>
+                  </div>
+                  <div id="todoListContent">
+                    
+                  </div>
+                </div>
+                <!-- Phần inProgress Part -->
+                <div id="inProgressPart">
+                  <div id="inProgressListTitle">
+                    <div>
+                      <div id="accorditionBar"><img id="accorditionIcon2" src="../icons/accorditionVecto.png" />  In Progress</div>
+                    </div>
+                  </div>
+                  <div id="inProgressListContent">
+                    
+                  </div>
+                </div>
+                <!-- Phần pending Part -->
+                <div id="pendingPart">
+                  <div id="pendingListTitle">
+                    <div>
+                      <div id="accorditionBar"><img id="accorditionIcon3" src="../icons/accorditionVecto.png" />  Pending</div>
+                    </div>
+                  </div>
+                  <div id="pendingListContent">
+                    
+                  </div>
+                </div>
+                <!-- Phần done Part -->
+                <div id="donePart">
+                  <div id="doneListTitle">
+                    <div>
+                      <div id="accorditionBar"><img id="accorditionIcon4" src="../icons/accorditionVecto.png" />  Done</div>
+                    </div>
+                  </div>
+                  <div id="doneListContent">
+                    
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- Chân trang -->
+      <div id="footerPage">
+        <div id="footerContent">
+          <span>&#169; 2025 Team management. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+    <!-- Form thêm/sửa nhiệm vụ -->
+    <div id="formAddEdit">
+      <div id="formAddEditOverlay"></div>
+      <div id="formContent">
+        <div id="headerFormAddEdit">
+          <span id="titleFormAddEdit">Thêm/Sửa nhiệm vụ</span>
+          <span id="exitModelForm"><img id="iconExitFormAddEdit" src="../icons/exitIcon.png"></span>
+        </div>
+        <div id="bodyFormAddEdit">
+          <label for="taskName">Tên nhiệm vụ</label>
+          <input type="text" id="taskNameInput">
+          <span id="taskNameError"></span><!-- textContent báo lỗi của tên task -->
+          <label for="assignee">Người phụ trách</label>
+          <select id="assigneeInput">
+          </select>
+         <span id="assigneeError"></span>  <!-- textContent báo lỗi của người phụ trách -->
+          <label for="status">Trạng thái</label>
+          <select id="taskStatus">
+            <option checked value="0">Chọn trạng thái nhiệm vụ</option>
+            <option value="To do">To do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Pending">Pending</option>
+            <option value="Done">Done</option>
+          </select>
+          <span id="taskStatusError"></span>
+          <span id="taskProgressError"></span> <!-- báo lỗi của Trạng thái nhiệm vụ -->
+          
+          <label for="assignDate">Ngày bắt đầu</label>
+          <input type="date" id="assignDate" class="assignDate">
+          <span id="assignDateError"></span> <!-- báo lỗi của assignDate -->
+          
+          <label for="deadline">Hạn cuối</label>
+          <input type="date" id="deadline" class="deadline">
+          <span id="deadlineError"></span> <!-- báo lỗi của deadline -->
+          
+          <label for="priority">Độ ưu tiên</label>
+          <select id="priority" class="priority">
+            <option value="0">Chọn độ ưu tiên</option>
+            <option value="Cao">Cao</option>
+            <option value="Trung Bình">Trung Bình</option>
+            <option value="Thấp">Thấp</option>
+          </select>
+         <span id="priorityError"></span>  <!-- báo lỗi của priority -->
+          <label for="progress">Tiến độ</label>
+          <select id="progress" class="progress">
+            <option value="0">Chọn tiến độ</option>
+            <option value="Đúng tiến độ">Đúng tiến độ</option>
+            <option value="Có rủi ro">Có rủi ro</option>
+            <option value="Trễ hạn">Trễ hạn</option>
+          </select>
+           <span id="progressError"></span> <!-- báo lỗi của tiến độ -->
+        </div>
+        <div id="footerFormAddEdit">
+          <button id="cancelAddEdit">Hủy</button>
+          <button id="saveAddEditBtn">Lưu</button>
+        </div>
+      </div>
+    </div>
+    <!-- Form thêm thành viên -->
+    <div id="formAddMember">
+      <div id="formAddMemberOverlay"></div>
+      <div id="formAddMemberContent">
+        <div id="headerFormAddMember">
+          <span id="titleFormMember">Thêm thành viên</span>
+          <span id="exitFormMember"><img id="iconExitFormAddMember" src="../icons/exitIcon.png"></span>
+        </div>
+        <div id="bodyFormAddMember">
+          
+          <label for="memberEmail">Email</label>
+          <input type="text" id="memberEmailInput">
+          <span id="existMemberEmail"></span>
+          <span id="errorMemberEmail"></span>
+          <label for="memberRole">Vai trò</label>
+          <select id="memberRoleInput">
+            <option checked value="0">Chọn vai trò cho thành viên</option>
+            <option value="ProjectOwner">Project Owner</option>
+            <option value="Developer">Developer</option>
+            <option value="Tester">Tester</option>
+            <option value="Tester">BA</option>
+          </select>
+          <span id="errorMemberInfor"></span>
+        </div>
+        <div id="footerFormAddMember">
+          <button id="cancelAddMember">Hủy</button>
+          <button id="saveAddMembertBtn">Lưu</button>
+        </div>
+      </div>
+      
+    </div>
+    <!-- Model danh sách thành viên -->
+    <div id="modelListMember">
+      <div id="modelListOverlay"></div>
+      <div id="modelListContent">
+        <div id="headerModel">
+          <span id="headerModelTitle">Thành viên</span>
+          <span><img id="iconExitModelList" src="../icons/exitIcon.png"></span>
+        </div>
+        <div id="bodyModel">
+          <div id="titleItem">
+            <span id="memberTitle">Thành viên</span>
+            <span id="listRole">Vai trò</span>
+          </div>
+          <div id="listMember">
+            <!-- <span id="inforMember">
+              <div id="inforCol">
+                <div id="NameAndEmail">
+                  <span id="NameMember">An Nguyễn</span>
+                  <span id="EmailMember">nguyenquangan@gmail.com</span>
+                </div>
+              </div>
+              <div id="roleCol">
+                <div id="roleOfMember">Project Owner</div>
+                <div><img src="../icons/garbageBin.png"></div>
+              </div>
+            </span>
+            <span id="inforMember">
+              <div id="inforCol">
+                <div id="NameAndEmail">
+                  <span id="NameMember">Bách Nguyễn</span>
+                  <span id="EmailMember">bachnx@gmail.com</span>
+                </div>
+              </div>
+              <div id="roleCol">
+                <div id="roleOfMember">Frontend developer</div>
+                <div><img src="../icons/garbageBin.png"></div>
+              </div>
+            </span>
+            <span id="inforMember">
+              <div id="inforCol">
+                <div id="NameAndEmail">
+                  <span id="NameMember">Dương Nguyễn</span>
+                  <span id="EmailMember">duongnhm@gmail.com</span>
+                </div>
+              </div>
+              <div id="roleCol">
+                <div id="roleOfMember">Backend developer</div>
+                <div><img src="../icons/garbageBin.png"></div>
+              </div>
+            </span> -->
+            
+          </div>
+        </div>
+        <div id="footerModel">
+          <button id="cancelModel">Hủy</button>
+          <button id="saveListModel">Lưu</button>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- model xóa task -->
+    <div id="modelDeleteTask">
+      <div id="modelDeleteOverlay"></div>
+      <div id="modelDeleteContent">
+        <div id="headerModelDelete">
+          <span id="headerModelDeleteTitle">Xóa nhiệm vụ</span>
+          <span id="iconExitModelDelete"><img  src="../icons/exitIcon.png"></span>
+        </div>
+        <div id="bodyModelDelete">
+          <span id="textModelDelete">Bạn có chắc chắn muốn xóa nhiệm vụ này không?</span>
+        </div>
+        <div id="footerModelDelete">
+          <button id="cancelModelDelete">Hủy</button>
+          <button id="confirmModelDelete">Xóa</button>
+        </div>
+    </div>
+
+
+    <script src="../javascript/project-manager.js"></script>
+  </body>
+</html>

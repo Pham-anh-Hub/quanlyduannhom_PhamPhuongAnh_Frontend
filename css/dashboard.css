@@ -1,0 +1,561 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Grechen+Fuemen&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sigmar&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+#container {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+
+    height: 100vh;
+
+}
+
+#headerPage {
+    background-color: #000000;
+    color: white;
+    width: 100%;
+
+
+}
+
+#headerItem {
+    width: 75vw;
+    height: 45px;
+    line-height: 45px;
+    display: flex;
+    justify-content: space-between;
+    color: #FFFFFF;
+    margin: 0px auto;
+}
+
+#titlePage {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#navigation {
+    color: black;
+    display: flex;
+    gap: 16px;
+}
+
+#navigation a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+#navigation #myTaskText {
+    color: #FFFFFF8C;
+}
+
+
+#bodyPage {
+    width: 100%;
+    height: calc(100vh - (45px * 2));
+    display: flex;
+    flex-direction: column;
+    background-color: #F8F9FA;
+}
+
+#titleBoxManage {
+    font-weight: 500;
+    font-size: 24px;
+    margin: 12px 0px;
+}
+
+#boxContain {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    height: fit-content;
+    padding: 0px 20px 20px 20px;
+    margin: 0px 33vw;
+    margin-top: 20px;
+    margin-bottom: 150px;
+    border: 1px solid #dadada;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#manageAction {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#addProjectBtn {
+    width: 145px;
+    height: 35px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background-color: #0D6EFD;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+}
+#addProjectBtn:hover {
+    background-color: #3e8bfe;
+    transform: translateY(-1px);
+}
+
+#inputSearch {
+    width: 333px;
+    height: 35px;
+    padding: 5px;
+    border: 1px solid #DEE2E6;
+    border-radius: 6px;
+}
+
+#inputSearch:focus {
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#manageProject {
+    /* border: 2px solid #dadada; */
+
+}
+
+#titleListPrj {
+    font-weight: 500;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+#tableManage {
+    border: 1px solid #DEE2E6;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tableManage thead {
+    background-color: #373B3E;
+    padding: 8px 0px;
+    height: 20px;
+    line-height: 20px;
+    font-weight: 800;
+    font-size: 15px;
+    border-top: 1px solid #373B3E;
+}
+
+#idProject {
+    text-align: center;
+    border-right: 2px solid #535454;
+    width: 91px;
+    height: 20px;
+    line-height: 20px;
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 16px;
+
+}
+
+#nameProject {
+    text-align: start;
+    padding: 8px;
+    color: #FFFFFF;
+    border-right: 2px solid #535454;
+    font-weight: 800;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+#actionToProject {
+    width: 225px;
+    font-weight: 800;
+    font-size: 16px;
+    color: #FFFFFF;
+
+}
+
+/* CSS cho từng dòng trong list project */
+#idPrj {
+    text-align: center;
+    border-right: 1px solid #DEE2E6;
+    border-left: 1px solid #DEE2E6;
+    width: 91px;
+    height: 20px;
+    color: #212529;
+    font-weight: 400;
+    font-size: 15px;
+
+}
+
+#namePrj {
+    text-align: start;
+    color: #212529;
+    padding: 0px 8px;
+    font-weight: 400;
+    font-size: 15px;
+    border-right: 1px solid #DEE2E6;
+    border-bottom: 1px solid #DEE2E6;
+
+}
+
+#actionToPrj {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    width: 225px;
+    padding: 5px;
+    border-right: 1px solid #DEE2E6;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+#actionToPrj #showMoreBtn {
+
+    width: 60px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #0D6EFD;
+    background-color: #0D6EFD;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#actionToPrj button:hover {
+    transform: translateY(-1px);
+    opacity: 0.8;
+}
+
+/* Phân trang */
+#pagination {
+    position: fixed;
+    bottom: calc(45px + 8px);
+    display: flex;
+    /* border: 2px solid #dadada; */
+    align-self: center;
+    align-content: center;
+    height: 30px;
+    /* padding: 10px 0px; */
+
+}
+
+#PrevBtnBox {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #DEE2E6;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+#PrevBtnBox:disabled {
+    background-color: #E9ECEF;
+    border: 1px solid #a9acae;
+    color: #DEE2E6;
+    opacity: 0.5;
+}
+
+#PrevBtn {
+    width: 4px;
+    height: 8px;
+}
+
+#NextBtnBox {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #DEE2E6;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+#NextBtnBox:disabled {
+    background-color: #E9ECEF;
+    border: 1px solid #DEE2E6;
+    color: #DEE2E6;
+    opacity: 0.5;
+
+}
+
+#NextBtn {
+    width: 4px;
+    height: 8px;
+}
+
+.buttonChild {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #DEE2E6;
+    background-color: #FFFFFF;
+    color: #0D6EFD;
+    font-size: 15px;
+}
+
+.buttonChild-Active {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #0D6EFD;
+    background-color: #0D6EFD;
+    color: #fff;
+    font-size: 15px;
+}
+
+/* Hết phần phân trang */
+
+
+#footerPage {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    width: 100vw;
+    height: 45px;
+    line-height: 45px;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Form model thêm mới dự án  */
+
+/* không gian bao cả form */
+#formAdd {
+    display: none;
+    font-family: "Inter", sans-serif;
+    transform: translateY(-5) linear 0.5s;
+}
+
+#formAddOverlay {
+    position: absolute;
+    background-color: #000000;
+    opacity: 0.5;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+}
+
+/* phần form chính  */
+#mainForm {
+    position: absolute;
+    background-color: #FFFFFF;
+    opacity: 1px;
+    width: 32vw;
+    height: fit-content;
+    border: 1px solid #DEE2E6;
+    border-radius: 8px;
+    margin: 33px auto;
+    inset: 0;
+
+}
+
+#headerForm {
+    border-bottom: 1px solid #DEE2E6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100% / 6);
+    padding: 10px;
+}
+
+#titleFormAdd {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#iconExit,
+#iconExitDel {
+    margin-right: 5px;
+    width: 14px;
+    height: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#iconExit:hover {
+    transform: translateY(-1px);
+}
+
+#iconExitDel:hover {
+    transform: translateY(-1px);
+}
+
+/* Phần nhận vào thông tin */
+#bodyForm {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #DEE2E6;
+
+}
+
+#bodyForm #prjName {
+    height: 40px;
+    width: 100%;
+    border: 1px solid #DEE2E6;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 400;
+
+}
+
+
+#bodyForm label {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+#bodyForm textarea {
+    width: 100%;
+    height: 70px;
+    border: 1px solid #DEE2E6;
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-family: "Roboto", sans-serif;
+}
+
+.prjErrorName {
+    border-color: red;
+}
+
+.errorTextarea {
+    border-color: red;
+}
+
+#existErrorInform,
+#errorInform {
+    color: red;
+    font-weight: 400;
+    font-size: 10px;
+}
+
+
+#footerForm {
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+    padding: 30px 20px 8px 0px;
+}
+
+#cancelAdd {
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: #6C757D;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#cancelAdd:hover {
+    background-color: #93a0aa;
+}
+
+#saveBtn {
+    padding: 10px 15px;
+    border: 1px solid #DEE2E6;
+    border-radius: 8px;
+    background-color: #0D6EFD;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#saveBtn:hover {
+    background-color: #4d94fe;
+}
+
+
+
+/* Form model xóa dự án */
+#confirmDeleteModel {
+    font-family: "Inter", sans-serif;
+    display: none;
+}
+
+#modelDeleteOverlay {
+    position: absolute;
+    background-color: #000000;
+    opacity: 0.5;
+    inset: 0;
+}
+
+#mainDelModel {
+    position: absolute;
+    background-color: #FFFFFF;
+    opacity: 1px;
+    width: 32vw;
+    height: fit-content;
+    border: 1px solid #DEE2E6;
+    border-radius: 8px;
+    margin: 33px auto;
+    inset: 0;
+}
+
+#headerDeleteModel {
+    border-bottom: 1px solid #DEE2E6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+#titleConfirm {
+    font-size: 23px;
+    font-weight: 500;
+}
+
+#bodyDelModel {
+    padding: 22px 22px 37px 14px;
+    font-weight: 400;
+    font-size: 16px;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+#footerDelModel {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: end;
+    padding: 35px 22px 10px 0px;
+}
+
+#cancelDelBtn {
+    padding: 10px 18px;
+    border: 1px solid #D0D5DD;
+    border-radius: 8px;
+    background-color: #6C757D;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#cancelDelBtn:hover {
+    background-color: #8b9196;
+    transform: translateY(-1px);
+}
+
+#confirmDelBtn {
+    padding: 10px 18px;
+    border: 1px solid #DC3545;
+    border-radius: 8px;
+    background-color: #DC3545;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#confirmDelBtn:hover {
+    background-color: #ed5867;
+    transform: translateY(-1px);
+}

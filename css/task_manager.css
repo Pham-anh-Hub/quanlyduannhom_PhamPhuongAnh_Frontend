@@ -1,0 +1,102 @@
+#navigation #mainProjectPage {
+    color: #FFFFFF8C;
+
+}
+
+#navigation #myTaskText {
+    color: #FFFFFF;
+}
+
+#bodyPage {
+    width: 75vw;
+    border: 1px solid #dadada;
+    margin: 10px auto;
+}
+
+#bodyPage #titleBodyPage {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+#bodyPage #renderAndSearch {
+    display: flex;
+    justify-content: end;
+}
+
+#bodyPage #listTaskManager {
+    border: 1px solid #dadada;
+}
+
+#bodyPage #listTaskManager #titleList {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#bodyPage #listTaskManager #tableTask #tableHeadTask {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid #DFE0E1;
+
+}
+
+#tableTask #tableHeadTask #taskName {
+    flex: 2.5;
+    text-align: center;
+    border-right: 1px solid #DFE0E1;
+}
+
+#tableTask #tableHeadTask #taskPriority,
+#taskStatus,
+#assignDate,
+#deadline,
+#taskProgress {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid #DFE0E1;
+
+}
+
+#tableTask #accorditionItem img {
+    width: 11px;
+    height: 12px;
+}
+
+#tableTask #firstProjectPart #firstProjectTitle {
+    border-bottom: 1px solid #DFE0E1;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 10px;
+}
+
+#tableTask #firstProjectContent {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #DFE0E1;
+
+}
+
+
+
+#tableTask #firstProjectContent #prjTaskName {
+    flex: 2.4;
+    border-right: 1px solid #DFE0E1;
+    margin-left: 15px;
+}
+
+#tableTask #firstProjectContent #prjTaskPriority,
+#prjTaskStatus,
+#taskAssignDate,
+#taskDeadline,
+#prjtaskProgress {
+    flex: 1;
+    border-right: 1px solid #DFE0E1;
+    text-align: center;
+
+}
+
+#tableTask #firstProjectContent #prjTaskStatus img {
+    width: 15px;
+    height: 15px;
+}
