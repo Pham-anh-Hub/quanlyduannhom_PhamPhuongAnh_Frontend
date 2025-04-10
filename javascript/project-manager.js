@@ -102,303 +102,66 @@ function renderTaskList(array) {
   // render todoTask
   document.querySelector("#todoListContent").innerHTML = ""; // reset nội dung của todoTask
   for (let i = 0; i < todoTaskList.length; i++) {
-    document.querySelector(
-      "#todoListContent"
-    ).innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần todoList  -->
-                                                            <div id="taskName">${
-                                                              todoTaskList[i]
-                                                                .taskName
-                                                            }</div>
-                                                            <div id="projectMember">${
-                                                              todoTaskList[i]
-                                                                .assignee
-                                                            }</div>
-                                                            <div id="Priority"><span id=${
-                                                              todoTaskList[i]
-                                                                .priority ===
-                                                              "Thấp"
-                                                                ? "lowPriority"
-                                                                : todoTaskList[
-                                                                    i
-                                                                  ].priority ===
-                                                                  "Cao"
-                                                                ? "highPriority"
-                                                                : "mediumPriority"
-                                                            }>${
-      todoTaskList[i].priority
-    }</span></div>
-                                                            <div id="startDate">${todoTaskList[
-                                                              i
-                                                            ].assignDate
-                                                              .split("-")
-                                                              .join(
-                                                                " - "
-                                                              )}</div>
-                                                            <div id="deadLine">${todoTaskList[
-                                                              i
-                                                            ].dueDate
-                                                              .split("-")
-                                                              .join(
-                                                                " - "
-                                                              )}</div>
-                                                            <div id="Progress"><span id= ${
-                                                              todoTaskList[i]
-                                                                .progress ===
-                                                              "Đúng tiến độ"
-                                                                ? "on-schedule"
-                                                                : todoTaskList[
-                                                                    i
-                                                                  ].progress ===
-                                                                  "Có rủi ro"
-                                                                ? "risk-schedule"
-                                                                : "off-schedule"
-                                                            }>${
-      todoTaskList[i].progress
-    }</span></div>
-                                                            <div id="actionToTask">
-                                                                <span><button id="editBtn" onclick="editTask(${
-                                                                  todoTaskList[
-                                                                    i
-                                                                  ].taskId
-                                                                })">Sửa</button></span>
-                                                                    <span><button id="deleteBtn" onclick="deleteTask(${
-                                                                      todoTaskList[
-                                                                        i
-                                                                      ].taskId
-                                                                    })">Xóa</button></span>
-                                                            </div>
-                                                        </div>`;
+    document.querySelector("#todoListContent").innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần todoList  -->
+      <div id="taskName">${todoTaskList[i].taskName}</div>
+      <div id="projectMember">${todoTaskList[i].assignee}</div>
+      <div id="Priority"><span id=${todoTaskList[i].priority === "Thấp" ? "lowPriority" : todoTaskList[i].priority === "Cao" ? "highPriority" : "mediumPriority"}>${todoTaskList[i].priority}</span></div>
+      <div id="startDate">${todoTaskList[i].assignDate.split("-")[1]} - ${todoTaskList[i].assignDate.split("-")[2]}</div>
+      <div id="deadLine">${todoTaskList[i].dueDate.split("-")[1]} - ${todoTaskList[i].dueDate.split("-")[2]}</div>
+      <div id="Progress"><span id= ${todoTaskList[i].progress === "Đúng tiến độ" ? "on-schedule" : todoTaskList[i].progress === "Có rủi ro" ? "risk-schedule" : "off-schedule"}>${todoTaskList[i].progress}</span></div>
+      <div id="actionToTask">
+          <span><button id="editBtn" onclick="editTask(${todoTaskList[i].taskId})">Sửa</button></span>
+          <span><button id="deleteBtn" onclick="deleteTask(${todoTaskList[i].taskId})">Xóa</button></span>
+      </div>
+  </div>`;
   }
   // render inprogress Task
   document.querySelector("#inProgressListContent").innerHTML = ""; // reset nội dung của inprogressTask
   for (let i = 0; i < inprogressTaskList.length; i++) {
-    document.querySelector(
-      "#inProgressListContent"
-    ).innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần todoList  -->
-                                                                <div id="taskName">${
-                                                                  inprogressTaskList[
-                                                                    i
-                                                                  ].taskName
-                                                                }</div>
-                                                                <div id="projectMember">${
-                                                                  inprogressTaskList[
-                                                                    i
-                                                                  ].assignee
-                                                                }</div>
-                                                                <div id="Priority"><span id=${
-                                                                  inprogressTaskList[
-                                                                    i
-                                                                  ].priority ===
-                                                                  "Thấp"
-                                                                    ? "lowPriority"
-                                                                    : inprogressTaskList[
-                                                                        i
-                                                                      ]
-                                                                        .priority ===
-                                                                      "Cao"
-                                                                    ? "highPriority"
-                                                                    : "mediumPriority"
-                                                                }>${
-      inprogressTaskList[i].priority
-    }</span></div>
-                                                                <div id="startDate">${inprogressTaskList[
-                                                                  i
-                                                                ].assignDate
-                                                                  .split("-")
-                                                                  .join(
-                                                                    " - "
-                                                                  )}</div>
-                                                                <div id="deadLine">${inprogressTaskList[
-                                                                  i
-                                                                ].dueDate
-                                                                  .split("-")
-                                                                  .join(
-                                                                    " - "
-                                                                  )}</div>
-                                                                <div id="Progress"><span id= ${
-                                                                  inprogressTaskList[
-                                                                    i
-                                                                  ].progress ===
-                                                                  "Đúng tiến độ"
-                                                                    ? "on-schedule"
-                                                                    : inprogressTaskList[
-                                                                        i
-                                                                      ]
-                                                                        .progress ===
-                                                                      "Có rủi ro"
-                                                                    ? "risk-schedule"
-                                                                    : "off-schedule"
-                                                                }>${
-      inprogressTaskList[i].progress
-    }</span></div>
-                                                                <div id="actionToTask">
-                                                                    <span><button id="editBtn" onclick="editTask(${
-                                                                      inprogressTaskList[
-                                                                        i
-                                                                      ].taskId
-                                                                    })">Sửa</button></span>
-                                                                        <span><button id="deleteBtn" onclick="deleteTask(${
-                                                                          inprogressTaskList[
-                                                                            i
-                                                                          ]
-                                                                            .taskId
-                                                                        })">Xóa</button></span>
-                                                                </div>
-                                                            </div>`;
+    document.querySelector("#inProgressListContent").innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần inprogressTask  -->
+                      <div id="taskName">${inprogressTaskList[i].taskName}</div>
+                      <div id="projectMember">${inprogressTaskList[i].assignee}</div>
+                      <div id="Priority"><span id=${inprogressTaskList[i].priority === "Thấp" ? "lowPriority" : inprogressTaskList[i].priority === "Cao" ? "highPriority" : "mediumPriority"}>${inprogressTaskList[i].priority}</span></div>
+                      <div id="startDate">${inprogressTaskList[i].assignDate.split("-")[1]} - ${inprogressTaskList[i].assignDate.split("-")[2]}</div>
+                      <div id="deadLine">${inprogressTaskList[i].dueDate.split("-")[1]} - ${inprogressTaskList[i].dueDate.split("-")[2]}</div>
+                      <div id="Progress"><span id= ${inprogressTaskList[i].progress === "Đúng tiến độ" ? "on-schedule" : inprogressTaskList[i].progress === "Có rủi ro" ? "risk-schedule" : "off-schedule"}>${inprogressTaskList[i].progress}</span></div>
+                      <div id="actionToTask">
+                        <span><button id="editBtn" onclick="editTask(${inprogressTaskList[i].taskId})">Sửa</button></span>
+                        <span><button id="deleteBtn" onclick="deleteTask(${inprogressTaskList[i].taskId})">Xóa</button></span>
+                      </div>
+                    </div>`;
   }
   // render pending Task
   document.querySelector("#pendingListContent").innerHTML = ""; // reset nội dung của pendingTask
   for (let i = 0; i < pendingTaskList.length; i++) {
-    document.querySelector(
-      "#pendingListContent"
-    ).innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần todoList  -->
-                                                                <div id="taskName">${
-                                                                  pendingTaskList[
-                                                                    i
-                                                                  ].taskName
-                                                                }</div>
-                                                                <div id="projectMember">${
-                                                                  pendingTaskList[
-                                                                    i
-                                                                  ].assignee
-                                                                }</div>
-                                                                <div id="Priority"><span id=${
-                                                                  pendingTaskList[
-                                                                    i
-                                                                  ].priority ===
-                                                                  "Thấp"
-                                                                    ? "lowPriority"
-                                                                    : pendingTaskList[
-                                                                        i
-                                                                      ]
-                                                                        .priority ===
-                                                                      "Cao"
-                                                                    ? "highPriority"
-                                                                    : "mediumPriority"
-                                                                }>${
-      pendingTaskList[i].priority
-    }</span></div>
-                                                                <div id="startDate">${pendingTaskList[
-                                                                  i
-                                                                ].assignDate
-                                                                  .split("-")
-                                                                  .join(
-                                                                    " - "
-                                                                  )}</div>
-                                                                <div id="deadLine">${pendingTaskList[
-                                                                  i
-                                                                ].dueDate
-                                                                  .split("-")
-                                                                  .join(
-                                                                    " - "
-                                                                  )}</div>
-                                                                <div id="Progress"><span id= ${
-                                                                  pendingTaskList[
-                                                                    i
-                                                                  ].progress ===
-                                                                  "Đúng tiến độ"
-                                                                    ? "on-schedule"
-                                                                    : pendingTaskList[
-                                                                        i
-                                                                      ]
-                                                                        .progress ===
-                                                                      "Có rủi ro"
-                                                                    ? "risk-schedule"
-                                                                    : "off-schedule"
-                                                                }>${
-      pendingTaskList[i].progress
-    }</span></div>
-                                                                <div id="actionToTask">
-                                                                    <span><button id="editBtn" onclick="editTask(${
-                                                                      pendingTaskList[
-                                                                        i
-                                                                      ].taskId
-                                                                    })">Sửa</button></span>
-                                                                        <span><button id="deleteBtn" onclick="deleteTask(${
-                                                                          pendingTaskList[
-                                                                            i
-                                                                          ]
-                                                                            .taskId
-                                                                        })">Xóa</button></span>
-                                                                </div>
-                                                            </div>`;
+    document.querySelector("#pendingListContent").innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần pendingTask  -->
+      <div id="taskName">${pendingTaskList[i].taskName}</div>
+      <div id="projectMember">${pendingTaskList[i].assignee}</div>
+      <div id="Priority"><span id=${pendingTaskList[i].priority === "Thấp" ? "lowPriority" : pendingTaskList[i].priority === "Cao" ? "highPriority" : "mediumPriority"}>${pendingTaskList[i].priority}</span></div>
+      <div id="startDate">${pendingTaskList[i].assignDate.split("-")[1]} - ${pendingTaskList[i].assignDate.split("-")[2]}</div>
+      <div id="deadLine">${pendingTaskList[i].dueDate.split("-")[1]} - ${pendingTaskList[i].dueDate.split("-")[2]}</div>
+      <div id="Progress"><span id= ${pendingTaskList[i].progress === "Đúng tiến độ" ? "on-schedule" : pendingTaskList[i].progress === "Có rủi ro" ? "risk-schedule" : "off-schedule"}>${pendingTaskList[i].progress}</span></div>
+      <div id="actionToTask">
+        <span><button id="editBtn" onclick="editTask(${pendingTaskList[i].taskId})">Sửa</button></span>
+        <span><button id="deleteBtn" onclick="deleteTask(${pendingTaskList[i].taskId})">Xóa</button></span>
+      </div>
+    </div>`;
   }
   // render done Task
   document.querySelector("#doneListContent").innerHTML = ""; // reset nội dung của doneTask
   for (let i = 0; i < doneTaskList.length; i++) {
-    document.querySelector(
-      "#doneListContent"
-    ).innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần todoList  -->
-                                                                <div id="taskName">${
-                                                                  doneTaskList[
-                                                                    i
-                                                                  ].taskName
-                                                                }</div>
-                                                                <div id="projectMember">${
-                                                                  doneTaskList[
-                                                                    i
-                                                                  ].assignee
-                                                                }</div>
-                                                                <div id="Priority"><span id=${
-                                                                  doneTaskList[
-                                                                    i
-                                                                  ].priority ===
-                                                                  "Thấp"
-                                                                    ? "lowPriority"
-                                                                    : doneTaskList[
-                                                                        i
-                                                                      ]
-                                                                        .priority ===
-                                                                      "Cao"
-                                                                    ? "highPriority"
-                                                                    : "mediumPriority"
-                                                                }>${
-      doneTaskList[i].priority
-    }</span></div>
-                                                                <div id="startDate">${doneTaskList[
-                                                                  i
-                                                                ].assignDate
-                                                                  .split("-")
-                                                                  .join(
-                                                                    " - "
-                                                                  )}</div>
-                                                                <div id="deadLine">${doneTaskList[
-                                                                  i
-                                                                ].dueDate
-                                                                  .split("-")
-                                                                  .join(
-                                                                    " - "
-                                                                  )}</div>
-                                                                <div id="Progress"><span id= ${
-                                                                  doneTaskList[
-                                                                    i
-                                                                  ].progress ===
-                                                                  "Đúng tiến độ"
-                                                                    ? "on-schedule"
-                                                                    : doneTaskList[
-                                                                        i
-                                                                      ]
-                                                                        .progress ===
-                                                                      "Có rủi ro"
-                                                                    ? "risk-schedule"
-                                                                    : "off-schedule"
-                                                                }>${
-      doneTaskList[i].progress
-    }</span></div>
-                                                                <div id="actionToTask">
-                                                                    <span><button id="editBtn" onclick="editTask(${
-                                                                      doneTaskList[
-                                                                        i
-                                                                      ].taskId
-                                                                    })">Sửa</button></span>
-                                                                        <span><button id="deleteBtn" onclick="deleteTask(${
-                                                                          doneTaskList[
-                                                                            i
-                                                                          ]
-                                                                            .taskId
-                                                                        })">Xóa</button></span>
-                                                                </div>
-                                                            </div>`;
+    document.querySelector("#doneListContent").innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần doneTask  -->
+                                    <div id="taskName">${doneTaskList[i].taskName}</div>
+                                    <div id="projectMember">${doneTaskList[i].assignee}</div>
+                                    <div id="Priority"><span id=${doneTaskList[i].priority === "Thấp" ? "lowPriority" : doneTaskList[i].priority === "Cao" ? "highPriority" : "mediumPriority"}>${doneTaskList[i].priority}</span></div>
+                                    <div id="startDate">${doneTaskList[i].assignDate.split("-")[1]} - ${doneTaskList[i].assignDate.split("-")[2]}</div>
+                                    <div id="deadLine">${doneTaskList[i].dueDate.split("-")[1]} - ${doneTaskList[i].dueDate.split("-")[2]}</div>
+                                    <div id="Progress"><span id= ${doneTaskList[i].progress === "Đúng tiến độ" ? "on-schedule" : doneTaskList[i].progress === "Có rủi ro" ? "risk-schedule" : "off-schedule"}>${doneTaskList[i].progress}</span></div>
+                                    <div id="actionToTask">
+                                        <span><button id="editBtn" onclick="editTask(${doneTaskList[i].taskId})">Sửa</button></span>
+                                        <span><button id="deleteBtn" onclick="deleteTask(${doneTaskList[i].taskId})">Xóa</button></span>
+                                    </div>
+                                </div>`;
   }
 }
 
@@ -410,11 +173,9 @@ let countError = 0;
 function getAndValidateFormAddInput() {
   // Lấy input vào //
   let taskAssigneeInput;
-  document
-    .querySelector("#assigneeInput")
-    .addEventListener("change", function () {
-      taskAssigneeInput = document.querySelector("#assigneeInput").value.trim();
-    }); // Lấy ra người phụ trách
+  document.querySelector("#assigneeInput").addEventListener("change", function () {
+    taskAssigneeInput = document.querySelector("#assigneeInput").value.trim();
+  }); // Lấy ra người phụ trách
   let taskStatusInput;
   document.querySelector("#taskStatus").addEventListener("change", function () {
     taskStatusInput = document.querySelector("#taskStatus").value.trim();
@@ -429,95 +190,81 @@ function getAndValidateFormAddInput() {
   }); // Lấy ra tiến độ
 
   // (Nhận input vào và bắt đầu validate khi nhấn nút thêm nhiệm vụ)
-  document
-    .querySelector("#saveAddEditBtn")
-    .addEventListener("click", function () {
-      let taskNameInput = document.querySelector("#taskNameInput").value;
-      // Lấy tên dự án
-      let assignDate = new Date(document.querySelector(".assignDate").value);
-      // Lấy ngày bắt đầu
-      let taskDeadline = new Date(document.querySelector(".deadline").value);
-      // Lấy hạn chót
-      // -- Sau khi lấy được các thông tin --> validate
-      // Render dữ liệu nhập vào từ form add nhiệm vụ
+  document.querySelector("#saveAddEditBtn").addEventListener("click", function () {
+    let taskNameInput = document.querySelector("#taskNameInput").value;
+    // Lấy tên dự án
+    let assignDate = new Date(document.querySelector(".assignDate").value);
+    // Lấy ngày bắt đầu
+    let taskDeadline = new Date(document.querySelector(".deadline").value);
+    // Lấy hạn chót
+    // -- Sau khi lấy được các thông tin --> validate
+    // Render dữ liệu nhập vào từ form add nhiệm vụ
 
-      // Lấy ngày hiện tại
-      const currentDay = new Date().getTime();
-      console.log("currentDay: ", currentDay);
+    // Lấy ngày hiện tại
+    const currentDay = new Date().getTime();
+    console.log("currentDay: ", currentDay);
 
-      // Đã lấy ra được ngày hiện tại
-      // Validate lần lượt mỗi input
-      countError = 0;
-      // 1. Tên nhiệm vụ
-      if (!taskNameInput) {
-        // thông báo tên nhiệm vụ không được để trống
-        console.log("tên nhiệm vụ không được để trống");
-        document.querySelector("#taskNameError").textContent =
-          "tên nhiệm vụ không được để trống";
+    // Đã lấy ra được ngày hiện tại
+    // Validate lần lượt mỗi input
+    countError = 0;
+    // 1. Tên nhiệm vụ
+    if (!taskNameInput) {
+      // thông báo tên nhiệm vụ không được để trống
+      document.querySelector("#taskNameError").textContent = "Tên nhiệm vụ không được để trống";
+      document.querySelector("#taskNameInput").style.borderColor = "red";
+      countError++;
+    } else {
+      // Check xem tên task này đã tồn tại hay chưa
+      const checkTaskExist = taskList.find((task) => task.taskName === taskNameInput);
+      if (checkTaskExist) {
+        document.querySelector("#taskNameError").textContent = "Tên nhiệm vụ đã tồn tại ";
+        document.querySelector("#taskNameInput").style.borderColor = "red";
+        countError++;
+      } else if (taskNameInput.length > 35) {
+        document.querySelector("#taskNameError").textContent = "Độ dài tên nhiệm vụ không hợp lệ";
         document.querySelector("#taskNameInput").style.borderColor = "red";
         countError++;
       } else {
-        // Check xem tên task này đã tồn tại hay chưa
-        const checkTaskExist = taskList.find(
-          (task) => task.taskName === taskNameInput
-        );
-        if (checkTaskExist) {
-          document.querySelector("#taskNameError").textContent =
-            "tên nhiệm vụ đã tồn tại ";
-          document.querySelector("#taskNameInput").style.borderColor = "red";
-          countError++;
-        } else if (taskNameInput.length > 35) {
-          document.querySelector("#taskNameError").textContent =
-            "Độ dài tên nhiệm vụ không hợp lệ";
-          document.querySelector("#taskNameInput").style.borderColor = "red";
-          countError++;
-        } else {
-          // reset
-          document.querySelector("#taskNameError").textContent = "";
-          document.querySelector("#taskNameInput").style.borderColor =
-            "#D0D5DD";
-        }
-      }
-      // 2. người phụ trách
-      if (!taskAssigneeInput) {
-        // Thông báo: người phụ trách không được để trống
-        console.log("người phụ trách không được để trống");
-        document.querySelector("#assigneeError").textContent =
-          "người phụ trách không được để trống";
-        document.querySelector("#assigneeInput").style.borderColor = "red";
-        countError++;
-      } else {
         // reset
-        document.querySelector("#assigneeError").textContent = "";
-        document.querySelector("#assigneeInput").style.borderColor = "#D0D5DD";
+        document.querySelector("#taskNameError").textContent = "";
+        document.querySelector("#taskNameInput").style.borderColor = "#D0D5DD";
       }
-      // 3. Trạng thái task
-      if (!taskStatusInput || taskStatusInput.value === 0) {
-        // Thông báo trạng thái task không được để trống
-        console.log("trạng thái task không được để trống");
-        document.querySelector("#taskStatusError").textContent =
-          "trạng thái task không được để trống";
-        document.querySelector("#taskStatus").style.borderColor = "red";
-        countError++;
-      } else {
-        // reset
-        document.querySelector("#taskStatusError").textContent = "";
-        document.querySelector("#taskStatus").style.borderColor = "#D0D5DD";
-      }
-      // 4. Ngày bắt đầu
-
-      const isAssignDateValid = !isNaN(assignDate.getTime());
-      const isTaskDeadlineValid = !isNaN(taskDeadline.getTime());
-      // Kiểm tra xem time nhận vào có inValid không
-      if (assignDate.getTime() <= currentDay || !isAssignDateValid) {
-        // nếu ngày bắt đầu lớn hơn ngày hiện tại --> Thông báo không hợp lệ
-        console.log(assignDate.getTime() <= currentDay);
-        console.log(assignDate.getTime());
-
-        console.log(document.querySelector("#assignDateError"));
-
-        document.querySelector("#assignDateError").textContent =
-          "Ngày bắt đầu không hợp lệ";
+    }
+    // 2. người phụ trách
+    if (!taskAssigneeInput) {
+      // Thông báo: người phụ trách không được để trống
+      document.querySelector("#assigneeError").textContent = "Người phụ trách không được để trống";
+      document.querySelector("#assigneeInput").style.borderColor = "red";
+      countError++;
+    } else {
+      // reset
+      document.querySelector("#assigneeError").textContent = "";
+      document.querySelector("#assigneeInput").style.borderColor = "#D0D5DD";
+    }
+    // 3. Trạng thái task
+    if (!taskStatusInput || taskStatusInput.value === 0) {
+      // Thông báo trạng thái task không được để trống
+      document.querySelector("#taskStatusError").textContent = "Trạng thái task không được để trống";
+      document.querySelector("#taskStatus").style.borderColor = "red";
+      countError++;
+    } else {
+      // reset
+      document.querySelector("#taskStatusError").textContent = "";
+      document.querySelector("#taskStatus").style.borderColor = "#D0D5DD";
+    }
+    // 4. Ngày bắt đầu
+    const isAssignDateValid = !isNaN(assignDate.getTime());
+    const isTaskDeadlineValid = !isNaN(taskDeadline.getTime());
+    // Kiểm tra xem time nhận vào có inValid không
+    if (!isAssignDateValid) {
+      // nếu ngày bắt đầu để trống--> Thông báo 
+      document.querySelector("#assignDateError").textContent = "Ngày bắt đầu không để trống";
+      document.querySelector(".assignDate").style.borderColor = "red";
+      countError++;
+    } else {
+      if (assignDate.getTime() <= currentDay) {
+        // Ngày bắt đầu <= ngày hiện tại --> thông báo
+        document.querySelector("#assignDateError").textContent = "Ngày bắt đầu phải lớn hơn ngày hiện tại";
         document.querySelector(".assignDate").style.borderColor = "red";
         countError++;
       } else {
@@ -525,75 +272,64 @@ function getAndValidateFormAddInput() {
         document.querySelector("#assignDateError").textContent = "";
         document.querySelector(".assignDate").style.borderColor = "#D0D5DD";
       }
-      // 5. Hạn chót
-      if (
-        taskDeadline.getTime() < assignDate.getTime() ||
-        !isTaskDeadlineValid
-      ) {
-        // Nếu hạn chót nhỏ hơn ngày bắt đầu --> báo lỗi
-        console.log("Deadline không hợp lệ");
-        console.log("taskDeadline ", taskDeadline.getTime());
-        console.log("assignDate", assignDate.getTime());
-        document.querySelector("#deadlineError").textContent =
-          "Deadline không hợp lệ";
-        document.querySelector(".deadline").style.borderColor = "red";
-        countError++;
-      } else {
-        // reset
-        document.querySelector("#deadlineError").textContent = "";
-        document.querySelector(".deadline").style.borderColor = "#D0D5DD";
+    }
+    // 5. Hạn chót
+    if (taskDeadline.getTime() < assignDate.getTime() || !isTaskDeadlineValid) {
+      // Nếu hạn chót nhỏ hơn ngày bắt đầu --> báo lỗi
+      document.querySelector("#deadlineError").textContent = "Deadline không hợp lệ";
+      document.querySelector(".deadline").style.borderColor = "red";
+      countError++;
+    } else {
+      // reset
+      document.querySelector("#deadlineError").textContent = "";
+      document.querySelector(".deadline").style.borderColor = "#D0D5DD";
+    }
+    // 6. Độ ưu tiên
+    if (!taskPriority || taskPriority.value == 0) {
+      // Thông báo độ ưu tiên không được để trống
+      document.querySelector("#priorityError").textContent = "Độ ưu tiên không được để trống";
+      document.querySelector(".priority").style.borderColor = "red";
+      countError++;
+    } else {
+      // reset
+      document.querySelector("#priorityError").textContent = "";
+      document.querySelector(".priority").style.borderColor = "#D0D5DD";
+    }
+    // 7. Tiến độ
+    if (!taskProgress || taskProgress.value == 0) {
+      // Thông báo tiến độ không được để trống
+      document.querySelector("#progressError").textContent = "Tiến độ không được để trống";
+      document.querySelector(".progress").style.borderColor = "red";
+      countError++;
+    } else {
+      // reset
+      document.querySelector("#progressError").textContent = "";
+      document.querySelector(".progress").style.borderColor = "#D0D5DD";
+    }
+    //   Đếm số lỗi - số lỗi === 0 --> thêm mới task
+    if (countError === 0) {
+      // Lấy ra ngày với tháng
+      let newTask = {
+        taskId: Math.round(Math.random() * 1000),
+        taskName: taskNameInput,
+        assignee: taskAssigneeInput,
+        taskStatus: taskStatusInput,
+        priority: taskPriority,
+        assignDate: document.querySelector(".assignDate").value,
+        dueDate: document.querySelector(".deadline").value,
+        progress: taskProgress,
+      };
+      if (addEditStatus === "add") {
+        console.log("newTask: ", newTask);
+        taskList.push(newTask);
+        console.log(taskList);
+        localStorage.setItem("listProject", JSON.stringify(listProject));
+        renderTaskList(taskList);
+        document.querySelector("#formAddEdit").style.display = "none";
+        resetFormAddValue();
       }
-      // 6. Độ ưu tiên
-      if (!taskPriority || taskPriority.value === 0) {
-        // Thông báo độ ưu tiên không được để trống
-        console.log("độ ưu tiên không được để trống");
-        document.querySelector("#priorityError").textContent =
-          "độ ưu tiên không được để trống";
-        document.querySelector(".priority").style.borderColor = "red";
-        countError++;
-      } else {
-        // reset
-        document.querySelector("#priorityError").textContent = "";
-        document.querySelector(".priority").style.borderColor = "#D0D5DD";
-      }
-      // 7. Tiến độ
-      if (!taskProgress || taskProgress.value === 0) {
-        // Thông báo tiến độ không được để trống
-        console.log("tiến độ không được để trống");
-        document.querySelector("#progressError").textContent =
-          "tiến độ không được để trống";
-        document.querySelector(".progress").style.borderColor = "red";
-        countError++;
-      } else {
-        // reset
-        document.querySelector("#progressError").textContent = "";
-        document.querySelector(".progress").style.borderColor = "#D0D5DD";
-      }
-
-      //   Đếm số lỗi - số lỗi === 0 --> thêm mới task
-
-      if (countError === 0) {
-        let newTask = {
-          taskId: Math.round(Math.random() * 1000),
-          taskName: taskNameInput,
-          assignee: taskAssigneeInput,
-          taskStatus: taskStatusInput,
-          priority: taskPriority,
-          assignDate: document.querySelector(".assignDate").value,
-          dueDate: document.querySelector(".deadline").value,
-          progress: taskProgress,
-        };
-        if (addEditStatus === "add") {
-          console.log("newTask: ", newTask);
-          taskList.push(newTask);
-          console.log(taskList);
-          localStorage.setItem("listProject", JSON.stringify(listProject));
-          renderTaskList(taskList);
-          document.querySelector("#formAddEdit").style.display = "none";
-          resetFormAddValue();
-        }
-      }
-    });
+    }
+  });
 }
 
 // Hàm thêm nhiệm vụ
@@ -637,10 +373,10 @@ function deleteTask(id) {
   // Gán sự kiện 1 lần khi load trang
   document.querySelector("#confirmModelDelete").onclick = function () {
     if (taskIdToDelete !== null) {
-      const taskIndexToDel = taskList.findIndex(
-        (item) => item.taskId === taskIdToDelete
-      );
+      const taskIndexToDel = taskList.findIndex((item) => item.taskId === taskIdToDelete);
       if (taskIndexToDel !== -1) {
+        console.log("Task cần xóa: ", taskList[taskIdToDelete]);
+
         taskList.splice(taskIndexToDel, 1);
         renderTaskList(taskList);
       }
@@ -649,9 +385,9 @@ function deleteTask(id) {
       document.querySelector("#modelDeleteTask").style.display = "none";
       taskIdToDelete = null;
     }
-    // Hủy bỏ xóa
-    exits();
   };
+  // Hủy bỏ xóa
+  exits();
 }
 
 // validate các Input của newMember
@@ -880,21 +616,18 @@ function showMember() {
 
     document.querySelector("#listMember").innerHTML += `<span id="inforMember">
               <div id="inforCol">
-                <span id="AvtMember" style="background-color: ${randomBgColor()};">${
-      tempName[0][0]
-    }${tempName[tempName.length - 1][0]}</span>
+                <span id="AvtMember" style="background-color: ${randomBgColor()};">${tempName[0][0]
+      }${tempName[tempName.length - 1][0]}</span>
                 <div id="NameAndEmail">
                   <span id="NameMember">${memberList[i].fullName}</span>
                   <span id="EmailMember">${memberList[i].email}</span>
                 </div>
               </div>
               <div id="roleCol">
-                <input id=${memberList[i].id} class="roleOfMember" value="${
-      memberList[i].role
-    }" />
-                <div><img id=${
-                  memberList[i].id
-                } class="btn-delete-member" src="../icons/garbageBin.png"></div>
+                <input id=${memberList[i].id} class="roleOfMember" value="${memberList[i].role
+      }" />
+                <div><img id=${memberList[i].id
+      } class="btn-delete-member" src="../icons/garbageBin.png"></div>
               </div>
             </span>`;
   }
@@ -916,11 +649,9 @@ function editTask(id) {
   addEditStatus = "edit";
   resetFormAdd();
   console.log("Vị trí Task: ", id);
-
   taskIndexToEdit = taskList.findIndex((item) => item.taskId === id);
   console.log("Vị trí task cần sửa: ", taskIndexToEdit);
   console.log("task cần edit", taskList[taskIndexToEdit]);
-
   document.querySelector("#formAddEdit").style.display = "block";
   renderMemberListForm();
 
@@ -936,20 +667,130 @@ function editTask(id) {
   // Chỉ gọi sự kiện click nút save một lần duy nhất khi trang load
   document.querySelector(".saveAddEditBtn").onclick = function () {
     if (addEditStatus === "edit" && taskIndexToEdit !== null) {
-      const task = taskList[taskIndexToEdit];
-      task.taskName = document.querySelector("#taskNameInput").value;
-      task.assignee = document.querySelector("#assigneeInput").value;
-      task.taskStatus = document.querySelector("#taskStatus").value;
-      task.assignDate = document.querySelector("#assignDate").value;
-      task.dueDate = document.querySelector(".deadline").value;
-      task.priority = document.querySelector(".priority").value;
-      task.progress = document.querySelector(".progress").value;
+      const tempTaskname = document.querySelector("#taskNameInput").value;
+      const tempAssignee = document.querySelector("#assigneeInput").value;
+      const tempStatus = document.querySelector("#taskStatus").value;
+      const tempAssignDate = new Date(document.querySelector("#assignDate").value);
+      const tempDueDate = new Date(document.querySelector(".deadline").value);
+      const tempPriority = document.querySelector(".priority").value;
+      const tempProgress = document.querySelector(".progress").value;
+      const currentDay = new Date().getTime();
 
-      renderTaskList(taskList);
-      localStorage.setItem("listProject", JSON.stringify(listProject));
-      document.querySelector("#formAddEdit").style.display = "none";
-      addEditStatus = "add";
-      taskIndexToEdit = null;
+      countError = 0;
+      // 1. Tên nhiệm vụ
+      if (!tempTaskname) {
+        // thông báo tên nhiệm vụ không được để trống
+        document.querySelector("#taskNameError").textContent = "Tên nhiệm vụ không được để trống";
+        document.querySelector("#taskNameInput").style.borderColor = "red";
+        countError++;
+      } else {
+        // Check xem tên task này đã tồn tại hay chưa
+        if (tempTaskname.length > 35) {
+          document.querySelector("#taskNameError").textContent = "Độ dài tên nhiệm vụ không hợp lệ";
+          document.querySelector("#taskNameInput").style.borderColor = "red";
+          countError++;
+        } else {
+          // reset
+          document.querySelector("#taskNameError").textContent = "";
+          document.querySelector("#taskNameInput").style.borderColor = "#D0D5DD";
+        }
+      }
+      // 2. người phụ trách
+      if (!tempAssignee) {
+        // Thông báo: người phụ trách không được để trống
+        document.querySelector("#assigneeError").textContent = "Người phụ trách không được để trống";
+        document.querySelector("#assigneeInput").style.borderColor = "red";
+        countError++;
+      } else {
+        // reset
+        document.querySelector("#assigneeError").textContent = "";
+        document.querySelector("#assigneeInput").style.borderColor = "#D0D5DD";
+      }
+      // 3. Trạng thái task
+      if (!tempStatus || tempStatus.value === 0) {
+        // Thông báo trạng thái task không được để trống
+        document.querySelector("#taskStatusError").textContent = "Trạng thái task không được để trống";
+        document.querySelector("#taskStatus").style.borderColor = "red";
+        countError++;
+      } else {
+        // reset
+        document.querySelector("#taskStatusError").textContent = "";
+        document.querySelector("#taskStatus").style.borderColor = "#D0D5DD";
+      }
+      // 4. Ngày bắt đầu
+      const isAssignDateValid = !isNaN(tempAssignDate.getTime());
+      const isTaskDeadlineValid = !isNaN(tempDueDate.getTime());
+      // Kiểm tra xem time nhận vào có inValid không
+      if (!isAssignDateValid) {
+        // nếu ngày bắt đầu để trống--> Thông báo 
+        document.querySelector("#assignDateError").textContent = "Ngày bắt đầu không để trống";
+        document.querySelector(".assignDate").style.borderColor = "red";
+        countError++;
+      } else {
+        if (tempAssignDate.getTime() <= currentDay) {
+          // Ngày bắt đầu <= ngày hiện tại --> thông báo
+          document.querySelector("#assignDateError").textContent = "Ngày bắt đầu phải lớn hơn ngày hiện tại";
+          document.querySelector(".assignDate").style.borderColor = "red";
+          countError++;
+        } else {
+          // reset
+          document.querySelector("#assignDateError").textContent = "";
+          document.querySelector(".assignDate").style.borderColor = "#D0D5DD";
+        }
+      }
+      // 5. Hạn chót
+      if (tempDueDate.getTime() < tempAssignDate.getTime() || !isTaskDeadlineValid) {
+        // Nếu hạn chót nhỏ hơn ngày bắt đầu --> báo lỗi
+        document.querySelector("#deadlineError").textContent = "Deadline không hợp lệ";
+        document.querySelector(".deadline").style.borderColor = "red";
+        countError++;
+      } else {
+        // reset
+        document.querySelector("#deadlineError").textContent = "";
+        document.querySelector(".deadline").style.borderColor = "#D0D5DD";
+      }
+      // 6. Độ ưu tiên
+      if (!tempPriority || tempPriority.value == 0) {
+        // Thông báo độ ưu tiên không được để trống
+        document.querySelector("#priorityError").textContent = "Độ ưu tiên không được để trống";
+        document.querySelector(".priority").style.borderColor = "red";
+        countError++;
+      } else {
+        // reset
+        document.querySelector("#priorityError").textContent = "";
+        document.querySelector(".priority").style.borderColor = "#D0D5DD";
+      }
+      // 7. Tiến độ
+      if (!tempProgress || tempProgress.value == 0) {
+        // Thông báo tiến độ không được để trống
+        document.querySelector("#progressError").textContent = "Tiến độ không được để trống";
+        document.querySelector(".progress").style.borderColor = "red";
+        countError++;
+      } else {
+        // reset
+        document.querySelector("#progressError").textContent = "";
+        document.querySelector(".progress").style.borderColor = "#D0D5DD";
+      }
+      //   Đếm số lỗi - số lỗi === 0 --> thêm mới task
+
+      if (countError === 0) {
+        const task = taskList[taskIndexToEdit];
+        // validate dữ liệu nhận vào khi edit
+        task.taskName = document.querySelector("#taskNameInput").value;
+        task.assignee = document.querySelector("#assigneeInput").value;
+        task.taskStatus = document.querySelector("#taskStatus").value;
+        task.assignDate = document.querySelector("#assignDate").value;
+        task.dueDate = document.querySelector(".deadline").value;
+        task.priority = document.querySelector(".priority").value;
+        task.progress = document.querySelector(".progress").value;
+
+        renderTaskList(taskList);
+        localStorage.setItem("listProject", JSON.stringify(listProject));
+        document.querySelector("#formAddEdit").style.display = "none";
+        addEditStatus = "add";
+        taskIndexToEdit = null;
+        resetFormAddValue();
+      }
     }
   };
   exits();
@@ -958,8 +799,7 @@ function editTask(id) {
 // search Task
 // Lấy thông tin từ input tìm
 const formSearchElement = document.querySelector("#searchPrjBox");
-formSearchElement.addEventListener("submit", function (event) {
-  event.preventDefault();
+function searchTask() {
   // const
   const inputSearch = document.querySelector("#inputToSearch").value;
   console.log(inputSearch);
@@ -971,13 +811,13 @@ formSearchElement.addEventListener("submit", function (event) {
   if (!taskNeedSearch) {
     renderTaskList(taskList);
   }
-});
+}
 
-// Hàm xóa thành viên
 let bodyModelElement = document.getElementById("bodyModel");
 const btnSaveEdit = document.querySelector("#saveListModel");
 const errorMemDel = document.querySelector("#errorMemberDel");
 bodyModelElement.addEventListener("click", (e) => {
+  // Xóa thành viên
   // gọi ra target có chứa class /"btn-delete-member"/
   if (e.target.classList.contains("btn-delete-member")) {
     let deleteId = Number(e.target.id);
@@ -1007,13 +847,18 @@ bodyModelElement.addEventListener("click", (e) => {
     const memberEditIndex = memberList.findIndex(
       (member) => member.id === idToEdit
     );
-    btnSaveEdit.onclick = function () {
-      const inputNewRole = e.target.value;
+    console.log(memberEditIndex);
+
+    btnSaveEdit.addEventListener("click", function () {
+      console.log(e.target.value);
+
+      let inputNewRole = e.target.value;
       console.log(inputNewRole);
       memberList[memberEditIndex].role = inputNewRole;
       localStorage.setItem("listProject", JSON.stringify(listProject));
       document.querySelector("#modelListMember").style.display = "none";
-    };
+      inputNewRole = "";
+    });
   }
 });
 

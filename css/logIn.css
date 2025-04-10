@@ -56,7 +56,10 @@
     border-radius: 9px;
     margin-bottom: 15px;
 }
-
+#logInInput input:focus{
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
 #logInBox button {
     width: 100%;
     padding: 16px;

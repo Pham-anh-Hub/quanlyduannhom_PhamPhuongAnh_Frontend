@@ -71,6 +71,7 @@ body {
 #buttonsRightBlock button:hover {
     transform: scale(1.05);
     transition: transform 0.1s linear;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 #inforMemberBlock {
@@ -85,43 +86,6 @@ body {
     gap: 10px;
 }
 
-/*
-#memberInfor {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#memberAvt {
-    border: 1px solid #dadada;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    line-height: 30px;
-    text-align: center;
-    background-color: yellow;
-    color: white;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-#inforAndName {
-    display: flex;
-    flex-direction: column;
-}
-
-#memberName {
-    font-size: 13px;
-    font-weight: 600;
-    color: #212529;
-}
-
-#memberRole {
-    font-size: 12px;
-    font-weight: 400;
-    color: #00000080;
-} */
-
 #showMoreBlock {
     width: 32px;
     height: 32px;
@@ -135,7 +99,7 @@ body {
     /* background-color: #babec6; */
     transform: scale(1.2);
     transition: transform 0.1s linear;
-
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 /* Khối action với dự án: thêm sắp xếp, tìm kiếm  */
@@ -157,7 +121,9 @@ body {
 #actionWthProject button:hover {
     transform: scale(1.05);
     transition: transform 0.1s linear;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
 
 #arrangeSearchTask {
     display: flex;
@@ -172,6 +138,10 @@ body {
     border-radius: 6px;
     background-color: #FFFFFF;
 }
+#arrangeTasks:focus {
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
 #inputToSearch {
     height: 35px;
@@ -183,8 +153,7 @@ body {
 }
 #inputToSearch:focus{
     outline: none;
-    border: 1px solid #a6c9fd;
-    box-shadow: rgba(146, 185, 244, 0.25) 0px 0px 0px 0.2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /* giới hạn phần task list */
@@ -785,6 +754,10 @@ select {
     width: fit-content;
     border: 1px solid #D0D5DD;
     border-radius: 4px;
+}
+#roleCol input:focus{
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 #roleCol .roleOfMember {
     font-size: 12px;

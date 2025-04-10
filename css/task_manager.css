@@ -1,3 +1,8 @@
+#container{
+    background-color: #F8F9FA;
+    height: 100vh;
+}
+
 #navigation #mainProjectPage {
     color: #FFFFFF8C;
 
@@ -9,8 +14,9 @@
 
 #bodyPage {
     width: 75vw;
-    border: 1px solid #dadada;
     margin: 10px auto;
+    
+    
 }
 
 #bodyPage #titleBodyPage {
@@ -30,6 +36,7 @@
     height: 38px;
     border-radius: 6px;
     border: 1px solid #DEE2E6;
+    font-size: 16px;
 
 
 } 
@@ -39,30 +46,46 @@
     height: 38px;
     border-radius: 6px;
     border: 1px solid #DEE2E6;
+    font-size: 16px;
 }
 
 #bodyPage #listTaskManager {
-    border: 1px solid yellow;
     margin-top: 17px;
-
+    background-color: #FFFFFF;
+    padding: 17px;
+    border: 1px solid #DFE0E1;
+    border-radius: 6px;
 }
 
 #bodyPage #listTaskManager #titleList {
     font-weight: 500;
     font-size: 20px;
 }
-
+#bodyPage #listTaskManager #tableTask{
+    border: 1px solid #DFE0E1;
+}
 #bodyPage #listTaskManager #tableTask #tableHeadTask {
     display: flex;
     justify-content: space-evenly;
     border: 1px solid #DFE0E1;
-    margin-top: 8px;
+    height: 8vh;
+    width: 100%;
+    background-color: #F8F9FA;
+    
+    
 }
-
+#bodyPage #listTaskManager #tableTask #tableHeadTask div{
+    border-right: 1px solid #DFE0E1;
+    display: flex;
+    height: 8vh;
+    align-items: center;
+    justify-content: center;
+}
 #tableTask #tableHeadTask #taskName {
     flex: 2.5;
     text-align: center;
-    border-right: 1px solid #DFE0E1;
+    
+    
 }
 
 #tableTask #tableHeadTask #taskPriority,
@@ -73,9 +96,7 @@
     flex: 1;
     text-align: center;
     border-right: 1px solid #DFE0E1;
-
 }
-
 #tableTask #accorditionItem img {
     width: 11px;
     height: 12px;
@@ -83,8 +104,8 @@
 
 #tableTask #firstProjectPart #firstProjectTitle {
     border-bottom: 1px solid #DFE0E1;
-    height: 48px;
-    line-height: 48px;
+    height: 7vh;
+    line-height: 7vh;
     padding-left: 10px;
 }
 

@@ -333,10 +333,7 @@ if (!userAccounts || alreadyLogIn === null) {
     });
 
     // Hàm tìm kiếm dự án
-    const formSearchElement = document.querySelector("#searchBox");
-    document.querySelector("#inputSearch").value = "";
-    formSearchElement.addEventListener("submit", function (event) {
-      event.preventDefault();
+    function searchProject() {
       const filterProject = listProject.filter(
         (item) =>
           item.owerId === userLoging.id && userLoging.role === "projectOwner"
@@ -377,7 +374,7 @@ if (!userAccounts || alreadyLogIn === null) {
         }
         console.log("tableProjectList: ", tableManagePrj);
       }
-    });
+    }
 
     // Hàm xem chi tiết dự án
     function showProject(index) {
