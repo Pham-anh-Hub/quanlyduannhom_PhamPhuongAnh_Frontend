@@ -12,7 +12,7 @@ const errorEmailLogIn = document.querySelector("#errorEmailLogIn");
 
 // Kiểm tra xem trên local đã có tài khoản người dùng chưa
 if (userAccounts.length === 0) {
-  // Nếu chưa có tài khoản --> yêu cầu đăng kí
+  // Nếu chưa có tài khoản --> nhảy vào trang đăng kí
   localStorage.setItem("alreadyLogIn", JSON.stringify(false));
   window.location.href = "register.html";
 } else {

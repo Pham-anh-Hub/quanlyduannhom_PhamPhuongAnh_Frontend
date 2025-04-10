@@ -48,7 +48,7 @@
 }
 
 #navigation #myTaskText {
-    color: #FFFFFF8C;
+    color: #FFFFFF;
 }
 
 #footerPage {
@@ -90,4 +90,13 @@
     font-weight: 400;
     font-size: 12px;
     cursor: pointer;
+}
+
+#openProjectList:hover,
+#logOutNav:hover,
+#myTaskText:hover{
+    opacity: 0.8;
+}
+#logOut:hover{
+    opacity: 0.8;
 }

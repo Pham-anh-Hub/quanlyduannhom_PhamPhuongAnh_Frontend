@@ -74,7 +74,7 @@ if (alreadyLogIn) {
       projectOpen.discription;
   }
 
-  renderTaskList();
+  renderTaskList(taskList);
 
   document.querySelector("#logOut").addEventListener("click", function () {
     localStorage.setItem("alreadyLogIn", JSON.stringify(false));
@@ -86,19 +86,17 @@ if (alreadyLogIn) {
 }
 // }
 
-// Hàm render taskListtaskList
-function renderTaskList() {
-  let todoTaskList = taskList.filter((task) => task.taskStatus === "To do");
+// Hàm render taskList
+function renderTaskList(array) {
+  let todoTaskList = array.filter((task) => task.taskStatus === "To do");
   console.log(todoTaskList);
-  let inprogressTaskList = taskList.filter(
+  let inprogressTaskList = array.filter(
     (task) => task.taskStatus === "In Progress"
   );
   console.log(inprogressTaskList);
-  let pendingTaskList = taskList.filter(
-    (task) => task.taskStatus === "Pending"
-  );
+  let pendingTaskList = array.filter((task) => task.taskStatus === "Pending");
   console.log(pendingTaskList);
-  let doneTaskList = taskList.filter((task) => task.taskStatus === "Done");
+  let doneTaskList = array.filter((task) => task.taskStatus === "Done");
   console.log(doneTaskList);
 
   // render todoTask
@@ -494,7 +492,7 @@ function getAndValidateFormAddInput() {
         document.querySelector("#assigneeInput").style.borderColor = "#D0D5DD";
       }
       // 3. Trạng thái task
-      if (!taskStatusInput) {
+      if (!taskStatusInput || taskStatusInput.value === 0) {
         // Thông báo trạng thái task không được để trống
         console.log("trạng thái task không được để trống");
         document.querySelector("#taskStatusError").textContent =
@@ -546,7 +544,7 @@ function getAndValidateFormAddInput() {
         document.querySelector(".deadline").style.borderColor = "#D0D5DD";
       }
       // 6. Độ ưu tiên
-      if (!taskPriority) {
+      if (!taskPriority || taskPriority.value === 0) {
         // Thông báo độ ưu tiên không được để trống
         console.log("độ ưu tiên không được để trống");
         document.querySelector("#priorityError").textContent =
@@ -559,7 +557,7 @@ function getAndValidateFormAddInput() {
         document.querySelector(".priority").style.borderColor = "#D0D5DD";
       }
       // 7. Tiến độ
-      if (!taskProgress) {
+      if (!taskProgress || taskProgress.value === 0) {
         // Thông báo tiến độ không được để trống
         console.log("tiến độ không được để trống");
         document.querySelector("#progressError").textContent =
@@ -590,7 +588,7 @@ function getAndValidateFormAddInput() {
           taskList.push(newTask);
           console.log(taskList);
           localStorage.setItem("listProject", JSON.stringify(listProject));
-          renderTaskList();
+          renderTaskList(taskList);
           document.querySelector("#formAddEdit").style.display = "none";
           resetFormAddValue();
         }
@@ -644,7 +642,7 @@ function deleteTask(id) {
       );
       if (taskIndexToDel !== -1) {
         taskList.splice(taskIndexToDel, 1);
-        renderTaskList();
+        renderTaskList(taskList);
       }
       localStorage.setItem("listProject", JSON.stringify(listProject));
       // Ẩn modal và reset biến
@@ -863,33 +861,53 @@ function resetFormAdd() {
   document.querySelector(".progress").style.borderColor = "#D0D5DD";
 }
 
+function randomBgColor() {
+  const rColor = +Math.round(Math.random() * 255);
+  const gColor = +Math.round(Math.random() * 255);
+  const bColor = +Math.round(Math.random() * 255);
+  console.log(`rgb(${rColor}, ${gColor}, ${bColor})`);
+  return `rgb(${rColor}, ${gColor}, ${bColor})`;
+}
+
 // Hàm mở danh sách thành viên
 function showMember() {
   document.querySelector("#modelListMember").style.display = "block";
   // render list member
   document.querySelector("#listMember").innerHTML = "";
   for (let i = 0; i < memberList.length; i++) {
+    const tempName = memberList[i].fullName.split(" ");
+    console.log(tempName);
+
     document.querySelector("#listMember").innerHTML += `<span id="inforMember">
               <div id="inforCol">
+                <span id="AvtMember" style="background-color: ${randomBgColor()};">${
+      tempName[0][0]
+    }${tempName[tempName.length - 1][0]}</span>
                 <div id="NameAndEmail">
                   <span id="NameMember">${memberList[i].fullName}</span>
                   <span id="EmailMember">${memberList[i].email}</span>
                 </div>
               </div>
               <div id="roleCol">
-                <div id="roleOfMember">${memberList[i].role}</div>
-                <div onclick="deleteMember(${i})"><img src="../icons/garbageBin.png"></div>
+                <input id=${memberList[i].id} class="roleOfMember" value="${
+      memberList[i].role
+    }" />
+                <div><img id=${
+                  memberList[i].id
+                } class="btn-delete-member" src="../icons/garbageBin.png"></div>
               </div>
             </span>`;
   }
   // exits model list member
   document.querySelector("#cancelModel").addEventListener("click", function () {
     document.querySelector("#modelListMember").style.display = "none";
+    errorMemDel.textContent = "";
   });
   document
     .querySelector("#iconExitModelList")
     .addEventListener("click", function () {
       document.querySelector("#modelListMember").style.display = "none";
+      errorMemDel.textContent = "";
     });
 }
 // Hàm edit task
@@ -927,7 +945,7 @@ function editTask(id) {
       task.priority = document.querySelector(".priority").value;
       task.progress = document.querySelector(".progress").value;
 
-      renderTaskList();
+      renderTaskList(taskList);
       localStorage.setItem("listProject", JSON.stringify(listProject));
       document.querySelector("#formAddEdit").style.display = "none";
       addEditStatus = "add";
@@ -939,3 +957,90 @@ function editTask(id) {
 
 // search Task
 // Lấy thông tin từ input tìm
+const formSearchElement = document.querySelector("#searchPrjBox");
+formSearchElement.addEventListener("submit", function (event) {
+  event.preventDefault();
+  // const
+  const inputSearch = document.querySelector("#inputToSearch").value;
+  console.log(inputSearch);
+  const taskNeedSearch = taskList.filter((item) =>
+    item.taskName.toLowerCase().includes(inputSearch.toLowerCase().trim())
+  );
+  console.log("Các task cần tìm: ", taskNeedSearch);
+  renderTaskList(taskNeedSearch);
+  if (!taskNeedSearch) {
+    renderTaskList(taskList);
+  }
+});
+
+// Hàm xóa thành viên
+let bodyModelElement = document.getElementById("bodyModel");
+const btnSaveEdit = document.querySelector("#saveListModel");
+const errorMemDel = document.querySelector("#errorMemberDel");
+bodyModelElement.addEventListener("click", (e) => {
+  // gọi ra target có chứa class /"btn-delete-member"/
+  if (e.target.classList.contains("btn-delete-member")) {
+    let deleteId = Number(e.target.id);
+    console.log(deleteId);
+    console.log(projectOpen);
+
+    const memberDelete = memberList.find((member) => member.id === deleteId);
+    console.log("memberList trc khi xóa", memberList);
+
+    console.log(memberDelete);
+    if (memberDelete.role === "projectOwner") {
+      errorMemDel.textContent = `Không thể xóa người phụ trách dự án`;
+    } else {
+      errorMemDel.textContent = "";
+      const indexMemberDel = memberList.findIndex(
+        (member) => member.id === deleteId
+      );
+      console.log("Vị trí cần xóa: ", indexMemberDel);
+      memberList.splice(indexMemberDel, 1);
+      showMember();
+      console.log("memberList sau khi xóa", memberList);
+    }
+  }
+  // Thay đổi role thành viên
+  if (e.target.classList.contains("roleOfMember")) {
+    let idToEdit = +e.target.id;
+    const memberEditIndex = memberList.findIndex(
+      (member) => member.id === idToEdit
+    );
+    btnSaveEdit.onclick = function () {
+      const inputNewRole = e.target.value;
+      console.log(inputNewRole);
+      memberList[memberEditIndex].role = inputNewRole;
+      localStorage.setItem("listProject", JSON.stringify(listProject));
+      document.querySelector("#modelListMember").style.display = "none";
+    };
+  }
+});
+
+// Sắp xếp
+const arrangeInputElement = document.querySelector("#arrangeInput");
+const arrangeChoice = document.querySelector("#arrangeTasks");
+console.log(arrangeChoice);
+arrangeChoice.addEventListener("change", function () {
+  console.log(arrangeChoice.value);
+  console.log("taskList trc sắp xếp: ", taskList);
+  if (arrangeChoice.value == 1) {
+    const arrangeDeadline = taskList.sort(
+      (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()
+    );
+    console.log("taskList sau sắp xếp: ", arrangeDeadline);
+    renderTaskList(arrangeDeadline);
+  } else if (arrangeChoice.value == 2) {
+    // Sắp xếp theo độ ưu tiên
+    const lowPriority = taskList.filter((task) => task.priority === "Thấp");
+    const midPriority = taskList.filter(
+      (task) => task.priority === "Trung Bình"
+    );
+    const highPriority = taskList.filter((task) => task.priority === "Cao");
+    let arrangePriority = lowPriority.concat(midPriority).concat(highPriority);
+    console.log(arrangePriority);
+    renderTaskList(arrangePriority);
+  } else {
+    window.location.reload();
+  }
+});

@@ -166,7 +166,7 @@ body {
 
 #arrangeTasks {
     height: 35px;
-    width: 9vw;
+    width: 10vw;
     padding: 5px 5px;
     border: 1px solid #DEE2E6;
     border-radius: 6px;
@@ -593,7 +593,7 @@ select {
 #deadlineError,
 #priorityError,
 #progressError {
-    color: red;
+    color: #DC3545;
     font-size: 12px;
 }
 
@@ -653,14 +653,14 @@ select {
 #errorMemberInfor {
     font-size: 12px;
     font-weight: 400;
-    color: red;
+    color: #DC3545;
 }
 
 #existedMemberName,
 #errorMemberEmail {
     font-size: 12px;
     font-weight: 400;
-    color: red;
+    color: #DC3545;
 }
 
 #footerFormAddMember {
@@ -737,9 +737,14 @@ select {
     padding: 10px 20px;
 }
 
-#inforMember #AvtMember img {
-    width: 40px;
-    height: 40px;
+#AvtMember {
+    border: 1px solid #dadada;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 }
 
 #inforCol {
@@ -772,20 +777,21 @@ select {
 
 #roleCol {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
 }
-
-#roleCol #roleOfMember {
+#roleCol input{
+    width: fit-content;
+    border: 1px solid #D0D5DD;
+    border-radius: 4px;
+}
+#roleCol .roleOfMember {
     font-size: 12px;
     font-weight: 400;
-    border: 1px solid #D0D5DD;
-    padding: 1px 6px;
+    padding: 5px;
     text-align: start;
 }
-
-
 #roleCol img {
     width: 14px;
     height: 17px;
@@ -797,7 +803,12 @@ select {
     justify-content: end;
     padding: 30px 24px 8px 0px;
 }
-
+#errorMemberDel{
+    font-size: 14px;
+    font-weight: 500;
+    color: #DC3545;
+    padding: 10px 15px;
+}
 
 /* Model xác nhận xóa nhiệm vụ */
 #modelDeleteTask {

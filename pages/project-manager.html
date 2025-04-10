@@ -14,7 +14,7 @@
         <div id="headerItem">
           <span id="titlePage">Quản lý dự án</span>
           <span id="navigation">
-            <a href="../pages/dashboard.html">Dự án</a>
+            <a id="openProjectList" href="../pages/dashboard.html">Dự án</a>
             <a id="myTaskText" href="">Nhiệm vụ của tôi</a>
             <a id="logOut" href="../pages/logIn.html">Đăng xuất</a>
           </span>
@@ -59,10 +59,13 @@
         <div id="actionWthProject">
           <button onclick="addTaskToProject()">+ Thêm nhiệm vụ</button>
           <div id="arrangeSearchTask">
-            <select name="arrange" id="arrangeTasks">
-              <option value="Hạn chót">Hạn chót</option>
-              <option value="Độ ưu tiên">Độ ưu tiên</option>
-            </select>
+            <form id="arrangeInput">
+              <select name="arrange" id="arrangeTasks">
+                <option value="0" checked>Sắp xếp theo</option>
+                <option value="1">Hạn chót</option>
+                <option value="2">Độ ưu tiên</option>
+              </select>
+            </form>
             <form id="searchPrjBox">
               <input
                 type="text"
@@ -248,6 +251,7 @@
           <div id="listMember">
             
           </div>
+          <span id="errorMemberDel"></span>
         </div>
         <div id="footerModel">
           <button id="cancelModel">Hủy</button>

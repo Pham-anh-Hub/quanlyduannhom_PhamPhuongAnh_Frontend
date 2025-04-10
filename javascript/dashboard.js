@@ -170,39 +170,44 @@ if (!userAccounts || alreadyLogIn === null) {
       document.querySelector("#prjDiscript").value =
         filterProject[index].discription;
       // Lấy giá trị và lưu lại khi nhấn nút SAVE
-      document.querySelector("#saveBtn").addEventListener("click", function () {
-        const getNewProjectName = document.querySelector("#prjName").value;
-        const getNewProjectDiscript =
-          document.querySelector("#prjDiscript").value;
-        if (!getNewProjectName || !getNewProjectDiscript) {
-          // Thông báo dữ liệu trống
-          document.querySelector("#errorInform").textContent =
-            "Dữ liệu không được để trống";
-          document.querySelector("#prjName").style.borderColor = "red";
-          document.querySelector("#prjDiscript").style.borderColor = "red";
-        } else {
-          document.querySelector("#errorInform").textContent = "";
-          document.querySelector("#prjName").style.borderColor = "#DEE2E6";
-          document.querySelector("#prjDiscript").style.borderColor = "#DEE2E6";
-          if (addEditStatus === "edit") {
-            // const checkExitedProject = listProject.filter(
-            //   (item) => item.projectName === getNewProjectName
-            // );
-            // if (checkExitedProject.length === 0) {
-            document.querySelector("#prjName").classList.remove("prjNameError");
-            document.querySelector("#existErrorInform").textContent = "";
+      document
+        .querySelector(".saveEditBtn")
+        .addEventListener("click", function () {
+          const getNewProjectName = document.querySelector("#prjName").value;
+          const getNewProjectDiscript =
+            document.querySelector("#prjDiscript").value;
+          if (!getNewProjectName || !getNewProjectDiscript) {
+            // Thông báo dữ liệu trống
+            document.querySelector("#errorInform").textContent =
+              "Dữ liệu không được để trống";
+            document.querySelector("#prjName").style.borderColor = "red";
+            document.querySelector("#prjDiscript").style.borderColor = "red";
+          } else {
+            document.querySelector("#errorInform").textContent = "";
             document.querySelector("#prjName").style.borderColor = "#DEE2E6";
-            // Nếu tên dự án nhập vào không trùng với dự án nào, gán mới
-            filterProject[index].projectName = getNewProjectName;
-            filterProject[index].discription = getNewProjectDiscript;
-            localStorage.setItem("listProject", JSON.stringify(listProject));
-            renderProjectList(filterProject);
-            // Đóng form
-            document.querySelector("#formAdd").style.display = "none";
-            addEditStatus = "add"; // Đặt lại trạng thái về add
+            document.querySelector("#prjDiscript").style.borderColor =
+              "#DEE2E6";
+            if (addEditStatus === "edit") {
+              // const checkExitedProject = listProject.filter(
+              //   (item) => item.projectName === getNewProjectName
+              // );
+              // if (checkExitedProject.length === 0) {
+              document
+                .querySelector("#prjName")
+                .classList.remove("prjNameError");
+              document.querySelector("#existErrorInform").textContent = "";
+              document.querySelector("#prjName").style.borderColor = "#DEE2E6";
+              // Nếu tên dự án nhập vào không trùng với dự án nào, gán mới
+              filterProject[index].projectName = getNewProjectName;
+              filterProject[index].discription = getNewProjectDiscript;
+              localStorage.setItem("listProject", JSON.stringify(listProject));
+              renderProjectList(filterProject);
+              // Đóng form
+              document.querySelector("#formAdd").style.display = "none";
+              addEditStatus = "add"; // Đặt lại trạng thái về add
+            }
           }
-        }
-      });
+        });
     }
 
     // Tạo hàm xóa dự án
@@ -215,7 +220,7 @@ if (!userAccounts || alreadyLogIn === null) {
       );
 
       document.querySelector("#confirmDeleteModel").style.display = "block";
-      confirmDelBtn.addEventListener("click", function () {
+      confirmDelBtn.onclick = function () {
         // Đã xác nhận --> tiến hành xóa
         console.log("Dự án cần xóa: ", filterProject[index]);
         const indexProjectToDelete = listProject.findIndex(
@@ -229,7 +234,7 @@ if (!userAccounts || alreadyLogIn === null) {
         localStorage.setItem("listProject", JSON.stringify(listProject));
         renderPage();
         document.querySelector("#confirmDeleteModel").style.display = "none";
-      });
+      };
       // hủy xóa
       cancelDelBtn.addEventListener("click", function () {
         document.querySelector("#confirmDeleteModel").style.display = "none";
@@ -265,16 +270,16 @@ if (!userAccounts || alreadyLogIn === null) {
           document.querySelector("#prjName").style.borderColor = "red";
           document.querySelector("#prjDiscript").style.borderColor = "red";
         } else {
-          resetFormAdd();
+          // resetFormAdd();
           // Dữ liệu đã đc fill --> check xem tồn tại chưa
           const checkExitedProject = filterProject.filter(
             (item) => item.projectName === addProjectNameValue
           );
+          if (addEditStatus === "add") {
+            if (checkExitedProject.length === 0) {
+              // Chưa tồn tại
+              // Kiểm tra nếu trạng thái là add thì --> thêm mới
 
-          if (checkExitedProject.length === 0) {
-            // Chưa tồn tại
-            // Kiểm tra nếu trạng thái là add thì --> thêm mới
-            if (addEditStatus === "add") {
               document.querySelector("#existErrorInform").textContent = "";
               document.querySelector("#prjName").style.borderColor = "#DEE2E6";
               // Lọc ra các dự án mà người đang đăng nhập tạo ra
@@ -315,6 +320,7 @@ if (!userAccounts || alreadyLogIn === null) {
                 JSON.stringify(userAccounts)
               );
               document.querySelector("#formAdd").style.display = "none";
+              resetFormAdd();
             } else {
               // Tên dự án đã tồn tại
               document.querySelector("#existErrorInform").textContent =
