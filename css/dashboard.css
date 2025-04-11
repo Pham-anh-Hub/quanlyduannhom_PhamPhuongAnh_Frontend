@@ -20,8 +20,6 @@
     background-color: #000000;
     color: white;
     width: 100%;
-
-
 }
 
 #headerItem {
@@ -51,11 +49,9 @@
     font-weight: 400;
     font-size: 16px;
 }
-
-#navigation #myTaskText {
+#navigation #openProjectList{
     color: #FFFFFF8C;
 }
-
 
 #bodyPage {
     width: 100%;
@@ -80,7 +76,7 @@
     padding: 0px 20px 20px 20px;
     margin: 0px 33vw;
     margin-top: 20px;
-    margin-bottom: 150px;
+    margin-bottom: 160px;
     border: 1px solid #dadada;
     border-radius: 6px;
     background-color: #FFFFFF;
@@ -259,6 +255,7 @@
     border: 1px solid #a9acae;
     color: #DEE2E6;
     opacity: 0.5;
+    cursor:not-allowed;
 }
 
 #PrevBtn {
@@ -281,7 +278,7 @@
     border: 1px solid #DEE2E6;
     color: #DEE2E6;
     opacity: 0.5;
-
+    cursor: no-drop;
 }
 
 #NextBtn {
@@ -384,7 +381,7 @@
     transform: translateY(-1px);
 }
 
-/* Phần nhận vào thông tin */
+/* Phần nhận vào thông tin thêm mới dự án */
 #bodyForm {
     display: flex;
     flex-direction: column;
@@ -402,7 +399,10 @@
     padding: 10px;
     font-size: 16px;
     font-weight: 400;
-
+}
+#bodyForm #prjName:focus{
+    outline: none;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 
@@ -419,6 +419,10 @@
     padding: 2px 5px;
     font-family: "Roboto", sans-serif;
 }
+#bodyForm textarea:focus{
+    outline: none;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
 
 .prjErrorName {
     border-color: red;
@@ -426,6 +430,12 @@
 
 .errorTextarea {
     border-color: red;
+}
+#errorSearch{
+    color: #6C757D;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 #existErrorInform,
@@ -472,7 +482,6 @@
 #saveBtn:hover {
     background-color: #4d94fe;
 }
-
 
 
 /* Form model xóa dự án */

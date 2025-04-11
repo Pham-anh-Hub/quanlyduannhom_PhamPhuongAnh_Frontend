@@ -4,17 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .modal-wrapper {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.5s, visibility 0s 0.5s;
+      }
+      .modal-wrapper.show {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.5s;
+      }
+    </style>
   </head>
   <body>
-    <h1 id="h1">
-      Dự án nhằm phát triển một nền tảng thương mại điện tử với các tính năng
-      như giỏ hàng, thanh toán và quản lý sản phẩm
-    </h1>
-    <input type="text" placeholder="" name="" id="" />
-    <span id="AvtMember"><img src="../icons/member1.png" /></span>
+    <div class="modal-wrapper">
+      <div class="modal">
+        <p>Đây là nội dung của modal!</p>
+        <button class="close-modal-btn">Đóng</button>
+      </div>
+    </div>
+    <button class="open-modal-btn">Mở Modal</button>
   </body>
   <script>
-    const text = document.querySelector("#h1").textContent;
-    console.log(text.length);
+    const modalWrapper = document.querySelector(".modal-wrapper");
+    document.querySelector(".open-modal-btn").addEventListener("click", () => {
+      modalWrapper.style.visibility = "visible";
+      modalWrapper.style.opacity = 0;
+      requestAnimationFrame(() => {
+        modalWrapper.style.transition = "opacity 0.5s ease";
+        modalWrapper.style.opacity = 1;
+      });
+    });
+
+    document.querySelector(".close-modal-btn").addEventListener("click", () => {
+      modalWrapper.style.opacity = 0;
+      modalWrapper.addEventListener(
+        "transitionend",
+        () => {
+          modalWrapper.style.visibility = "hidden";
+        },
+        { once: true }
+      );
+    });
   </script>
 </html>

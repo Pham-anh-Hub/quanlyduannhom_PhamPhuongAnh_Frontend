@@ -1,28 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 #container{
     background-color: #F8F9FA;
-    height: 100vh;
-}
-
-#navigation #mainProjectPage {
-    color: #FFFFFF8C;
-
+    height: fit-content;
+    position: relative;
 }
 
 #navigation #myTaskText {
+    color: #FFFFFF8C; 
+}
+
+#navigation #mainProjectPage {
     color: #FFFFFF;
 }
 
 #bodyPage {
     width: 75vw;
     margin: 10px auto;
-    
+    height: calc(100% - 50px) ;  
+    padding-bottom: 10px;  
     
 }
 
 #bodyPage #titleBodyPage {
     font-weight: 500;
     font-size: 24px;
-    margin-top: 24px;
+    margin: 24px 0px ;
+
+}
+#userRender{
+    margin-top: 30px;
+    font-size: 18px;
+    color: #2a4ebc;
+}
+#userRenderName{
+    font-size: 18px;
+    color: #0D6EFD;
 }
 
 #bodyPage #renderAndSearch {
@@ -55,8 +71,16 @@
     padding: 17px;
     border: 1px solid #DFE0E1;
     border-radius: 6px;
+    margin-bottom: 70px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-
+#bodyPage #listTaskManager #projectTitle{
+    height: 48px;
+    border: 1px solid #DFE0E1;
+    line-height: 48px;
+    padding-left: 5px;
+    cursor: pointer;
+}
 #bodyPage #listTaskManager #titleList {
     font-weight: 500;
     font-size: 20px;
@@ -70,9 +94,7 @@
     border: 1px solid #DFE0E1;
     height: 8vh;
     width: 100%;
-    background-color: #F8F9FA;
-    
-    
+    background-color: #F8F9FA; 
 }
 #bodyPage #listTaskManager #tableTask #tableHeadTask div{
     border-right: 1px solid #DFE0E1;
@@ -83,10 +105,14 @@
 }
 #tableTask #tableHeadTask #taskName {
     flex: 2.5;
-    text-align: center;
-    
-    
+    text-align: center;   
 }
+
+#accorditionItem{
+    font-weight: 800;
+    font-size: 15px;
+}
+
 
 #tableTask #tableHeadTask #taskPriority,
 #taskStatus,
@@ -98,15 +124,8 @@
     border-right: 1px solid #DFE0E1;
 }
 #tableTask #accorditionItem img {
-    width: 11px;
+    width: 12px;
     height: 12px;
-}
-
-#tableTask #firstProjectPart #firstProjectTitle {
-    border-bottom: 1px solid #DFE0E1;
-    height: 7vh;
-    line-height: 7vh;
-    padding-left: 10px;
 }
 
 #tableTask #firstProjectContent {
@@ -115,15 +134,14 @@
     height: 48px;
     line-height: 48px;
     border-bottom: 1px solid #DFE0E1;
-
 }
 
-
-
 #tableTask #firstProjectContent #prjTaskName {
-    flex: 2.4;
+    flex: 2.381;
     border-right: 1px solid #DFE0E1;
     margin-left: 15px;
+    font-size: 15px;
+    font-weight: 400px;
 }
 
 #tableTask #firstProjectContent #prjTaskPriority,
@@ -134,10 +152,170 @@
     flex: 1;
     border-right: 1px solid #DFE0E1;
     text-align: center;
-
+}
+#prjTaskStatus {
+    font-size: 16px;
+}
+#taskAssignDate,
+#taskDeadline{
+    color: #0D6EFD;
+    font-size: 17px;
+}
+#prjTaskPriority .midPriority{
+    font-size: 12px;
+    font-weight: 800;
+    color: #FFFFFF;
+    border: 1px solid #FFA500;
+    background-color: #FFA500;
+    padding: 2px 10px;
+    border-radius: 6px;
+}
+#prjTaskPriority .highPriority{
+    font-size: 12px;
+    font-weight: 800;
+    color: #FFFFFF;
+    border: 1px solid #DC3545;
+    background-color: #DC3545;
+    padding: 2px 10px;
+    border-radius: 6px;
+}
+#prjTaskPriority .lowPriority{
+    font-size: 12px;
+    font-weight: 800;
+    color: #FFFFFF;
+    border: 1px solid #0DCAF0;
+    background-color: #0DCAF0;
+    padding: 2px 10px;
+    border-radius: 6px;
 }
 
 #tableTask #firstProjectContent #prjTaskStatus img {
     width: 15px;
     height: 15px;
+}
+#tableTask #firstProjectContent #prjtaskProgress .on-schedule {
+    background-color: #198754;
+    font-weight: 800;
+    font-size: 11px;
+    color: #FFFFFF;
+    padding: 2px 10px;
+    border-radius: 6px;
+}
+
+#tableTask #firstProjectContent #prjtaskProgress .risk-schedule {
+    background-color: #FFA500;
+    font-weight: 800;
+    font-size: 11px;
+    color: #FFFFFF;
+    padding: 2px 10px;
+    border-radius: 6px;
+}
+
+#tableTask #firstProjectContent #prjtaskProgress .off-schedule {
+    background-color: #DC3545;
+    font-weight: 800;
+    font-size: 11px;
+    color: #FFFFFF;
+    padding: 2px 10px;
+    border-radius: 6px;
+}
+
+#editStatusIcon{
+    cursor: pointer;
+}
+#editStatusIcon:hover{
+
+    transform: translateY(-1px);
+}
+
+/* model sửa trạng thái */
+#modelEditStatus{
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    inset: 0;
+    display: none;
+}
+#modelOverlay{
+    position: fixed;
+    inset: 0;
+    background-color: #000000;
+    opacity: 0.5;
+}
+
+#modelContent{
+    position: absolute;
+    background-color: #FFFFFF;
+    opacity: 1px;
+    width: 32vw;
+    height: fit-content;
+    border: 1px solid #DEE2E6;
+    border-radius: 8px;
+    margin: 15px auto;
+    inset: 0;
+}
+#headModel {
+    border-bottom: 1px solid #DEE2E6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+#headModel #titleModel{
+    font-size: 23px;
+    font-weight: 500;
+}
+#headModel #exitModel img{
+    margin-right: 5px;
+    width: 14px;
+    height: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+#headModel #exitModel:hover{
+    transform: translateY(-1px);
+}
+#bodyModel{
+    padding: 22px 22px 37px 14px;
+    font-weight: 400;
+    font-size: 16px;
+    border-bottom: 1px solid #DEE2E6;
+}
+#footModel{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: end;
+    padding: 30px 20px 10px 0px;
+}
+
+#btnCancel {
+    padding: 10px 18px;
+    border: 1px solid #D0D5DD;
+    border-radius: 8px;
+    background-color: #6C757D;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#btnCancel:hover {
+    background-color: #8b9196;
+    transform: translateY(-1px);
+}
+
+#btnConfirm {
+    padding: 10px 18px;
+    border: 1px solid #0D6EFD;
+    border-radius: 8px;
+    background-color: #0D6EFD;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#btnConfirm:hover {
+    background-color: #0D6EFD;
+    transform: translateY(-1px);
 }

@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+#headerItem #myTaskText{
+    color: #FFFFFF8C; 
+}
+
 body {
     background-color: #F8F9FA;
 }
@@ -22,6 +26,7 @@ body {
 
 }
 
+
 /* Khối quản lý bên trái */
 #leftManageBlock {
     width: 32vw;
@@ -37,6 +42,7 @@ body {
 }
 
 #discriptProject {
+    width: 32vw;
     font-weight: 400;
     font-size: 14px;
 }
@@ -186,10 +192,7 @@ body {
     font-weight: 800;
     font-size: 14px;
     background-color: #F8F9FA;
-
-
 }
-
 
 #task-name {
     width: 40%;
@@ -234,9 +237,6 @@ body {
 #todoListPart #TodoListTitle {
     height: 48px;
     border: 1px solid #DFE0E1;
-}
-
-#todoListPart #TodoListTitle {
     line-height: 48px;
     padding-left: 5px;
     cursor: pointer;
@@ -500,6 +500,12 @@ select {
     margin-bottom: 10px;
 }
 
+#bodyFormAddEdit input:focus,
+select:focus{
+    outline: none;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
 #footerFormAddEdit {
     display: flex;
     justify-content: end;
@@ -616,9 +622,11 @@ select {
     border-radius: 6px;
     margin-bottom: 10px;
     padding: 10px;
-
 }
-
+#bodyFormAddMember input:focus{
+    outline: none;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
 #errorMemberInfor {
     font-size: 12px;
     font-weight: 400;
@@ -778,7 +786,6 @@ select {
 }
 #errorMemberDel{
     font-size: 14px;
-    font-weight: 500;
     color: #DC3545;
     padding: 10px 15px;
 }

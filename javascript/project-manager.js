@@ -104,7 +104,7 @@ function renderTaskList(array) {
   for (let i = 0; i < todoTaskList.length; i++) {
     document.querySelector("#todoListContent").innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần todoList  -->
       <div id="taskName">${todoTaskList[i].taskName}</div>
-      <div id="projectMember">${todoTaskList[i].assignee}</div>
+      <div id="projectMember">${todoTaskList[i].assignee.fullName}</div>
       <div id="Priority"><span id=${todoTaskList[i].priority === "Thấp" ? "lowPriority" : todoTaskList[i].priority === "Cao" ? "highPriority" : "mediumPriority"}>${todoTaskList[i].priority}</span></div>
       <div id="startDate">${todoTaskList[i].assignDate.split("-")[1]} - ${todoTaskList[i].assignDate.split("-")[2]}</div>
       <div id="deadLine">${todoTaskList[i].dueDate.split("-")[1]} - ${todoTaskList[i].dueDate.split("-")[2]}</div>
@@ -120,7 +120,7 @@ function renderTaskList(array) {
   for (let i = 0; i < inprogressTaskList.length; i++) {
     document.querySelector("#inProgressListContent").innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần inprogressTask  -->
                       <div id="taskName">${inprogressTaskList[i].taskName}</div>
-                      <div id="projectMember">${inprogressTaskList[i].assignee}</div>
+                      <div id="projectMember">${inprogressTaskList[i].assignee.fullName}</div>
                       <div id="Priority"><span id=${inprogressTaskList[i].priority === "Thấp" ? "lowPriority" : inprogressTaskList[i].priority === "Cao" ? "highPriority" : "mediumPriority"}>${inprogressTaskList[i].priority}</span></div>
                       <div id="startDate">${inprogressTaskList[i].assignDate.split("-")[1]} - ${inprogressTaskList[i].assignDate.split("-")[2]}</div>
                       <div id="deadLine">${inprogressTaskList[i].dueDate.split("-")[1]} - ${inprogressTaskList[i].dueDate.split("-")[2]}</div>
@@ -136,7 +136,7 @@ function renderTaskList(array) {
   for (let i = 0; i < pendingTaskList.length; i++) {
     document.querySelector("#pendingListContent").innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần pendingTask  -->
       <div id="taskName">${pendingTaskList[i].taskName}</div>
-      <div id="projectMember">${pendingTaskList[i].assignee}</div>
+      <div id="projectMember">${pendingTaskList[i].assignee.fullName}</div>
       <div id="Priority"><span id=${pendingTaskList[i].priority === "Thấp" ? "lowPriority" : pendingTaskList[i].priority === "Cao" ? "highPriority" : "mediumPriority"}>${pendingTaskList[i].priority}</span></div>
       <div id="startDate">${pendingTaskList[i].assignDate.split("-")[1]} - ${pendingTaskList[i].assignDate.split("-")[2]}</div>
       <div id="deadLine">${pendingTaskList[i].dueDate.split("-")[1]} - ${pendingTaskList[i].dueDate.split("-")[2]}</div>
@@ -152,7 +152,7 @@ function renderTaskList(array) {
   for (let i = 0; i < doneTaskList.length; i++) {
     document.querySelector("#doneListContent").innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần doneTask  -->
                                     <div id="taskName">${doneTaskList[i].taskName}</div>
-                                    <div id="projectMember">${doneTaskList[i].assignee}</div>
+                                    <div id="projectMember">${doneTaskList[i].assignee.fullName}</div>
                                     <div id="Priority"><span id=${doneTaskList[i].priority === "Thấp" ? "lowPriority" : doneTaskList[i].priority === "Cao" ? "highPriority" : "mediumPriority"}>${doneTaskList[i].priority}</span></div>
                                     <div id="startDate">${doneTaskList[i].assignDate.split("-")[1]} - ${doneTaskList[i].assignDate.split("-")[2]}</div>
                                     <div id="deadLine">${doneTaskList[i].dueDate.split("-")[1]} - ${doneTaskList[i].dueDate.split("-")[2]}</div>
@@ -174,7 +174,8 @@ function getAndValidateFormAddInput() {
   // Lấy input vào //
   let taskAssigneeInput;
   document.querySelector("#assigneeInput").addEventListener("change", function () {
-    taskAssigneeInput = document.querySelector("#assigneeInput").value.trim();
+    const assigneeId = document.querySelector("#assigneeInput").value;
+    taskAssigneeInput = memberList.find((member) => member.id == assigneeId);
   }); // Lấy ra người phụ trách
   let taskStatusInput;
   document.querySelector("#taskStatus").addEventListener("change", function () {
@@ -203,6 +204,8 @@ function getAndValidateFormAddInput() {
     // Lấy ngày hiện tại
     const currentDay = new Date().getTime();
     console.log("currentDay: ", currentDay);
+    console.log(taskAssigneeInput);
+
 
     // Đã lấy ra được ngày hiện tại
     // Validate lần lượt mỗi input
@@ -352,7 +355,7 @@ function renderMemberListForm() {
     // console.log(memberList[i].userLoging.fullName);
     document.querySelector(
       "#assigneeInput"
-    ).innerHTML += `<option value="${memberList[i].fullName}">${memberList[i].fullName}</option>`;
+    ).innerHTML += `<option value="${memberList[i].id}">${memberList[i].fullName}</option>`;
   }
 }
 
@@ -567,7 +570,6 @@ function resetModelMember() {
   document.querySelector("#memberRoleInput").style.borderColor = "#D0D5DD";
 }
 
-// reset form add task
 // Reset form add nhiệm vụ
 function resetFormAddValue() {
   document.querySelector("#taskNameInput").value = "";
@@ -597,6 +599,7 @@ function resetFormAdd() {
   document.querySelector(".progress").style.borderColor = "#D0D5DD";
 }
 
+// Tạo màu trạng thái của thành viên
 function randomBgColor() {
   const rColor = +Math.round(Math.random() * 255);
   const gColor = +Math.round(Math.random() * 255);
@@ -636,12 +639,10 @@ function showMember() {
     document.querySelector("#modelListMember").style.display = "none";
     errorMemDel.textContent = "";
   });
-  document
-    .querySelector("#iconExitModelList")
-    .addEventListener("click", function () {
-      document.querySelector("#modelListMember").style.display = "none";
-      errorMemDel.textContent = "";
-    });
+  document.querySelector("#iconExitModelList").addEventListener("click", function () {
+    document.querySelector("#modelListMember").style.display = "none";
+    errorMemDel.textContent = "";
+  });
 }
 // Hàm edit task
 let taskIndexToEdit = null;
@@ -656,8 +657,10 @@ function editTask(id) {
   renderMemberListForm();
 
   const task = taskList[taskIndexToEdit];
+  console.log(task.assignee);
+
   document.querySelector("#taskNameInput").value = task.taskName;
-  document.querySelector("#assigneeInput").value = task.assignee;
+  document.querySelector("#assigneeInput").value = (task.assignee).fullName;
   document.querySelector("#taskStatus").value = task.taskStatus;
   document.querySelector(".assignDate").value = task.assignDate;
   document.querySelector(".deadline").value = task.dueDate;
@@ -668,7 +671,9 @@ function editTask(id) {
   document.querySelector(".saveAddEditBtn").onclick = function () {
     if (addEditStatus === "edit" && taskIndexToEdit !== null) {
       const tempTaskname = document.querySelector("#taskNameInput").value;
-      const tempAssignee = document.querySelector("#assigneeInput").value;
+      const tempAssigneeId = memberList.find((member) => member.id == document.querySelector("#assigneeInput").value);
+      console.log(tempAssigneeId);
+
       const tempStatus = document.querySelector("#taskStatus").value;
       const tempAssignDate = new Date(document.querySelector("#assignDate").value);
       const tempDueDate = new Date(document.querySelector(".deadline").value);
@@ -696,7 +701,7 @@ function editTask(id) {
         }
       }
       // 2. người phụ trách
-      if (!tempAssignee) {
+      if (!tempAssigneeId) {
         // Thông báo: người phụ trách không được để trống
         document.querySelector("#assigneeError").textContent = "Người phụ trách không được để trống";
         document.querySelector("#assigneeInput").style.borderColor = "red";
@@ -777,7 +782,10 @@ function editTask(id) {
         const task = taskList[taskIndexToEdit];
         // validate dữ liệu nhận vào khi edit
         task.taskName = document.querySelector("#taskNameInput").value;
-        task.assignee = document.querySelector("#assigneeInput").value;
+        const newTaskId = document.querySelector("#assigneeInput").value
+        task.assignee = memberList.find((member) => member.id == newTaskId);
+        console.log(task.assignee);
+
         task.taskStatus = document.querySelector("#taskStatus").value;
         task.assignDate = document.querySelector("#assignDate").value;
         task.dueDate = document.querySelector(".deadline").value;
@@ -847,18 +855,21 @@ bodyModelElement.addEventListener("click", (e) => {
     const memberEditIndex = memberList.findIndex(
       (member) => member.id === idToEdit
     );
-    console.log(memberEditIndex);
+    if (memberList[memberEditIndex].role === "projectOwner") {
+      e.target.setAttribute("disabled", true);
+      document.querySelector("#errorMemberDel").textContent = `Không thể sửa vai trò của Project Owner`;
+    } else {
+      document.querySelector("#errorMemberDel").textContent = ``;
+      btnSaveEdit.addEventListener("click", function () {
+        let inputNewRole = e.target.value;
+        console.log(inputNewRole);
+        memberList[memberEditIndex].role = inputNewRole;
+        localStorage.setItem("listProject", JSON.stringify(listProject));
+        document.querySelector("#modelListMember").style.display = "none";
+        inputNewRole = "";
+      });
 
-    btnSaveEdit.addEventListener("click", function () {
-      console.log(e.target.value);
-
-      let inputNewRole = e.target.value;
-      console.log(inputNewRole);
-      memberList[memberEditIndex].role = inputNewRole;
-      localStorage.setItem("listProject", JSON.stringify(listProject));
-      document.querySelector("#modelListMember").style.display = "none";
-      inputNewRole = "";
-    });
+    }
   }
 });
 

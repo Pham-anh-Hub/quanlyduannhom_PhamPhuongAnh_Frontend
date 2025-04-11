@@ -37,16 +37,12 @@ if (!userAccounts || !alreadyLogIn) {
         return 1;
       }
     }
-
-    if (inputUserNameValue) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (inputUserNameValue.split(" ").length >= 2) {
       // tên người dùng hợp lệ --> xét đến email
       if (validateEmail(inputUserEmailValue)) {
         errorRegister.textContent = "";
-        if (
-          inputUserEmailValue.includes("@") &&
-          (inputUserEmailValue.endsWith(".com") ||
-            inputUserEmailValue.endsWith(".vn"))
-        ) {
+        if (emailRegex.test(inputUserEmailValue)) {
           // Email hợp lệ
           //email hợp lệ --> xét đến mật khẩu
           if (inputUserPassValue.length >= 8 && inputUserPassValue !== "") {
@@ -91,7 +87,7 @@ if (!userAccounts || !alreadyLogIn) {
         errorRegister.textContent = `Email đã tồn tại`;
       }
     } else {
-      errorRegister.textContent = `Họ và tên không được để trống `;
+      errorRegister.textContent = `Vui lòng nhập họ và tên hợp lệ`;
     }
   }
 

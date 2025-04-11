@@ -21,6 +21,10 @@
       </div>
       <div id="bodyPage">
         <span id="titleBodyPage">Quản lí nhiệm vụ</span>
+        <br />
+        <span id="userRender"
+          >Nguời dùng: <span id="userRenderName"></span
+        ></span>
         <div id="renderAndSearch">
           <select id="renderTask">
             <option value="0" selected>Sắp xếp theo</option>
@@ -46,56 +50,7 @@
             </div>
             <div id="tableBodyTask">
               <div id="firstProjectPart">
-                <!-- <div id="firstProjectTitle">
-                  <span id="accorditionItem"
-                    ><img src="../icons/accorditionVecto.png" /> Xây dựng dự án
-                    thương mại điện tử</span
-                  > -->
-                <!-- </div>
-                <div id="firstProjectContent">
-                  <div id="prjTaskName">Soạn thảo đề cương dự án</div>
-                  <div id="prjTaskPriority"><span>Thấp</span></div>
-                  <div id="prjTaskStatus">
-                    In Progress
-                    <span><img src="../icons/progressIcon.png" /></span>
-                  </div>
-                  <div id="taskAssignDate">02 - 24</div>
-                  <div id="taskDeadline">02 - 27</div>
-                  <div id="prjtaskProgress"><span>Đúng tiến độ</span></div>
-                </div>
-                <div id="firstProjectContent">
-                  <div id="prjTaskName">Soạn thảo đề cương dự án</div>
-                  <div id="prjTaskPriority"><span>Thấp</span></div>
-                  <div id="prjTaskStatus">
-                    In Progress
-                    <span><img src="../icons/progressIcon.png" /></span>
-                  </div>
-                  <div id="taskAssignDate">02 - 24</div>
-                  <div id="taskDeadline">02 - 27</div>
-                  <div id="prjtaskProgress"><span>Đúng tiến độ</span></div>
-                </div>
-                <div id="firstProjectContent">
-                  <div id="prjTaskName">Soạn thảo đề cương dự án</div>
-                  <div id="prjTaskPriority"><span>Thấp</span></div>
-                  <div id="prjTaskStatus">
-                    In Progress
-                    <span><img src="../icons/progressIcon.png" /></span>
-                  </div>
-                  <div id="taskAssignDate">02 - 24</div>
-                  <div id="taskDeadline">02 - 27</div>
-                  <div id="prjtaskProgress"><span>Đúng tiến độ</span></div>
-                </div>
-                <div id="firstProjectContent">
-                  <div id="prjTaskName">Soạn thảo đề cương dự án</div>
-                  <div id="prjTaskPriority"><span>Thấp</span></div>
-                  <div id="prjTaskStatus">
-                    In Progress
-                    <span><img src="../icons/progressIcon.png" /></span>
-                  </div>
-                  <div id="taskAssignDate">02 - 24</div>
-                  <div id="taskDeadline">02 - 27</div>
-                  <div id="prjtaskProgress"><span>Đúng tiến độ</span></div>
-                </div> -->
+                <!--  -->
               </div>
             </div>
           </div>
@@ -107,5 +62,22 @@
         </div>
       </div>
     </div>
+    <div id="modelEditStatus">
+      <div id="modelOverlay"></div>
+      <div id="modelContent">
+        <div id="headModel">
+          <span id="titleModel">Cập nhật trạng thái</span>
+          <span id="exitModel"><img src="../icons/exitIcon.png" /></span>
+        </div>
+        <div id="bodyModel">
+          <span>Xác nhận cập nhật trạng thái nhiệm vụ</span>
+        </div>
+        <div id="footModel">
+          <button id="btnCancel">Hủy</button>
+          <button id="btnConfirm">Xác nhận</button>
+        </div>
+      </div>
+    </div>
   </body>
+  <script src="../javascript/task-manager.js"></script>
 </html>
