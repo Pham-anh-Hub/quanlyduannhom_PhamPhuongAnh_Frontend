@@ -6,72 +6,46 @@ const listProject = JSON.parse(localStorage.getItem("listProject"));
 if (alreadyLogIn) {
   // Lấy ra project và vị trí đã chọn
   const taskIndex = window.location.href.split("?task=")[1];
-  console.log("Task Index: ", taskIndex);
+  ("Task Index: ", taskIndex);
   const projectOpen = listProject[taskIndex];
-  console.log("projectOpen: ", projectOpen);
+  ("projectOpen: ", projectOpen);
 
   //render list Task của project đã mở
   const taskList = listProject[taskIndex].tasks;
-  console.log("TaskList: ", taskList);
+  ("TaskList: ", taskList);
   // list Member
   const memberList = listProject[taskIndex].member;
-  console.log("memberList: ", memberList);
+  ("memberList: ", memberList);
 
   // tạo biến check trạng thái edit hay add
   let addEditStatus = "add";
 
   if (taskIndex !== undefined) {
     // Tạo Accordition cho mỗi list task
-    document
-      .querySelector("#TodoListTitle")
-      .addEventListener("click", function () {
-        console.log(document.querySelector("#todoListContent"));
-        document
-          .querySelector("#todoListContent")
-          .classList.toggle("todoTasks-hide");
-        document
-          .querySelector("#accorditionIcon1")
-          .classList.toggle("accorditionIconActive");
-      });
-    document
-      .querySelector("#inProgressListTitle")
-      .addEventListener("click", function () {
-        console.log(document.querySelector("#inProgressListContent"));
-        document
-          .querySelector("#inProgressListContent")
-          .classList.toggle("inprogressTasks-hide");
-        document
-          .querySelector("#accorditionIcon2")
-          .classList.toggle("accorditionIconActive");
-      });
-    document
-      .querySelector("#pendingListTitle")
-      .addEventListener("click", function () {
-        console.log(document.querySelector("#pendingListContent"));
-        document
-          .querySelector("#pendingListContent")
-          .classList.toggle("pendingTasks-hide");
-        document
-          .querySelector("#accorditionIcon3")
-          .classList.toggle("accorditionIconActive");
-      });
-    document
-      .querySelector("#doneListTitle")
-      .addEventListener("click", function () {
-        console.log(document.querySelector("#doneListContent"));
-        document
-          .querySelector("#doneListContent")
-          .classList.toggle("doneTask-hide");
-        document
-          .querySelector("#accorditionIcon4")
-          .classList.toggle("accorditionIconActive");
-      });
+    document.querySelector("#TodoListTitle").addEventListener("click", function () {
+      (document.querySelector("#todoListContent"));
+      document.querySelector("#todoListContent").classList.toggle("todoTasks-hide");
+      document.querySelector("#accorditionIcon1").classList.toggle("accorditionIconActive");
+    });
+    document.querySelector("#inProgressListTitle").addEventListener("click", function () {
+      (document.querySelector("#inProgressListContent"));
+      document.querySelector("#inProgressListContent").classList.toggle("inprogressTasks-hide");
+      document.querySelector("#accorditionIcon2").classList.toggle("accorditionIconActive");
+    });
+    document.querySelector("#pendingListTitle").addEventListener("click", function () {
+      console.log(document.querySelector("#pendingListContent"));
+      document.querySelector("#pendingListContent").classList.toggle("pendingTasks-hide");
+      document.querySelector("#accorditionIcon3").classList.toggle("accorditionIconActive");
+    });
+    document.querySelector("#doneListTitle").addEventListener("click", function () {
+      console.log(document.querySelector("#doneListContent"));
+      document.querySelector("#doneListContent").classList.toggle("doneTask-hide");
+      document.querySelector("#accorditionIcon4").classList.toggle("accorditionIconActive");
+    });
 
     // render ra tên và mô tả dự án
-    document.querySelector("#titleLeftBlock").textContent =
-      projectOpen.projectName;
-    document.querySelector("#discriptProject").textContent =
-      projectOpen.discription;
+    document.querySelector("#titleLeftBlock").textContent = projectOpen.projectName;
+    document.querySelector("#discriptProject").textContent = projectOpen.discription;
   }
 
   renderTaskList(taskList);
