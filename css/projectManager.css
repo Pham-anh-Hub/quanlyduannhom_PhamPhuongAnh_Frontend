@@ -1,563 +1,552 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-#headerItem #myTaskText{
-    color: #FFFFFF8C; 
+#headerItem #myTaskText {
+  color: #ffffff8c;
 }
 
 body {
-    background-color: #F8F9FA;
+  background-color: #f8f9fa;
 }
 
 #bodyPage {
-    /* border: 1px solid #dadada; */
-    width: 75vw;
-    margin: 0px auto;
-    background-color: #F8F9FA;
+  /* border: 1px solid #dadada; */
+  width: 75vw;
+  margin: 0px auto;
+  background-color: #f8f9fa;
 }
 
 #underHeaderContainer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2vh;
-
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
 }
-
 
 /* Khối quản lý bên trái */
 #leftManageBlock {
-    width: 32vw;
-    display: flex;
-    flex-direction: column;
-    gap: 3vh;
+  width: 32vw;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
 }
 
 #titleLeftBlock {
-    font-weight: 500;
-    font-size: 23px;
-
+  font-weight: 500;
+  font-size: 23px;
 }
 
 #discriptProject {
-    width: 32vw;
-    font-weight: 400;
-    font-size: 14px;
+  width: 32vw;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 /* Khối quản lý bên phải */
 #rightManageBlock {
-    display: flex;
-    flex-direction: column;
-    gap: 3vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3vh;
 }
 
 #buttonsRightBlock {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    align-items: center;
-    font-weight: 500;
-    font-size: 18px;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 #buttonsRightBlock button {
-    padding: 8px 12px;
-    font-weight: 400;
-    font-size: 13px;
-    color: #6C757D;
-    border: 1px solid #6C757D;
-    border-radius: 4px;
-    background-color: #F8F9FA;
-    cursor: pointer;
+  padding: 8px 12px;
+  font-weight: 400;
+  font-size: 13px;
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  cursor: pointer;
 }
 
 #buttonsRightBlock button:hover {
-    transform: scale(1.05);
-    transition: transform 0.1s linear;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transform: scale(1.05);
+  transition: transform 0.1s linear;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 #inforMemberBlock {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
 }
 
 #membersList {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 #showMoreBlock {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid #E2E3E5;
-    justify-self: end;
-    cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #e2e3e5;
+  justify-self: end;
+  cursor: pointer;
 }
 
 #showMoreBlock:hover {
-    /* background-color: #babec6; */
-    transform: scale(1.2);
-    transition: transform 0.1s linear;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  /* background-color: #babec6; */
+  transform: scale(1.2);
+  transition: transform 0.1s linear;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 /* Khối action với dự án: thêm sắp xếp, tìm kiếm  */
 #actionWthProject {
-    display: flex;
-    justify-content: space-between;
-    margin: 2vh 0vh;
+  display: flex;
+  justify-content: space-between;
+  margin: 2vh 0vh;
 }
 
 #actionWthProject button {
-    width: 10vw;
-    height: 35px;
-    border: 1px solid #0D6EFD;
-    background-color: #0D6EFD;
-    border-radius: 6px;
-    color: #FFFFFF;
-    cursor: pointer;
+  width: 10vw;
+  height: 35px;
+  border: 1px solid #0d6efd;
+  background-color: #0d6efd;
+  border-radius: 6px;
+  color: #ffffff;
+  cursor: pointer;
 }
 #actionWthProject button:hover {
-    transform: scale(1.05);
-    transition: transform 0.1s linear;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transform: scale(1.05);
+  transition: transform 0.1s linear;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-
 #arrangeSearchTask {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 #arrangeTasks {
-    height: 35px;
-    width: 10vw;
-    padding: 5px 5px;
-    border: 1px solid #DEE2E6;
-    border-radius: 6px;
-    background-color: #FFFFFF;
+  height: 35px;
+  width: 10vw;
+  padding: 5px 5px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background-color: #ffffff;
 }
 #arrangeTasks:focus {
-    outline: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #inputToSearch {
-    height: 35px;
-    width: 15vw;
-    padding: 5px 10px;
-    border: 1px solid #DEE2E6;
-    border-radius: 6px;
-    background-color: #FFFFFF;
+  height: 35px;
+  width: 15vw;
+  padding: 5px 10px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background-color: #ffffff;
 }
-#inputToSearch:focus{
-    outline: none;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+#inputToSearch:focus {
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /* giới hạn phần task list */
 #taskList {
-    width: 100%;
-    border: 1px solid #dadada;
-    margin-bottom: 60px;
-    padding: 10px;
-    background-color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-radius: 6px;
+  width: 100%;
+  border: 1px solid #dadada;
+  margin-bottom: 60px;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 6px;
 }
 
 #titleList {
-    font-weight: 500;
-    font-size: 19px;
+  font-weight: 500;
+  font-size: 19px;
 }
 
 #taskListTable {
-    width: 100%;
-    border: 1px solid #dadada;
-    border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #dadada;
+  border-collapse: collapse;
 }
 
 #taskListTable #thead {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 40px;
-    font-weight: 800;
-    font-size: 14px;
-    background-color: #F8F9FA;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 40px;
+  font-weight: 800;
+  font-size: 14px;
+  background-color: #f8f9fa;
 }
 
 #task-name {
-    width: 40%;
-    text-align: center;
-    /* padding: 8px 15px; */
-    line-height: 40px;
-    border: 1px solid #DFE0E1;
+  width: 40%;
+  text-align: center;
+  /* padding: 8px 15px; */
+  line-height: 40px;
+  border: 1px solid #dfe0e1;
 }
 
 #person {
-    width: 21%;
-    text-align: center;
-    /* padding: 8px 15px; */
-    line-height: 40px;
-    border: 1px solid #DFE0E1;
+  width: 21%;
+  text-align: center;
+  /* padding: 8px 15px; */
+  line-height: 40px;
+  border: 1px solid #dfe0e1;
 }
 
 #thead #priority,
 #thead #start-date,
 #thead #deadline,
 #thead #progress {
-    width: 15%;
-    text-align: center;
-    /* padding: 8px 15px; */
-    line-height: 40px;
-    border: 1px solid #DFE0E1;
+  width: 15%;
+  text-align: center;
+  /* padding: 8px 15px; */
+  line-height: 40px;
+  border: 1px solid #dfe0e1;
 }
 
 #actions {
-    width: 15%;
-    text-align: center;
-    /* padding: 8px 15px; */
-    line-height: 40px;
-    border: 1px solid #DFE0E1;
+  width: 15%;
+  text-align: center;
+  /* padding: 8px 15px; */
+  line-height: 40px;
+  border: 1px solid #dfe0e1;
 }
 
 #tbody {
-    border: 1px solid #DFE0E1;
+  border: 1px solid #dfe0e1;
 }
 
-
 #todoListPart #TodoListTitle {
-    height: 48px;
-    border: 1px solid #DFE0E1;
-    line-height: 48px;
-    padding-left: 5px;
-    cursor: pointer;
+  height: 48px;
+  border: 1px solid #dfe0e1;
+  line-height: 48px;
+  padding-left: 5px;
+  cursor: pointer;
 }
 
 #accorditionIcon1,
 #accorditionIcon2,
 #accorditionIcon3,
 #accorditionIcon4 {
-    width: 12px;
-    height: 11px;
-    rotate: -90 deg;
-
+  width: 12px;
+  height: 11px;
+  rotate: -90 deg;
 }
 
 /* Khi accordition thì tạo hiệu ứng */
 .accorditionIconActive {
-    transform: rotate(-90deg);
-    transition: transform 0.1s linear;
-
+  transform: rotate(-90deg);
+  transition: transform 0.1s linear;
 }
 
 #taskRow {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 #taskRow #taskName {
-    text-align: start;
-    padding: 0px 10px;
-    border: 1px solid #DFE0E1;
-    width: 33.5%;
-    height: 40px;
-    line-height: 40px;
+  text-align: start;
+  padding: 0px 10px;
+  border: 1px solid #dfe0e1;
+  width: 33.5%;
+  height: 40px;
+  line-height: 40px;
 }
 
 #projectMember {
-    text-align: center;
-    border: 1px solid #DFE0E1;
-    width: 17.4%;
-    height: 40px;
-    line-height: 40px;
+  text-align: center;
+  border: 1px solid #dfe0e1;
+  width: 17.4%;
+  height: 40px;
+  line-height: 40px;
 }
 
 #Priority,
 #startDate,
 #deadLine,
 #Progress {
-    text-align: center;
-    border: 1px solid #DFE0E1;
-    width: 12.6%;
-    height: 40px;
-    line-height: 40px;
+  text-align: center;
+  border: 1px solid #dfe0e1;
+  width: 12.6%;
+  height: 40px;
+  line-height: 40px;
 }
 
 #actionToTask {
-    text-align: center;
-    border: 1px solid #DFE0E1;
-    width: 12.6%;
-    height: 40px;
-    line-height: 40px;
-    cursor: pointer;
+  text-align: center;
+  border: 1px solid #dfe0e1;
+  width: 12.6%;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
 }
-#actionToTask button:hover{
-    transform: scale(1.05);
-    transition: transform 0.1s linear;
+#actionToTask button:hover {
+  transform: scale(1.05);
+  transition: transform 0.1s linear;
 }
 
 /* css chi tiết */
 #Priority #lowPriority {
-    font-size: 11px;
-    font-weight: 800;
-    color: #FFFFFF;
-    border: 1px solid #0DCAF0;
-    background-color: #0DCAF0;
-    padding: 2px 10px;
-    border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+  border: 1px solid #0dcaf0;
+  background-color: #0dcaf0;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
 
 #Priority #mediumPriority {
-    font-size: 11px;
-    font-weight: 800;
-    color: #FFFFFF;
-    border: 1px solid #FFA500;
-    background-color: #FFA500;
-    padding: 2px 10px;
-    border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+  border: 1px solid #ffa500;
+  background-color: #ffa500;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
 
 #Priority #highPriority {
-    font-size: 11px;
-    font-weight: 800;
-    color: #FFFFFF;
-    border: 1px solid #DC3545;
-    background-color: #DC3545;
-    padding: 2px 10px;
-    border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+  border: 1px solid #dc3545;
+  background-color: #dc3545;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
 
-
 #Progress #on-schedule {
-    background-color: #198754;
-    font-weight: 800;
-    font-size: 11px;
-    color: #FFFFFF;
-    padding: 2px 10px;
-    border-radius: 6px;
+  background-color: #198754;
+  font-weight: 800;
+  font-size: 11px;
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
 
 #Progress #risk-schedule {
-    background-color: #FFA500;
-    font-weight: 800;
-    font-size: 11px;
-    color: #FFFFFF;
-    padding: 2px 10px;
-    border-radius: 6px;
+  background-color: #ffa500;
+  font-weight: 800;
+  font-size: 11px;
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
 
 #Progress #off-schedule {
-    background-color: #DC3545;
-    font-weight: 800;
-    font-size: 11px;
-    color: #FFFFFF;
-    padding: 2px 10px;
-    border-radius: 6px;
+  background-color: #dc3545;
+  font-weight: 800;
+  font-size: 11px;
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
-
 
 /* class để ẩn danh sách task */
 .todoTasks-hide,
 .inprogressTasks-hide,
 .pendingTasks-hide,
 .doneTask-hide {
-    display: none;
-    /* overflow: hidden; */
+  display: none;
+  /* overflow: hidden; */
 }
 
 #startDate,
 #deadLine {
-    color: #0D6EFD;
-    font-size: 15px;
-    font-weight: 400;
+  color: #0d6efd;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 /* inProgress Tasks */
 #inProgressPart #inProgressListTitle {
-    height: 48px;
-    border: 1px solid #DFE0E1;
+  height: 48px;
+  border: 1px solid #dfe0e1;
 }
 
 #inProgressPart #inProgressListTitle {
-    line-height: 48px;
-    padding-left: 5px;
-    cursor: pointer;
+  line-height: 48px;
+  padding-left: 5px;
+  cursor: pointer;
 }
 
 /* Pending Tasks */
 #pendingPart #pendingListTitle {
-    height: 48px;
-    border: 1px solid #DFE0E1;
+  height: 48px;
+  border: 1px solid #dfe0e1;
 }
 
 #pendingPart #pendingListTitle {
-    line-height: 48px;
-    padding-left: 5px;
-    cursor: pointer;
+  line-height: 48px;
+  padding-left: 5px;
+  cursor: pointer;
 }
 
 /* Done Tasks */
 
 #donePart #doneListTitle {
-    height: 48px;
-    border: 1px solid #DFE0E1;
+  height: 48px;
+  border: 1px solid #dfe0e1;
 }
 
 #donePart #doneListTitle {
-    line-height: 48px;
-    padding-left: 5px;
-    cursor: pointer;
+  line-height: 48px;
+  padding-left: 5px;
+  cursor: pointer;
 }
 
 /* Nơi css form Thêm sửa */
 
 #formAddEdit {
-    font-family: "Roboto", sans-serif;
-    position: absolute;
-    inset: 0;
-    display: none;
-
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  inset: 0;
+  display: none;
 }
 
 #formAddEditOverlay {
-    position: fixed;
-    inset: 0;
-    background-color: #000000;
-    opacity: 0.5;
-
+  position: fixed;
+  inset: 0;
+  background-color: #000000;
+  opacity: 0.5;
 }
 
 #formContent {
-    position: absolute;
-    background-color: #FFFFFF;
-    opacity: 1px;
-    width: 32vw;
-    height: 95vh;
-    border: 1px solid #DEE2E6;
-    border-radius: 8px;
-    margin: 15px auto;
-    inset: 0;
+  position: absolute;
+  background-color: #ffffff;
+  opacity: 1px;
+  width: 32vw;
+  height: 95vh;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  margin: 15px auto;
+  inset: 0;
 }
 
 #headerFormAddEdit {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    border-bottom: 1px solid #DEE2E6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #dee2e6;
 }
 
 #titleFormAddEdit,
 #titleFormMember {
-    font-weight: 500;
-    font-size: 23px;
-    color: #212529;
+  font-weight: 500;
+  font-size: 23px;
+  color: #212529;
 }
 
 #iconExitFormAddEdit,
 #iconExitFormAddMember,
 #iconExitModelList {
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
 }
 
 #iconExitFormAddEdit:hover,
 #iconExitFormAddMember:hover,
 #iconExitModelList:hover {
-    transform: scale(1.2);
-    transition: transform 0.1s linear;
+  transform: scale(1.2);
+  transition: transform 0.1s linear;
 }
 
 #bodyFormAddEdit {
-    display: flex;
-    flex-direction: column;
-    height: 70%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    gap: 5px;
-    padding: 15px 20px;
-    border-bottom: 1px solid #DEE2E6;
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  gap: 5px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #dee2e6;
 }
 
 #bodyFormAddEdit input,
 select {
-    height: 44px;
-    border: 1px solid #D0D5DD;
-    border-radius: 6px;
-    padding: 10px;
-    font-size: 15px;
-    color: #101828;
-    margin-bottom: 10px;
+  height: 44px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 15px;
+  color: #101828;
+  margin-bottom: 10px;
 }
 
 #bodyFormAddEdit input:focus,
-select:focus{
-    outline: none;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+select:focus {
+  outline: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 #footerFormAddEdit {
-    display: flex;
-    justify-content: end;
-    gap: 20px;
-    padding: 15px 15px 5px 0px;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  padding: 15px 15px 5px 0px;
 }
 
 /* css nút bấm */
 #cancelAddEdit,
 #cancelAddMember,
 #cancelModel {
-    width: 55px;
-    height: 37px;
-    border: 1px solid #D0D5DD;
-    border-radius: 6px;
-    background-color: #6C757D;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
+  width: 55px;
+  height: 37px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  background-color: #6c757d;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 #cancelAddEdit:hover,
 #cancelAddMember:hover,
 #cancelModel:hover {
-    transition: all 0.2s linear;
-    transform: scale(1.05);
+  transition: all 0.2s linear;
+  transform: scale(1.05);
 }
 
 #saveAddEditBtn,
 #saveAddMembertBtn,
 #saveListModel {
-    width: 55px;
-    height: 37px;
-    border: 1px solid #0D6EFD;
-    border-radius: 6px;
-    background-color: #0D6EFD;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
+  width: 55px;
+  height: 37px;
+  border: 1px solid #0d6efd;
+  border-radius: 6px;
+  background-color: #0d6efd;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 #saveAddEditBtn:hover,
 #saveAddMembertBtn:hover,
 #saveListModel:hover {
-    transition: all 0.2s linear;
-    transform: scale(1.05);
+  transition: all 0.2s linear;
+  transform: scale(1.05);
 }
 
 /* nút bấm */
-
 
 /* Css dòng báo lỗi */
 #taskNameError,
@@ -568,316 +557,314 @@ select:focus{
 #deadlineError,
 #priorityError,
 #progressError {
-    color: #DC3545;
-    font-size: 12px;
+  color: #dc3545;
+  font-size: 12px;
 }
-
 
 /* CSS form thêm thành viên */
 #formAddMember {
-    font-family: "Roboto", sans-serif;
-    display: none;
+  font-family: "Roboto", sans-serif;
+  display: none;
 }
 
 #formAddMemberOverlay {
-    position: fixed;
-    inset: 0;
-    background-color: #000000;
-    opacity: 0.5;
+  position: fixed;
+  inset: 0;
+  background-color: #000000;
+  opacity: 0.5;
 }
 
 #formAddMemberContent {
-    position: absolute;
-    inset: 0;
-    background-color: #FFFFFF;
-    opacity: 1px;
-    width: 32vw;
-    height: fit-content;
-    border: 1px solid #DEE2E6;
-    border-radius: 8px;
-    margin: 15px auto;
-
+  position: absolute;
+  inset: 0;
+  background-color: #ffffff;
+  opacity: 1px;
+  width: 32vw;
+  height: fit-content;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  margin: 15px auto;
 }
 
 #headerFormAddMember {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 63px;
-    padding: 15px;
-    border-bottom: 1px solid #DEE2E6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 63px;
+  padding: 15px;
+  border-bottom: 1px solid #dee2e6;
 }
 
 #bodyFormAddMember {
-    display: flex;
-    flex-direction: column;
-    padding: 15px 24px;
-    gap: 5px;
-    border-bottom: 1px solid #DEE2E6;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 24px;
+  gap: 5px;
+  border-bottom: 1px solid #dee2e6;
 }
 
 #bodyFormAddMember input {
-    height: 40px;
-    border: 1px solid #DEE2E6;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    padding: 10px;
+  height: 40px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
-#bodyFormAddMember input:focus{
-    outline: none;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+#bodyFormAddMember input:focus {
+  outline: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 #errorMemberInfor {
-    font-size: 12px;
-    font-weight: 400;
-    color: #DC3545;
+  font-size: 12px;
+  font-weight: 400;
+  color: #dc3545;
 }
 
 #existedMemberName,
 #errorMemberEmail {
-    font-size: 12px;
-    font-weight: 400;
-    color: #DC3545;
+  font-size: 12px;
+  font-weight: 400;
+  color: #dc3545;
 }
 
 #footerFormAddMember {
-    display: flex;
-    gap: 10px;
-    justify-content: end;
-    padding: 30px 24px 8px 0px;
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+  padding: 30px 24px 8px 0px;
 }
 
 /* CSS model danh sách thành viên */
 #modelListMember {
-    font-family: "Roboto", sans-serif;
-    display: none;
+  font-family: "Roboto", sans-serif;
+  display: none;
 }
 
 #modelListOverlay {
-    position: fixed;
-    height: 100vh;
-    inset: 0;
-    background-color: #000000;
-    opacity: 0.5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: fixed;
+  height: 100vh;
+  inset: 0;
+  background-color: #000000;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #modelListContent {
-    position: absolute;
-    inset: 0;
-    width: 35vw;
-    height: fit-content;
-    background-color: #FFFFFF;
-    margin: 20px auto;
-    border-radius: 6px;
-    padding: 10px;
+  position: absolute;
+  inset: 0;
+  width: 35vw;
+  height: fit-content;
+  background-color: #ffffff;
+  margin: 20px auto;
+  border-radius: 6px;
+  padding: 10px;
 }
 
 #headerModel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #DEE2E6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #dee2e6;
 }
 
 #headerModel #headerModelTitle {
-    font-size: 25px;
-    font-weight: 400;
+  font-size: 25px;
+  font-weight: 400;
 }
 
 #bodyModel {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #DEE2E6;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #dee2e6;
 }
 
 #bodyModel #titleItem {
-    display: flex;
-    justify-content: space-around;
-    font-size: 20px;
-    font-weight: 400;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 20px;
 }
 
 #listMember {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #inforMember {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
 }
 
 #AvtMember {
-    border: 1px solid #dadada;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
+  border: 1px solid #dadada;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
 
 #inforCol {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    gap: 10px;
-
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 #NameAndEmail {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
 }
 
 #NameAndEmail #NameMember {
-    font-weight: 400;
-    font-size: 16px;
-    color: #212529;
+  font-weight: 400;
+  font-size: 16px;
+  color: #212529;
 }
 
 #NameAndEmail #EmailMember {
-    font-weight: 400;
-    font-size: 14px;
-    color: #212529BF;
+  font-weight: 400;
+  font-size: 14px;
+  color: #212529bf;
 }
 
 #roleCol {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
-#roleCol input{
-    width: fit-content;
-    border: 1px solid #D0D5DD;
-    border-radius: 4px;
+#roleCol input {
+  width: fit-content;
+  border: 1px solid #d0d5dd;
+  border-radius: 4px;
 }
-#roleCol input:focus{
-    outline: none;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+#roleCol input:focus {
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 #roleCol .roleOfMember {
-    font-size: 12px;
-    font-weight: 400;
-    padding: 5px;
-    text-align: start;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 5px;
+  text-align: start;
 }
 #roleCol img {
-    width: 14px;
-    height: 17px;
+  width: 14px;
+  height: 17px;
 }
 
 #footerModel {
-    display: flex;
-    gap: 10px;
-    justify-content: end;
-    padding: 30px 24px 8px 0px;
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+  padding: 30px 24px 8px 0px;
 }
-#errorMemberDel{
-    font-size: 14px;
-    color: #DC3545;
-    padding: 10px 15px;
+#errorMemberDel {
+  font-size: 14px;
+  color: #dc3545;
+  padding: 10px 15px;
 }
 
 /* Model xác nhận xóa nhiệm vụ */
 #modelDeleteTask {
-    font-family: "Roboto", sans-serif;
-    display: none;
+  font-family: "Roboto", sans-serif;
+  display: none;
 }
 
 #modelDeleteOverlay {
-    position: fixed;
-    inset: 0;
-    background-color: #000000;
-    opacity: 0.5;
+  position: fixed;
+  inset: 0;
+  background-color: #000000;
+  opacity: 0.5;
 }
 
 #modelDeleteContent {
-    position: absolute;
-    inset: 0;
-    width: 35vw;
-    height: fit-content;
-    background-color: #FFFFFF;
-    margin: 20px auto;
-    border-radius: 6px;
+  position: absolute;
+  inset: 0;
+  width: 35vw;
+  height: fit-content;
+  background-color: #ffffff;
+  margin: 20px auto;
+  border-radius: 6px;
 }
 
 #modelDeleteContent #headerModelDelete {
-    font-size: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #DEE2E6;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #dee2e6;
 }
 
 #headerModelDelete #iconExitModelDelete img {
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
 }
 
 #headerModelDelete #iconExitModelDelete img:hover {
-    transform: scale(1.2);
-    transition: transform 0.1s linear;
+  transform: scale(1.2);
+  transition: transform 0.1s linear;
 }
 
 #bodyModelDelete {
-    padding: 15px 20px;
-    border-bottom: 1px solid #DEE2E6;
+  padding: 15px 20px;
+  border-bottom: 1px solid #dee2e6;
 }
 
 #bodyModelDelete #textModelDelete {
-    font-size: 20px;
-    font-weight: 400;
-    color: #212529;
-    text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
 }
 
 #footerModelDelete {
-    display: flex;
-    gap: 10px;
-    justify-content: end;
-    padding: 30px 24px 8px 0px;
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+  padding: 30px 24px 8px 0px;
 }
 
 #cancelModelDelete {
-    width: 55px;
-    height: 37px;
-    border: 1px solid #D0D5DD;
-    border-radius: 6px;
-    background-color: #6C757D;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
+  width: 55px;
+  height: 37px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  background-color: #6c757d;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 #confirmModelDelete {
-    width: 55px;
-    height: 37px;
-    border: 1px solid #0D6EFD;
-    border-radius: 6px;
-    background-color: #0D6EFD;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
+  width: 55px;
+  height: 37px;
+  border: 1px solid #0d6efd;
+  border-radius: 6px;
+  background-color: #0d6efd;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 #confirmModelDelete:hover,
 #cancelModelDelete:hover {
-    transform: scale(1.05);
-    transition: all 0.2s linear;
+  transform: scale(1.05);
+  transition: all 0.2s linear;
 }

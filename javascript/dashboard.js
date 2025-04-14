@@ -57,8 +57,9 @@ if (!userAccounts || alreadyLogIn === null) {
       for (let i = start; i < end; i++) {
         tableManagePrj.innerHTML += `<tr>
                                                 <td id="idPrj">${i + 1}</td>
-                                                <td id="namePrj">${filterProject[i].projectName
-          }</td>
+                                                <td id="namePrj">${
+                                                  filterProject[i].projectName
+                                                }</td>
                                                 <td id="actionToPrj">
                                                     <button id="editBtn" onclick ="editPrjInfor(${i})">Sửa</button
                                                     ><button id="deleteBtn" onclick="deleteProject(${i})">Xóa</button
@@ -280,18 +281,18 @@ if (!userAccounts || alreadyLogIn === null) {
               document.querySelector("#existErrorInform").textContent =
                 "Tên dự án không được trùng nhau";
               document.querySelector("#prjName").style.borderColor = "red";
-
             } else if (addProjectDiscriptValue.length <= 50) {
               // Mô tả dự án quá ngắn
-              document.querySelector("#errorInform").textContent = "Mô tả dự án quá ngắn";
+              document.querySelector("#errorInform").textContent =
+                "Mô tả dự án quá ngắn";
               document.querySelector("#prjDiscript").style.borderColor = "red";
-
             } else {
               // Chưa tồn tại
               document.querySelector("#existErrorInform").textContent = "";
               document.querySelector("#errorInform").textContent = "";
               document.querySelector("#prjName").style.borderColor = "#DEE2E6";
-              document.querySelector("#prjDiscript").style.borderColor = "#DEE2E6";
+              document.querySelector("#prjDiscript").style.borderColor =
+                "#DEE2E6";
 
               // Lọc ra các dự án mà người đang đăng nhập tạo ra
 
@@ -354,7 +355,9 @@ if (!userAccounts || alreadyLogIn === null) {
         renderProjectList();
       } else {
         tableManagePrj.innerHTML = "";
-        const projectSearch = filterProject.filter((project) => project.projectName.includes(searchBoxValue));
+        const projectSearch = filterProject.filter((project) =>
+          project.projectName.includes(searchBoxValue)
+        );
 
         if (projectSearch.length > 0) {
           document.querySelector("#errorSearch").textContent = "";
@@ -366,8 +369,13 @@ if (!userAccounts || alreadyLogIn === null) {
           }
           for (let i = start; i < end; i++) {
             tableManagePrj.innerHTML += `<tr>
-                                                      <td id="idPrj">${i + 1}</td>
-                                                      <td id="namePrj">${projectSearch[i].projectName}</td>
+                                                      <td id="idPrj">${
+                                                        i + 1
+                                                      }</td>
+                                                      <td id="namePrj">${
+                                                        projectSearch[i]
+                                                          .projectName
+                                                      }</td>
                                                       <td id="actionToPrj">
                                                           <button id="editBtn" onclick ="editPrjInfor(${i})">Sửa</button>
                                                           <button id="deleteBtn" onclick="deleteProject(${i})">Xóa</button>
@@ -377,7 +385,9 @@ if (!userAccounts || alreadyLogIn === null) {
           }
           console.log("tableProjectList: ", tableManagePrj);
         } else {
-          document.querySelector("#errorSearch").textContent = `Không tìm thấy dự án`;
+          document.querySelector(
+            "#errorSearch"
+          ).textContent = `Không tìm thấy dự án`;
         }
       }
     }

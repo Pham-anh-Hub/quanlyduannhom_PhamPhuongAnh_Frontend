@@ -1,147 +1,142 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-#container{
-    background-color: #F8F9FA;
-    height: fit-content;
-    position: relative;
+#container {
+  background-color: #f8f9fa;
+  height: fit-content;
+  position: relative;
 }
 
 #navigation #myTaskText {
-    color: #FFFFFF8C; 
+  color: #ffffff8c;
 }
 
 #navigation #mainProjectPage {
-    color: #FFFFFF;
+  color: #ffffff;
 }
 
 #bodyPage {
-    width: 75vw;
-    margin: 10px auto;
-    height: calc(100% - 50px) ;  
-    padding-bottom: 10px;  
-    
+  width: 75vw;
+  margin: 10px auto;
+  height: calc(100% - 50px);
+  padding-bottom: 10px;
 }
 
 #bodyPage #titleBodyPage {
-    font-weight: 500;
-    font-size: 24px;
-    margin: 24px 0px ;
-
+  font-weight: 500;
+  font-size: 24px;
+  margin: 24px 0px;
 }
-#userRender{
-    margin-top: 30px;
-    font-size: 18px;
-    color: #2a4ebc;
+#userRender {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #2a4ebc;
 }
-#userRenderName{
-    font-size: 18px;
-    color: #0D6EFD;
+#userRenderName {
+  font-size: 18px;
+  color: #0d6efd;
 }
 
 #bodyPage #renderAndSearch {
-    display: flex;
-    justify-content: end;
-    gap: 16px;
+  display: flex;
+  justify-content: end;
+  gap: 16px;
 }
-#bodyPage #renderAndSearch input{
-    width: 15vw;
-    padding: 10px;
-    height: 38px;
-    border-radius: 6px;
-    border: 1px solid #DEE2E6;
-    font-size: 16px;
-
-
-} 
-#bodyPage #renderAndSearch select{
-    width: 12vw;
-    padding: 10px;
-    height: 38px;
-    border-radius: 6px;
-    border: 1px solid #DEE2E6;
-    font-size: 16px;
+#bodyPage #renderAndSearch input {
+  width: 15vw;
+  padding: 10px;
+  height: 38px;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  font-size: 16px;
+}
+#bodyPage #renderAndSearch select {
+  width: 12vw;
+  padding: 10px;
+  height: 38px;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  font-size: 16px;
 }
 
 #bodyPage #listTaskManager {
-    margin-top: 17px;
-    background-color: #FFFFFF;
-    padding: 17px;
-    border: 1px solid #DFE0E1;
-    border-radius: 6px;
-    margin-bottom: 70px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top: 17px;
+  background-color: #ffffff;
+  padding: 17px;
+  border: 1px solid #dfe0e1;
+  border-radius: 6px;
+  margin-bottom: 70px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-#bodyPage #listTaskManager #projectTitle{
-    height: 48px;
-    border: 1px solid #DFE0E1;
-    line-height: 48px;
-    padding-left: 5px;
-    cursor: pointer;
+#bodyPage #listTaskManager #projectTitle {
+  height: 48px;
+  border: 1px solid #dfe0e1;
+  line-height: 48px;
+  padding-left: 5px;
+  cursor: pointer;
 }
 #bodyPage #listTaskManager #titleList {
-    font-weight: 500;
-    font-size: 20px;
+  font-weight: 500;
+  font-size: 20px;
 }
-#bodyPage #listTaskManager #tableTask{
-    border: 1px solid #DFE0E1;
+#bodyPage #listTaskManager #tableTask {
+  border: 1px solid #dfe0e1;
 }
 #bodyPage #listTaskManager #tableTask #tableHeadTask {
-    display: flex;
-    justify-content: space-evenly;
-    border: 1px solid #DFE0E1;
-    height: 8vh;
-    width: 100%;
-    background-color: #F8F9FA; 
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid #dfe0e1;
+  height: 8vh;
+  width: 100%;
+  background-color: #f8f9fa;
 }
-#bodyPage #listTaskManager #tableTask #tableHeadTask div{
-    border-right: 1px solid #DFE0E1;
-    display: flex;
-    height: 8vh;
-    align-items: center;
-    justify-content: center;
+#bodyPage #listTaskManager #tableTask #tableHeadTask div {
+  border-right: 1px solid #dfe0e1;
+  display: flex;
+  height: 8vh;
+  align-items: center;
+  justify-content: center;
 }
 #tableTask #tableHeadTask #taskName {
-    flex: 2.5;
-    text-align: center;   
+  flex: 2.5;
+  text-align: center;
 }
 
-#accorditionItem{
-    font-weight: 800;
-    font-size: 15px;
+#accorditionItem {
+  font-weight: 800;
+  font-size: 15px;
 }
-
 
 #tableTask #tableHeadTask #taskPriority,
 #taskStatus,
 #assignDate,
 #deadline,
 #taskProgress {
-    flex: 1;
-    text-align: center;
-    border-right: 1px solid #DFE0E1;
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid #dfe0e1;
 }
 #tableTask #accorditionItem img {
-    width: 12px;
-    height: 12px;
+  width: 12px;
+  height: 12px;
 }
 
 #tableTask #firstProjectContent {
-    display: flex;
-    align-items: center;
-    height: 48px;
-    line-height: 48px;
-    border-bottom: 1px solid #DFE0E1;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  line-height: 48px;
+  border-bottom: 1px solid #dfe0e1;
 }
 
 #tableTask #firstProjectContent #prjTaskName {
-    flex: 2.381;
-    border-right: 1px solid #DFE0E1;
-    margin-left: 15px;
-    font-size: 15px;
-    font-weight: 400px;
+  flex: 2.381;
+  border-right: 1px solid #dfe0e1;
+  margin-left: 15px;
+  font-size: 15px;
+  font-weight: 400px;
 }
 
 #tableTask #firstProjectContent #prjTaskPriority,
@@ -149,173 +144,172 @@
 #taskAssignDate,
 #taskDeadline,
 #prjtaskProgress {
-    flex: 1;
-    border-right: 1px solid #DFE0E1;
-    text-align: center;
+  flex: 1;
+  border-right: 1px solid #dfe0e1;
+  text-align: center;
 }
 #prjTaskStatus {
-    font-size: 16px;
+  font-size: 16px;
 }
 #taskAssignDate,
-#taskDeadline{
-    color: #0D6EFD;
-    font-size: 17px;
+#taskDeadline {
+  color: #0d6efd;
+  font-size: 17px;
 }
-#prjTaskPriority .midPriority{
-    font-size: 12px;
-    font-weight: 800;
-    color: #FFFFFF;
-    border: 1px solid #FFA500;
-    background-color: #FFA500;
-    padding: 2px 10px;
-    border-radius: 6px;
+#prjTaskPriority .midPriority {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  border: 1px solid #ffa500;
+  background-color: #ffa500;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
-#prjTaskPriority .highPriority{
-    font-size: 12px;
-    font-weight: 800;
-    color: #FFFFFF;
-    border: 1px solid #DC3545;
-    background-color: #DC3545;
-    padding: 2px 10px;
-    border-radius: 6px;
+#prjTaskPriority .highPriority {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  border: 1px solid #dc3545;
+  background-color: #dc3545;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
-#prjTaskPriority .lowPriority{
-    font-size: 12px;
-    font-weight: 800;
-    color: #FFFFFF;
-    border: 1px solid #0DCAF0;
-    background-color: #0DCAF0;
-    padding: 2px 10px;
-    border-radius: 6px;
+#prjTaskPriority .lowPriority {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ffffff;
+  border: 1px solid #0dcaf0;
+  background-color: #0dcaf0;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
 
 #tableTask #firstProjectContent #prjTaskStatus img {
-    width: 15px;
-    height: 15px;
+  width: 15px;
+  height: 15px;
 }
 #tableTask #firstProjectContent #prjtaskProgress .on-schedule {
-    background-color: #198754;
-    font-weight: 800;
-    font-size: 11px;
-    color: #FFFFFF;
-    padding: 2px 10px;
-    border-radius: 6px;
+  background-color: #198754;
+  font-weight: 800;
+  font-size: 11px;
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
 
 #tableTask #firstProjectContent #prjtaskProgress .risk-schedule {
-    background-color: #FFA500;
-    font-weight: 800;
-    font-size: 11px;
-    color: #FFFFFF;
-    padding: 2px 10px;
-    border-radius: 6px;
+  background-color: #ffa500;
+  font-weight: 800;
+  font-size: 11px;
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
 
 #tableTask #firstProjectContent #prjtaskProgress .off-schedule {
-    background-color: #DC3545;
-    font-weight: 800;
-    font-size: 11px;
-    color: #FFFFFF;
-    padding: 2px 10px;
-    border-radius: 6px;
+  background-color: #dc3545;
+  font-weight: 800;
+  font-size: 11px;
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 6px;
 }
 
-#editStatusIcon{
-    cursor: pointer;
+#editStatusIcon {
+  cursor: pointer;
 }
-#editStatusIcon:hover{
-
-    transform: translateY(-1px);
+#editStatusIcon:hover {
+  transform: translateY(-1px);
 }
 
 /* model sửa trạng thái */
-#modelEditStatus{
-    font-family: "Roboto", sans-serif;
-    position: absolute;
-    inset: 0;
-    display: none;
+#modelEditStatus {
+  font-family: "Roboto", sans-serif;
+  position: absolute;
+  inset: 0;
+  display: none;
 }
-#modelOverlay{
-    position: fixed;
-    inset: 0;
-    background-color: #000000;
-    opacity: 0.5;
+#modelOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: #000000;
+  opacity: 0.5;
 }
 
-#modelContent{
-    position: absolute;
-    background-color: #FFFFFF;
-    opacity: 1px;
-    width: 32vw;
-    height: fit-content;
-    border: 1px solid #DEE2E6;
-    border-radius: 8px;
-    margin: 15px auto;
-    inset: 0;
+#modelContent {
+  position: absolute;
+  background-color: #ffffff;
+  opacity: 1px;
+  width: 32vw;
+  height: fit-content;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  margin: 15px auto;
+  inset: 0;
 }
 #headModel {
-    border-bottom: 1px solid #DEE2E6;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
 }
-#headModel #titleModel{
-    font-size: 23px;
-    font-weight: 500;
+#headModel #titleModel {
+  font-size: 23px;
+  font-weight: 500;
 }
-#headModel #exitModel img{
-    margin-right: 5px;
-    width: 14px;
-    height: 14px;
-    font-weight: 600;
-    cursor: pointer;
+#headModel #exitModel img {
+  margin-right: 5px;
+  width: 14px;
+  height: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }
-#headModel #exitModel:hover{
-    transform: translateY(-1px);
+#headModel #exitModel:hover {
+  transform: translateY(-1px);
 }
-#bodyModel{
-    padding: 22px 22px 37px 14px;
-    font-weight: 400;
-    font-size: 16px;
-    border-bottom: 1px solid #DEE2E6;
+#bodyModel {
+  padding: 22px 22px 37px 14px;
+  font-weight: 400;
+  font-size: 16px;
+  border-bottom: 1px solid #dee2e6;
 }
-#footModel{
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    justify-content: end;
-    padding: 30px 20px 10px 0px;
+#footModel {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  justify-content: end;
+  padding: 30px 20px 10px 0px;
 }
 
 #btnCancel {
-    padding: 10px 18px;
-    border: 1px solid #D0D5DD;
-    border-radius: 8px;
-    background-color: #6C757D;
-    color: #FFFFFF;
-    font-weight: 500;
-    font-size: 16px;
-    cursor: pointer;
+  padding: 10px 18px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  background-color: #6c757d;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 #btnCancel:hover {
-    background-color: #8b9196;
-    transform: translateY(-1px);
+  background-color: #8b9196;
+  transform: translateY(-1px);
 }
 
 #btnConfirm {
-    padding: 10px 18px;
-    border: 1px solid #0D6EFD;
-    border-radius: 8px;
-    background-color: #0D6EFD;
-    color: #FFFFFF;
-    font-weight: 500;
-    font-size: 16px;
-    cursor: pointer;
+  padding: 10px 18px;
+  border: 1px solid #0d6efd;
+  border-radius: 8px;
+  background-color: #0d6efd;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 #btnConfirm:hover {
-    background-color: #0D6EFD;
-    transform: translateY(-1px);
+  background-color: #0d6efd;
+  transform: translateY(-1px);
 }
