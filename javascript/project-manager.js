@@ -3,23 +3,20 @@ const userAccounts = JSON.parse(localStorage.getItem("userAccounts"));
 const alreadyLogIn = JSON.parse(localStorage.getItem("alreadyLogIn"));
 const listProject = JSON.parse(localStorage.getItem("listProject"));
 
+// Lấy ra project và vị trí đã chọn
+const taskIndex = window.location.href.split("?task=")[1];
+
+const projectOpen = listProject[taskIndex];
+
+//render list Task của project đã mở
+const taskList = listProject[taskIndex].tasks;
+// list Member
+const memberList = listProject[taskIndex].member;
+console.log(memberList);
+
+// tạo biến check trạng thái edit hay add
+let addEditStatus = "add";
 if (alreadyLogIn) {
-  // Lấy ra project và vị trí đã chọn
-  const taskIndex = window.location.href.split("?task=")[1];
-  "Task Index: ", taskIndex;
-  const projectOpen = listProject[taskIndex];
-  "projectOpen: ", projectOpen;
-
-  //render list Task của project đã mở
-  const taskList = listProject[taskIndex].tasks;
-  "TaskList: ", taskList;
-  // list Member
-  const memberList = listProject[taskIndex].member;
-  "memberList: ", memberList;
-
-  // tạo biến check trạng thái edit hay add
-  let addEditStatus = "add";
-
   if (taskIndex !== undefined) {
     // Tạo Accordition cho mỗi list task
     document
