@@ -734,8 +734,9 @@ function showMember() {
   // render list member
   document.querySelector("#listMember").innerHTML = "";
   for (let i = 0; i < memberList.length; i++) {
-    const tempName = memberList[i].fullName.split(" ");
+    const tempName = memberList[i].fullName.trim().split(" ");
     console.log(tempName);
+    console.log(tempName[0][0], tempName[tempName.length - 1][0]);
 
     document.querySelector("#listMember").innerHTML += `<span id="inforMember">
               <div id="inforCol">
@@ -786,8 +787,10 @@ function editTask(id) {
 
   document.querySelector("#taskNameInput").value = task.taskName;
   console.log(task.assignee.fullName);
+  console.log(document.querySelector("#assigneeInput"));
 
-  document.querySelector("#assigneeInput").value = task.assignee.fullName;
+  document.querySelector("#assigneeInput").value = task.assignee.id;
+
   document.querySelector("#taskStatus").value = task.taskStatus;
   document.querySelector(".assignDate").value = task.assignDate;
   document.querySelector(".deadline").value = task.dueDate;

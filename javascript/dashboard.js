@@ -45,8 +45,6 @@ if (!userAccounts || alreadyLogIn === null) {
         (item) =>
           item.owerId === userLoging.id && userLoging.role === "projectOwner"
       );
-      console.log("filterProject: ", filterProject);
-      // Lọc ra các dự án mà người đang đăng nhập là thành viên
 
       start = (currentPage - 1) * totalPerPage;
       end = currentPage * totalPerPage;
@@ -122,8 +120,8 @@ if (!userAccounts || alreadyLogIn === null) {
         });
         BtnPageElement.appendChild(btnPage);
       }
-      start = (currentPage - 1) * totalPerPage;
-      end = currentPage * totalPerPage;
+      // start = (currentPage - 1) * totalPerPage;
+      // end = currentPage * totalPerPage;
     }
 
     // Thêm sự kiện cho các nút chuyển trang
@@ -197,7 +195,7 @@ if (!userAccounts || alreadyLogIn === null) {
                 .classList.remove("prjNameError");
               document.querySelector("#existErrorInform").textContent = "";
               document.querySelector("#prjName").style.borderColor = "#DEE2E6";
-              // Nếu tên dự án nhập vào không trùng với dự án nào, gán mới
+
               filterProject[index].projectName = getNewProjectName;
               filterProject[index].discription = getNewProjectDiscript;
               localStorage.setItem("listProject", JSON.stringify(listProject));

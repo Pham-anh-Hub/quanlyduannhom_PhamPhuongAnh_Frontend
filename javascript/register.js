@@ -38,11 +38,13 @@ if (!userAccounts || !alreadyLogIn) {
       }
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (inputUserNameValue.split(" ").length >= 2) {
-      // tên người dùng hợp lệ --> xét đến email
-      if (validateEmail(inputUserEmailValue)) {
+    if (
+      inputUserNameValue.split(" ").length >= 2 &&
+      inputUserNameValue.split(" ").length <= 5
+    ) {
+      if (emailRegex.test(inputUserEmailValue)) {
         errorRegister.textContent = "";
-        if (emailRegex.test(inputUserEmailValue)) {
+        if (validateEmail(inputUserEmailValue)) {
           // Email hợp lệ
           //email hợp lệ --> xét đến mật khẩu
           if (inputUserPassValue.length >= 8 && inputUserPassValue !== "") {
@@ -50,7 +52,7 @@ if (!userAccounts || !alreadyLogIn) {
             if (inputConfirmPassValue === inputUserPassValue) {
               // tất cả điều kiện hợp lệ --> tạo tài khoản người dùng mới
               let newUser = {
-                id: Math.round(Math.random() * 10),
+                id: Math.round(Math.random() * 100),
                 fullName: inputUserNameValue,
                 email: inputUserEmailValue,
                 password: inputUserPassValue,
@@ -81,10 +83,10 @@ if (!userAccounts || !alreadyLogIn) {
             errorRegister.textContent = `Mật khẩu phải có ít nhất 8 ký tự`;
           }
         } else {
-          errorRegister.textContent = `Email không hợp lệ`;
+          errorRegister.textContent = `Email đã tồn tại`;
         }
       } else {
-        errorRegister.textContent = `Email đã tồn tại`;
+        errorRegister.textContent = `Email không hợp lệ`;
       }
     } else {
       errorRegister.textContent = `Vui lòng nhập họ và tên hợp lệ`;

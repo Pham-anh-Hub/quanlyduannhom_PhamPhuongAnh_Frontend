@@ -14,7 +14,6 @@
 }
 
 #headerPage {
-    
   background-color: #000000;
   color: white;
   width: 100%;
@@ -424,7 +423,7 @@
   color: #6c757d;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 #existErrorInform,
