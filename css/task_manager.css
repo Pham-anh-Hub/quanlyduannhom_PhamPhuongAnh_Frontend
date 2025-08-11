@@ -8,8 +8,8 @@
   height: fit-content;
   position: relative;
 }
-
-#headerPage{
+/*  custom pages */
+#headerPage {
   position: fixed;
   top: 0;
 }
