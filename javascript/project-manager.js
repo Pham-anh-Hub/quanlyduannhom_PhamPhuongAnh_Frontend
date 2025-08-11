@@ -104,33 +104,27 @@ function renderTaskList(array) {
     ).innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần todoList  -->
       <div id="taskName">${todoTaskList[i].taskName}</div>
       <div id="projectMember">${todoTaskList[i].assignee.fullName}</div>
-      <div id="Priority"><span id=${
-        todoTaskList[i].priority === "Thấp"
-          ? "lowPriority"
-          : todoTaskList[i].priority === "Cao"
+      <div id="Priority"><span id=${todoTaskList[i].priority === "Thấp"
+        ? "lowPriority"
+        : todoTaskList[i].priority === "Cao"
           ? "highPriority"
           : "mediumPriority"
       }>${todoTaskList[i].priority}</span></div>
-      <div id="startDate">${todoTaskList[i].assignDate.split("-")[1]} - ${
-      todoTaskList[i].assignDate.split("-")[2]
-    }</div>
-      <div id="deadLine">${todoTaskList[i].dueDate.split("-")[1]} - ${
-      todoTaskList[i].dueDate.split("-")[2]
-    }</div>
-      <div id="Progress"><span id= ${
-        todoTaskList[i].progress === "Đúng tiến độ"
-          ? "on-schedule"
-          : todoTaskList[i].progress === "Có rủi ro"
+      <div id="startDate">${todoTaskList[i].assignDate.split("-")[1]} - ${todoTaskList[i].assignDate.split("-")[2]
+      }</div>
+      <div id="deadLine">${todoTaskList[i].dueDate.split("-")[1]} - ${todoTaskList[i].dueDate.split("-")[2]
+      }</div>
+      <div id="Progress"><span id= ${todoTaskList[i].progress === "Đúng tiến độ"
+        ? "on-schedule"
+        : todoTaskList[i].progress === "Có rủi ro"
           ? "risk-schedule"
           : "off-schedule"
       }>${todoTaskList[i].progress}</span></div>
       <div id="actionToTask">
-          <span><button id="editBtn" onclick="editTask(${
-            todoTaskList[i].taskId
-          })">Sửa</button></span>
-          <span><button id="deleteBtn" onclick="deleteTask(${
-            todoTaskList[i].taskId
-          })">Xóa</button></span>
+          <span><button id="editBtn" onclick="editTask(${todoTaskList[i].taskId
+      })">Sửa</button></span>
+          <span><button id="deleteBtn" onclick="deleteTask(${todoTaskList[i].taskId
+      })">Xóa</button></span>
       </div>
   </div>`;
   }
@@ -141,38 +135,30 @@ function renderTaskList(array) {
       "#inProgressListContent"
     ).innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần inprogressTask  -->
                       <div id="taskName">${inprogressTaskList[i].taskName}</div>
-                      <div id="projectMember">${
-                        inprogressTaskList[i].assignee.fullName
-                      }</div>
-                      <div id="Priority"><span id=${
-                        inprogressTaskList[i].priority === "Thấp"
-                          ? "lowPriority"
-                          : inprogressTaskList[i].priority === "Cao"
-                          ? "highPriority"
-                          : "mediumPriority"
-                      }>${inprogressTaskList[i].priority}</span></div>
-                      <div id="startDate">${
-                        inprogressTaskList[i].assignDate.split("-")[1]
-                      } - ${
-      inprogressTaskList[i].assignDate.split("-")[2]
-    }</div>
-                      <div id="deadLine">${
-                        inprogressTaskList[i].dueDate.split("-")[1]
-                      } - ${inprogressTaskList[i].dueDate.split("-")[2]}</div>
-                      <div id="Progress"><span id= ${
-                        inprogressTaskList[i].progress === "Đúng tiến độ"
-                          ? "on-schedule"
-                          : inprogressTaskList[i].progress === "Có rủi ro"
-                          ? "risk-schedule"
-                          : "off-schedule"
-                      }>${inprogressTaskList[i].progress}</span></div>
+                      <div id="projectMember">${inprogressTaskList[i].assignee.fullName
+      }</div>
+                      <div id="Priority"><span id=${inprogressTaskList[i].priority === "Thấp"
+        ? "lowPriority"
+        : inprogressTaskList[i].priority === "Cao"
+          ? "highPriority"
+          : "mediumPriority"
+      }>${inprogressTaskList[i].priority}</span></div>
+                      <div id="startDate">${inprogressTaskList[i].assignDate.split("-")[1]
+      } - ${inprogressTaskList[i].assignDate.split("-")[2]
+      }</div>
+                      <div id="deadLine">${inprogressTaskList[i].dueDate.split("-")[1]
+      } - ${inprogressTaskList[i].dueDate.split("-")[2]}</div>
+                      <div id="Progress"><span id= ${inprogressTaskList[i].progress === "Đúng tiến độ"
+        ? "on-schedule"
+        : inprogressTaskList[i].progress === "Có rủi ro"
+          ? "risk-schedule"
+          : "off-schedule"
+      }>${inprogressTaskList[i].progress}</span></div>
                       <div id="actionToTask">
-                        <span><button id="editBtn" onclick="editTask(${
-                          inprogressTaskList[i].taskId
-                        })">Sửa</button></span>
-                        <span><button id="deleteBtn" onclick="deleteTask(${
-                          inprogressTaskList[i].taskId
-                        })">Xóa</button></span>
+                        <span><button id="editBtn" onclick="editTask(${inprogressTaskList[i].taskId
+      })">Sửa</button></span>
+                        <span><button id="deleteBtn" onclick="deleteTask(${inprogressTaskList[i].taskId
+      })">Xóa</button></span>
                       </div>
                     </div>`;
   }
@@ -184,33 +170,27 @@ function renderTaskList(array) {
     ).innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần pendingTask  -->
       <div id="taskName">${pendingTaskList[i].taskName}</div>
       <div id="projectMember">${pendingTaskList[i].assignee.fullName}</div>
-      <div id="Priority"><span id=${
-        pendingTaskList[i].priority === "Thấp"
-          ? "lowPriority"
-          : pendingTaskList[i].priority === "Cao"
+      <div id="Priority"><span id=${pendingTaskList[i].priority === "Thấp"
+        ? "lowPriority"
+        : pendingTaskList[i].priority === "Cao"
           ? "highPriority"
           : "mediumPriority"
       }>${pendingTaskList[i].priority}</span></div>
-      <div id="startDate">${pendingTaskList[i].assignDate.split("-")[1]} - ${
-      pendingTaskList[i].assignDate.split("-")[2]
-    }</div>
-      <div id="deadLine">${pendingTaskList[i].dueDate.split("-")[1]} - ${
-      pendingTaskList[i].dueDate.split("-")[2]
-    }</div>
-      <div id="Progress"><span id= ${
-        pendingTaskList[i].progress === "Đúng tiến độ"
-          ? "on-schedule"
-          : pendingTaskList[i].progress === "Có rủi ro"
+      <div id="startDate">${pendingTaskList[i].assignDate.split("-")[1]} - ${pendingTaskList[i].assignDate.split("-")[2]
+      }</div>
+      <div id="deadLine">${pendingTaskList[i].dueDate.split("-")[1]} - ${pendingTaskList[i].dueDate.split("-")[2]
+      }</div>
+      <div id="Progress"><span id= ${pendingTaskList[i].progress === "Đúng tiến độ"
+        ? "on-schedule"
+        : pendingTaskList[i].progress === "Có rủi ro"
           ? "risk-schedule"
           : "off-schedule"
       }>${pendingTaskList[i].progress}</span></div>
       <div id="actionToTask">
-        <span><button id="editBtn" onclick="editTask(${
-          pendingTaskList[i].taskId
-        })">Sửa</button></span>
-        <span><button id="deleteBtn" onclick="deleteTask(${
-          pendingTaskList[i].taskId
-        })">Xóa</button></span>
+        <span><button id="editBtn" onclick="editTask(${pendingTaskList[i].taskId
+      })">Sửa</button></span>
+        <span><button id="deleteBtn" onclick="deleteTask(${pendingTaskList[i].taskId
+      })">Xóa</button></span>
       </div>
     </div>`;
   }
@@ -220,45 +200,35 @@ function renderTaskList(array) {
     document.querySelector(
       "#doneListContent"
     ).innerHTML += `<div id="taskRow"> <!-- Giới hạn nội dung mỗi dòng phần doneTask  -->
-                                    <div id="taskName">${
-                                      doneTaskList[i].taskName
-                                    }</div>
-                                    <div id="projectMember">${
-                                      doneTaskList[i].assignee.fullName
-                                    }</div>
-                                    <div id="Priority"><span id=${
-                                      doneTaskList[i].priority === "Thấp"
-                                        ? "lowPriority"
-                                        : doneTaskList[i].priority === "Cao"
-                                        ? "highPriority"
-                                        : "mediumPriority"
-                                    }>${doneTaskList[i].priority}</span></div>
-                                    <div id="startDate">${
-                                      doneTaskList[i].assignDate.split("-")[1]
-                                    } - ${
-      doneTaskList[i].assignDate.split("-")[2]
-    }</div>
-                                    <div id="deadLine">${
-                                      doneTaskList[i].dueDate.split("-")[1]
-                                    } - ${
-      doneTaskList[i].dueDate.split("-")[2]
-    }</div>
-                                    <div id="Progress"><span id= ${
-                                      doneTaskList[i].progress ===
-                                      "Đúng tiến độ"
-                                        ? "on-schedule"
-                                        : doneTaskList[i].progress ===
-                                          "Có rủi ro"
-                                        ? "risk-schedule"
-                                        : "off-schedule"
-                                    }>${doneTaskList[i].progress}</span></div>
+                                    <div id="taskName">${doneTaskList[i].taskName
+      }</div>
+                                    <div id="projectMember">${doneTaskList[i].assignee.fullName
+      }</div>
+                                    <div id="Priority"><span id=${doneTaskList[i].priority === "Thấp"
+        ? "lowPriority"
+        : doneTaskList[i].priority === "Cao"
+          ? "highPriority"
+          : "mediumPriority"
+      }>${doneTaskList[i].priority}</span></div>
+                                    <div id="startDate">${doneTaskList[i].assignDate.split("-")[1]
+      } - ${doneTaskList[i].assignDate.split("-")[2]
+      }</div>
+                                    <div id="deadLine">${doneTaskList[i].dueDate.split("-")[1]
+      } - ${doneTaskList[i].dueDate.split("-")[2]
+      }</div>
+                                    <div id="Progress"><span id= ${doneTaskList[i].progress ===
+        "Đúng tiến độ"
+        ? "on-schedule"
+        : doneTaskList[i].progress ===
+          "Có rủi ro"
+          ? "risk-schedule"
+          : "off-schedule"
+      }>${doneTaskList[i].progress}</span></div>
                                     <div id="actionToTask">
-                                        <span><button id="editBtn" onclick="editTask(${
-                                          doneTaskList[i].taskId
-                                        })">Sửa</button></span>
-                                        <span><button id="deleteBtn" onclick="deleteTask(${
-                                          doneTaskList[i].taskId
-                                        })">Xóa</button></span>
+                                        <span><button id="editBtn" onclick="editTask(${doneTaskList[i].taskId
+      })">Sửa</button></span>
+                                        <span><button id="deleteBtn" onclick="deleteTask(${doneTaskList[i].taskId
+      })">Xóa</button></span>
                                     </div>
                                 </div>`;
   }
@@ -266,7 +236,7 @@ function renderTaskList(array) {
 
 // Các hoạt động với model formAdd
 
-// Ham lấy vào input của form thêm nhiệm vụ
+// Hàm lấy vào input của form thêm nhiệm vụ
 // Khai báo biến đếm số lượng lỗi
 let countError = 0;
 function getAndValidateFormAddInput() {
@@ -324,7 +294,7 @@ function getAndValidateFormAddInput() {
         const checkTaskExist = taskList.find(
           (task) => task.taskName === taskNameInput
         );
-        if (checkTaskExist) {
+        if (checkTaskExist && addEditStatus === "add") {
           document.querySelector("#taskNameError").textContent =
             "Tên nhiệm vụ đã tồn tại ";
           document.querySelector("#taskNameInput").style.borderColor = "red";
@@ -478,9 +448,7 @@ function renderMemberListForm() {
 }
 
 let taskIdToDelete = null;
-
 function deleteTask(id) {
-  console.log("id cần xóa:", id);
   const task = taskList.find((item) => item.taskId === id);
   const taskIndexToDel = taskList.findIndex((item) => item.taskId === id);
   console.log("Task cần xóa:", task);
@@ -546,9 +514,8 @@ function addMember() {
       const inputMemberEmail = document
         .querySelector("#memberEmailInput")
         .value?.trim();
-      console.log("validateNewMember(): ", validateNewMember());
+
       if (validateNewMember()) {
-        console.log("input hợp lệ không trống", validateNewMember());
         resetModelMember();
         // Kiểm tra xem email có hợp lệ không
         if (
@@ -576,16 +543,12 @@ function addMember() {
           if (checkUserEmail) {
             resetModelMember();
             // Email chưa tồn tại trong danh sách thành viên --> thêm
-            console.log("memberList: ", memberList);
+
             const checkExistUser = memberList.find(
               (member) => member.email === checkUserEmail.email
             );
             if (!checkExistUser) {
               // email (hay người dùng) chưa có trong danh sách thành viên của dự án
-              console.log(checkUserEmail.id);
-              console.log(checkUserEmail.fullName);
-              console.log(checkUserEmail.email);
-              console.log(checkUserEmail.role);
 
               checkUserEmail.role = inputMemberRole;
 
@@ -600,8 +563,7 @@ function addMember() {
               };
               memberList.push(newMember);
               // listProject[taskIndex].member = memberList;
-              console.log("Mảng thành viên sau khi thêm: ", memberList);
-              console.log("checkUserEmail: ", checkUserEmail);
+
               localStorage.setItem("listProject", JSON.stringify(listProject));
               // Sau thêm và lưu vào local xong --> đóng form và reset các input
               document.querySelector("#formAddMember").style.display = "none";
@@ -617,7 +579,7 @@ function addMember() {
                 "red";
             }
           } else {
-            // Tức là email đó chưa có tài khoảng đăng nhập --> thông báo người dùng chưa được đăng kí
+            // Tức là email đó chưa có tài khoản đăng nhập --> thông báo người dùng chưa được đăng kí
             document.querySelector(
               "#errorMemberInfor"
             ).textContent = `Người dùng chưa được đăng kí`;
@@ -645,7 +607,7 @@ function exits() {
     resetFormAddValue();
     resetFormAdd();
   };
-  // Hủy thêm prj
+  // Hủy thêm task
   document.querySelector("#cancelAddEdit").onclick = function () {
     document.querySelector("#formAddEdit").style.display = "none";
     resetFormAddValue();
@@ -735,26 +697,21 @@ function showMember() {
   document.querySelector("#listMember").innerHTML = "";
   for (let i = 0; i < memberList.length; i++) {
     const tempName = memberList[i].fullName.trim().split(" ");
-    console.log(tempName);
-    console.log(tempName[0][0], tempName[tempName.length - 1][0]);
 
     document.querySelector("#listMember").innerHTML += `<span id="inforMember">
               <div id="inforCol">
-                <span id="AvtMember" style="background-color: ${randomBgColor()};">${
-      tempName[0][0]
-    }${tempName[tempName.length - 1][0]}</span>
+                <span id="AvtMember" style="background-color: ${randomBgColor()};">${tempName[0][0]
+      }${tempName[tempName.length - 1][0]}</span>
                 <div id="NameAndEmail">
                   <span id="NameMember">${memberList[i].fullName}</span>
                   <span id="EmailMember">${memberList[i].email}</span>
                 </div>
               </div>
               <div id="roleCol">
-                <input id=${memberList[i].id} class="roleOfMember" value="${
-      memberList[i].role
-    }" />
-                <div><img id=${
-                  memberList[i].id
-                } class="btn-delete-member" src="../icons/garbageBin.png"></div>
+                <input id=${memberList[i].id} class="roleOfMember" value="${memberList[i].role
+      }" />
+                <div><img id=${memberList[i].id
+      } class="btn-delete-member" src="../icons/garbageBin.png"></div>
               </div>
             </span>`;
   }
@@ -1022,7 +979,7 @@ bodyModelElement.addEventListener("click", (e) => {
 });
 
 // Sắp xếp
-const arrangeInputElement = document.querySelector("#arrangeInput");
+// const arrangeInputElement = document.querySelector("#arrangeInput");
 const arrangeChoice = document.querySelector("#arrangeTasks");
 console.log(arrangeChoice);
 arrangeChoice.addEventListener("change", function () {
@@ -1030,16 +987,13 @@ arrangeChoice.addEventListener("change", function () {
   console.log("taskList trc sắp xếp: ", taskList);
   if (arrangeChoice.value == 1) {
     const arrangeDeadline = taskList.sort(
-      (a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()
-    );
+      (a, b) => new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime());
     console.log("taskList sau sắp xếp: ", arrangeDeadline);
     renderTaskList(arrangeDeadline);
   } else if (arrangeChoice.value == 2) {
     // Sắp xếp theo độ ưu tiên
     const lowPriority = taskList.filter((task) => task.priority === "Thấp");
-    const midPriority = taskList.filter(
-      (task) => task.priority === "Trung Bình"
-    );
+    const midPriority = taskList.filter((task) => task.priority === "Trung Bình");
     const highPriority = taskList.filter((task) => task.priority === "Cao");
     let arrangePriority = lowPriority.concat(midPriority).concat(highPriority);
     console.log(arrangePriority);

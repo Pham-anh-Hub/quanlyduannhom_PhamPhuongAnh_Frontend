@@ -55,9 +55,8 @@ if (!userAccounts || alreadyLogIn === null) {
       for (let i = start; i < end; i++) {
         tableManagePrj.innerHTML += `<tr>
                                                 <td id="idPrj">${i + 1}</td>
-                                                <td id="namePrj">${
-                                                  filterProject[i].projectName
-                                                }</td>
+                                                <td id="namePrj">${filterProject[i].projectName
+          }</td>
                                                 <td id="actionToPrj">
                                                     <button id="editBtn" onclick ="editPrjInfor(${i})">Sửa</button
                                                     ><button id="deleteBtn" onclick="deleteProject(${i})">Xóa</button
@@ -279,6 +278,10 @@ if (!userAccounts || alreadyLogIn === null) {
               document.querySelector("#existErrorInform").textContent =
                 "Tên dự án không được trùng nhau";
               document.querySelector("#prjName").style.borderColor = "red";
+            } else if (addProjectNameValue.length <= 20) {
+              document.querySelector("#existErrorInform").textContent =
+                "Vui lòng nhập tên dự án có độ dài hợp lệ";
+              document.querySelector("#prjName").style.borderColor = "red";
             } else if (addProjectDiscriptValue.length <= 50) {
               // Mô tả dự án quá ngắn
               document.querySelector("#errorInform").textContent =
@@ -343,9 +346,7 @@ if (!userAccounts || alreadyLogIn === null) {
         (item) =>
           item.owerId === userLoging.id && userLoging.role === "projectOwner"
       );
-      const searchBoxValue = document
-        .querySelector("#inputSearch")
-        .value.trim();
+      const searchBoxValue = document.querySelector("#inputSearch").value.trim();
       console.log(searchBoxValue);
 
       if (searchBoxValue === "") {
@@ -367,13 +368,11 @@ if (!userAccounts || alreadyLogIn === null) {
           }
           for (let i = start; i < end; i++) {
             tableManagePrj.innerHTML += `<tr>
-                                                      <td id="idPrj">${
-                                                        i + 1
-                                                      }</td>
-                                                      <td id="namePrj">${
-                                                        projectSearch[i]
-                                                          .projectName
-                                                      }</td>
+                                                      <td id="idPrj">${i + 1
+              }</td>
+                                                      <td id="namePrj">${projectSearch[i]
+                .projectName
+              }</td>
                                                       <td id="actionToPrj">
                                                           <button id="editBtn" onclick ="editPrjInfor(${i})">Sửa</button>
                                                           <button id="deleteBtn" onclick="deleteProject(${i})">Xóa</button>

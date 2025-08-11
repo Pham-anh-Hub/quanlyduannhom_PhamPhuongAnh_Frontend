@@ -37,12 +37,12 @@ if (!userAccounts || !alreadyLogIn) {
         return 1;
       }
     }
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (
       inputUserNameValue.split(" ").length >= 2 &&
       inputUserNameValue.split(" ").length <= 5
     ) {
-      if (emailRegex.test(inputUserEmailValue)) {
+      if (inputUserEmailValue.endsWith("@vn.com")) {
         errorRegister.textContent = "";
         if (validateEmail(inputUserEmailValue)) {
           // Email hợp lệ

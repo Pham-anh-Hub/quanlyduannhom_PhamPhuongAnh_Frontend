@@ -31,7 +31,7 @@ if (!alreadyLogIn) {
       const findUser = userAccounts.find(
         (user) => user.email === emailLogInValue
       );
-      if (findUser == undefined) {
+      if (!findUser) {
         console.log("Người dùng cần tìm: ", findUser);
 
         errorEmailLogIn.textContent = "Email người dùng không tồn tại";

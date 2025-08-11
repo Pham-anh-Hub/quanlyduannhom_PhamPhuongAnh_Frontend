@@ -35,40 +35,16 @@ if (alreadyLogIn) {
       document.querySelector(
         "#firstProjectPart"
       ).innerHTML += `<div id="projectTitle">
-                      <span id="accorditionItem"><img src="../icons/accorditionVecto.png" /> ${project.projectName}</span>
-                        </div>`;
+                        <span id="accorditionItem"><img src="../icons/accorditionVecto.png" /> ${project.projectName}</span>
+                      </div>`;
       for (let i = 0; i < prjTaskList.length; i++) {
-        document.querySelector(
-          "#firstProjectPart"
-        ).innerHTML += `<div id="firstProjectContent">
-                            <div id="prjTaskName">${
-                              prjTaskList[i].taskName
-                            }</div>
-                            <div id="prjTaskPriority"><span class="${
-                              prjTaskList[i].priority === "Thấp"
-                                ? "lowPriority"
-                                : prjTaskList[i].priority === "Cao"
-                                ? "highPriority"
-                                : "midPriority"
-                            }">${prjTaskList[i].priority}</span></div>
-                            <div id="prjTaskStatus">${
-                              prjTaskList[i].taskStatus
-                            }<span> <img onclick="editStatus(${
-          prjTaskList[i].taskId
-        })" id="editStatusIcon" src="../icons/progressIcon.png" /></span></div>
-                            <div id="taskAssignDate">${
-                              prjTaskList[i].assignDate.split("-")[1]
-                            } - ${prjTaskList[i].assignDate.split("-")[2]}</div>
-                            <div id="taskDeadline">${
-                              prjTaskList[i].dueDate.split("-")[1]
-                            } - ${prjTaskList[i].dueDate.split("-")[2]}</div>
-                            <div id="prjtaskProgress"><span class="${
-                              prjTaskList[i].progress === "Đúng tiến độ"
-                                ? "on-schedule"
-                                : prjTaskList[i].progress === "Trễ hạn"
-                                ? "off-schedule"
-                                : "risk-schedule"
-                            }">${prjTaskList[i].progress}</span></div>
+        document.querySelector("#firstProjectPart").innerHTML += `<div id="firstProjectContent">
+                            <div id="prjTaskName">${prjTaskList[i].taskName}</div>
+                            <div id="prjTaskPriority"><span class="${prjTaskList[i].priority === "Thấp" ? "lowPriority" : prjTaskList[i].priority === "Cao" ? "highPriority" : "midPriority"}">${prjTaskList[i].priority}</span></div>
+                            <div id="prjTaskStatus">${prjTaskList[i].taskStatus}<span> <img onclick="editStatus(${prjTaskList[i].taskId})" id="editStatusIcon" src="../icons/progressIcon.png" /></span></div>
+                            <div id="taskAssignDate">${prjTaskList[i].assignDate.split("-")[1]} - ${prjTaskList[i].assignDate.split("-")[2]}</div>
+                            <div id="taskDeadline">${prjTaskList[i].dueDate.split("-")[1]} - ${prjTaskList[i].dueDate.split("-")[2]}</div>
+                            <div id="prjtaskProgress"><span class="${prjTaskList[i].progress === "Đúng tiến độ" ? "on-schedule" : prjTaskList[i].progress === "Trễ hạn" ? "off-schedule" : "risk-schedule"}">${prjTaskList[i].progress}</span></div>
                         </div>`;
       }
     });
@@ -122,6 +98,16 @@ if (alreadyLogIn) {
       modelEditStatus.style.display = "none";
     });
   }
+  // Sắp xếp
+  const arrangeTaskElement = document.querySelector("#renderTask");
+  console.log(arrangeTaskElement);
+  arrangeTaskElement.addEventListener("change", function () {
+    const arrangeChoice = arrangeTaskElement.ariaValueMax;
+
+    if (arrangeChoice === "Độ ưu tiên") {
+      // lọclọc
+    }
+  });
 } else {
   window.location.href = "logIn.html";
 }
